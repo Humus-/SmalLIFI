@@ -78,15 +78,24 @@ void main(void)
 
    const unsigned char * arr1 = "\r\ntaking in the text \r\n";
 
-   const unsigned char *arr2="\r\nEnter your choice \r\n 1.Slave 1(Address:0xAA\r\n2.Slave 2(Address:0xBB)\r\n3.Slave 3(Address:0xCC\r\n";
+   const unsigned char *arr2="\r\nAcknowledged\r\n";
 
    const unsigned char *arr3= "You have entered:\r\n";
 
    const unsigned char *arr4= "UART Initialised\r\n";
 
-   const unsigned char *arr5= "I2C initialised:\r\n";
+   const unsigned char *arr5= "Sending TO Led\r\n";
 
-   unsigned char choice;
+   const unsigned char *arr6= "Tx of 1 byte complete\r\n";
+
+   const unsigned char *arr7= "Tx completed all bytes\r\n";
+
+   unsigned int j;
+
+   unsigned char LED_Output;
+
+  TRISB=0x00;
+
 
    OSCCONbits.IRCF = 0x07;  // Configure Internal OSC for 8MHz Clock
 
@@ -100,135 +109,47 @@ void main(void)
 
     delay_ms(500);
 
-    I2C_init();
-
-    UART_Write_Text(arr5);
-     //Initialisation done
-
     while(1)
     {
-    UART_Write_Text(arr1);
 
 
-  //receive the characters until ENTER is pressed (ASCII for ENTER = 13)
+        UART_Write_Text(arr1);
 
          is=UART_Read_Text();
-
-         UART_Write_Text(arr3);
-
-         UART_Write_Text(is);
-
+         
          UART_Write_Text(arr2);
+         
+         UART_Write_Text(arr3);
+         
+         UART_Write_Text(is);
+         //sending to led
+         UART_Write_Text(arr5);
 
-         choice=UART_Read();
+       while(*is)
+         {
+              for(j=0;j<=7;j++)
+              {
+                LED_Output= (*is&0x01)==1?1:0;
+                RB0=LED_Output;
+                delay_ms(125);
+                *is=*is>>1;
+             }
+              is++;
+            UART_Write_Text(arr6);
+        }
+         UART_Write_Text(arr7);
+       
+     }
 
-         UART_Write_Text(msgm);
+         
+     
+         
 
-         UART_Write(choice);
 
-    UART_Write_Text(fin);
+ }
 
-    }
 
-}
 
-void I2C_init()
-{
-    TRISCbits.TRISC3 = 1;  //direction register SCL
-    TRISCbits.TRISC4 = 1; //direction register SDA
-    SSPIF=0;
-    SSPCON2=0x00;
-    SSPSTAT|=0x00;
-    SSPADD=29;
-    SSPCON|=0x28;//master mode i2c
-}
-
-//-------------------------------
-// start I2C
-//H-L transition of SDA with SCL high is a start condition
-//-------------------------------
-void I2C_Start()
-{
-        SSPCON2bits.SEN = 1;         /* Start condition enabled */
-    while(SSPCON2bits.SEN);      /* automatically cleared by hardware */
-         PIR1bits.SSPIF = 0;
-}
-
-//-------------------------------
-// stop I2C
-//L-H transition of SDA with SCL high is a stop condition
-//-------------------------------
-void I2C_Stop()
-{
-    SSPCON2bits.PEN = 1;
-   while(SSPCON2bits.PEN);
-   PIR1bits.SSPIF = 0;
-}
-
-//-------------------------------
-// Write I2C
-//-------------------------------
-void I2C_Write(unsigned char Data)
-{
-
-    while((SSPSTATbits.BF));
-        SSPBUF = Data;
-    while(!(PIR1bits.SSPIF));
-        UART_Write_Text("interrupt routine\r\n");
-
-}
-
-void I2C_Write_Text(const char *s)
-{
-     int i;
-  for(i=0;s[i]!='\0';i++)
-    I2C_Write(s[i]);
-}
-
-char I2C_address_send()
-{
-    static char con;
-   while(SSPSTATbits.BF);
-      SSPBUF = 0xAA;
-   if(!(SSPCON2bits.ACKSTAT))
-       con=1;
-   else
-       con=0;
-      //while(PIR1bits.SSPIF);      /* automatically cleared by hardware */
-   PIR1bits.SSPIF = 0;
-   return con;
-}
-
-char I2C_address_send1()
-{
-    static char con;
-   while(SSPSTATbits.BF);
-      SSPBUF = 0xBB;
-   if(!(SSPCON2bits.ACKSTAT))
-       con=1;
-   else
-       con=0;
-      //while(PIR1bits.SSPIF);      /* automatically cleared by hardware */
-   PIR1bits.SSPIF = 0;
-   return con;
-}
-
-char I2C_address_send2()
-{
-    static char con;
-   while(SSPSTATbits.BF);
-      SSPBUF = 0xCC;
-   if(!(SSPCON2bits.ACKSTAT))
-       con=1;
-   else
-       con=0;
-      //while(PIR1bits.SSPIF);      /* automatically cleared by hardware */
-   PIR1bits.SSPIF = 0;
-   return con;
-}
-//-------------------------------
-// Read I2C
-//-------------------------------
 
 
 //Delay routines
@@ -313,19 +234,21 @@ char UART_Read()
 unsigned char * UART_Read_Text()
 {
   unsigned const char *a="Keyed in \r\n";
+
   unsigned static char string[20];
+
   unsigned char x, i = 0;
 
-//receive the characters until ENTER is pressed (ASCII for ENTER = 13)
 while((x = UART_Read()) != 13)
 {
+    
  //and store the received characters into the array string[] one-by-one
 string[i++] = x;
 }
 
 //insert NULL to terminate the string
 string[i] = '\0';
-UART_Write_Text(a);
+  UART_Write_Text(a);
 
 //return the received string
 return(string);
@@ -360,5 +283,4 @@ void i2c_idle(void)
 
    while((!((SSPCON2 & 0x1F) == 0x00)));
 }
-
 

@@ -2182,32 +2182,24 @@ void main(void)
 
 const unsigned char * arr1 = "\r\ntaking in the text \r\n";
 
-const unsigned char *arr2="\r\nEnter your choice \r\n 1.Slave 1(Address:0xAA\r\n2.Slave 2(Address:0xBB)\r\n3.Slave 3(Address:0xCC\r\n";
+const unsigned char *arr2="\r\nAcknowledged\r\n";
 
 const unsigned char *arr3= "You have entered:\r\n";
 
 const unsigned char *arr4= "UART Initialised\r\n";
 
-const unsigned char *arr5= "I2C initialised:\r\n";
+const unsigned char *arr5= "Sending TO Led\r\n";
 
-const unsigned char *msg1="Sending to Slave 1 (Address 0xAA)\r\n";
+const unsigned char *arr6= "Tx of 1 byte complete\r\n";
 
-const unsigned char *msg2="Sending to Slave 2 (Address 0xBB)\r\n";
+const unsigned char *arr7= "Tx completed all bytes\r\n";
 
-const unsigned char *msg3="Sending to Slave 3 (Address 0xCC)\r\n";
+unsigned int j;
 
-const unsigned char *msg4="address sent\r\n";
+unsigned char LED_Output;
 
-const unsigned char *msg5="data sent\r\n";
+TRISB=0x00;
 
-# 103
-const unsigned char *err="No message will be sent since no slave no entered\r\n";
-
-const unsigned char *fin="Closing Communication\r\n";
-
-const unsigned char *msgm="You have entered choice number\r\n";
-
-unsigned char choice;
 
 OSCCONbits.IRCF = 0x07;
 
@@ -2221,129 +2213,42 @@ UART_Write_Text(arr4);
 
 delay_ms(500);
 
-I2C_init();
-
-UART_Write_Text(arr5);
-
-
 while(1)
 {
+
+
 UART_Write_Text(arr1);
 
-
-
-
 is=UART_Read_Text();
+
+UART_Write_Text(arr2);
 
 UART_Write_Text(arr3);
 
 UART_Write_Text(is);
 
-UART_Write_Text(arr2);
+UART_Write_Text(arr5);
 
-choice=UART_Read();
-
-UART_Write_Text(msgm);
-
-UART_Write(choice);
-
-# 219
-UART_Write_Text(fin);
-
-}
-
-}
-
-void I2C_init()
+while(*is)
 {
-TRISCbits.TRISC3 = 1;
-TRISCbits.TRISC4 = 1;
-SSPIF=0;
-SSPCON2=0x00;
-SSPSTAT|=0x00;
-SSPADD=29;
-SSPCON|=0x28;
-}
-
-# 240
-void I2C_Start()
+for(j=0;j<=7;j++)
 {
-SSPCON2bits.SEN = 1;
-while(SSPCON2bits.SEN);
-PIR1bits.SSPIF = 0;
+LED_Output= (*is&0x01)==1?1:0;
+RB0=LED_Output;
+delay_ms(125);
+*is=*is>>1;
 }
-
-# 251
-void I2C_Stop()
-{
-SSPCON2bits.PEN = 1;
-while(SSPCON2bits.PEN);
-PIR1bits.SSPIF = 0;
+is++;
+UART_Write_Text(arr6);
 }
-
-
-
-
-void I2C_Write(unsigned char Data)
-{
-
-while((SSPSTATbits.BF));
-SSPBUF = Data;
-while(!(PIR1bits.SSPIF));
-UART_Write_Text("interrupt routine\r\n");
+UART_Write_Text(arr7);
 
 }
 
-void I2C_Write_Text(const char *s)
-{
-int i;
-for(i=0;s[i]!='\0';i++)
-I2C_Write(s[i]);
+# 149
 }
 
-char I2C_address_send()
-{
-static char con;
-while(SSPSTATbits.BF);
-SSPBUF = 0xAA;
-if(!(SSPCON2bits.ACKSTAT))
-con=1;
-else
-con=0;
-
-PIR1bits.SSPIF = 0;
-return con;
-}
-
-char I2C_address_send1()
-{
-static char con;
-while(SSPSTATbits.BF);
-SSPBUF = 0xBB;
-if(!(SSPCON2bits.ACKSTAT))
-con=1;
-else
-con=0;
-
-PIR1bits.SSPIF = 0;
-return con;
-}
-
-char I2C_address_send2()
-{
-static char con;
-while(SSPSTATbits.BF);
-SSPBUF = 0xCC;
-if(!(SSPCON2bits.ACKSTAT))
-con=1;
-else
-con=0;
-
-PIR1bits.SSPIF = 0;
-return con;
-}
-
-# 326
+# 157
 void delay_us(unsigned int i)
 {
 for (;i!=0x00;i--);
@@ -2424,12 +2329,14 @@ return RCREG;
 unsigned char * UART_Read_Text()
 {
 unsigned const char *a="Keyed in \r\n";
-unsigned static char string[20];
-unsigned char x, i = 0;
 
+unsigned static char string[20];
+
+unsigned char x, i = 0;
 
 while((x = UART_Read()) != 13)
 {
+
 
 string[i++] = x;
 }

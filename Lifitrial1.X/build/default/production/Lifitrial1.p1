@@ -1,6 +1,8 @@
 Version 3.2 HI-TECH Software Intermediate Code
 [p mainexit ]
-"1667 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f886.h
+"1362 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f886.h
+[v _TRISB `Vuc ~T0 @X0 0 e@134 ]
+"1667
 [s S67 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 ]
 [n S67 . SCS LTS HTS OSTS IRCF ]
 "1674
@@ -19,40 +21,24 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _UART_Write_Text `(v ~T0 @X0 0 ef1`*Cuc ]
 "48
 [v _delay_ms `(v ~T0 @X0 0 ef1`ui ]
-"53
-[v _I2C_init `(v ~T0 @X0 0 ef ]
 "42
 [v _UART_Read_Text `(*uc ~T0 @X0 0 ef ]
-"41
-[v _UART_Read `(uc ~T0 @X0 0 ef ]
-"36
-[v _UART_Write `(v ~T0 @X0 0 ef1`uc ]
-"1429 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f886.h
-[s S56 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S56 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
-"1428
-[u S55 `S56 1 ]
-[n S55 . . ]
-"1440
-[v _TRISCbits `VS55 ~T0 @X0 0 e@135 ]
-"3758
-[v _SSPIF `Vb ~T0 @X0 0 e@99 ]
-"1776
-[v _SSPCON2 `Vuc ~T0 @X0 0 e@145 ]
-"1970
-[v _SSPSTAT `Vuc ~T0 @X0 0 e@148 ]
-"1843
-[v _SSPADD `Vuc ~T0 @X0 0 e@147 ]
-"750
-[v _SSPCON `Vuc ~T0 @X0 0 e@20 ]
-"1782
-[s S73 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S73 . SEN RSEN PEN RCEN ACKEN ACKDT ACKSTAT GCEN ]
-"1781
-[u S72 `S73 1 ]
-[n S72 . . ]
-"1793
-[v _SSPCON2bits `VS72 ~T0 @X0 0 e@145 ]
+"3664 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f886.h
+[v _RB0 `Vb ~T0 @X0 0 e@48 ]
+"49 Lifitrial1.c
+[v _delay1ms `(v ~T0 @X0 0 ef ]
+"3392 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f886.h
+[v _BRGH `Vb ~T0 @X0 0 e@1218 ]
+"2430
+[v _SPBRG `Vuc ~T0 @X0 0 e@153 ]
+"3782
+[v _SYNC `Vb ~T0 @X0 0 e@1220 ]
+"3746
+[v _SPEN `Vb ~T0 @X0 0 e@199 ]
+"3486
+[v _CREN `Vb ~T0 @X0 0 e@196 ]
+"3910
+[v _TXEN `Vb ~T0 @X0 0 e@1221 ]
 "452
 [s S18 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S18 . TMR1IF TMR2IF CCP1IF SSPIF TXIF RCIF ADIF ]
@@ -61,6 +47,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S17 . . ]
 "462
 [v _PIR1bits `VS17 ~T0 @X0 0 e@12 ]
+"3890
+[v _TRMT `Vb ~T0 @X0 0 e@1217 ]
+"1027
+[v _TXREG `Vuc ~T0 @X0 0 e@25 ]
+"3712
+[v _RCIF `Vb ~T0 @X0 0 e@101 ]
+"1033
+[v _RCREG `Vuc ~T0 @X0 0 e@26 ]
+"3914
+[v _TXIF `Vb ~T0 @X0 0 e@100 ]
 "1976
 [s S79 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S79 . BF UA R_nW S P D_nA CKE SMP ]
@@ -87,32 +83,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S78 . . . . . . . . ]
 "2024
 [v _SSPSTATbits `VS78 ~T0 @X0 0 e@148 ]
-"744
-[v _SSPBUF `Vuc ~T0 @X0 0 e@19 ]
-"49 Lifitrial1.c
-[v _delay1ms `(v ~T0 @X0 0 ef ]
-"3392 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f886.h
-[v _BRGH `Vb ~T0 @X0 0 e@1218 ]
-"2430
-[v _SPBRG `Vuc ~T0 @X0 0 e@153 ]
-"3782
-[v _SYNC `Vb ~T0 @X0 0 e@1220 ]
-"3746
-[v _SPEN `Vb ~T0 @X0 0 e@199 ]
-"3486
-[v _CREN `Vb ~T0 @X0 0 e@196 ]
-"3910
-[v _TXEN `Vb ~T0 @X0 0 e@1221 ]
-"3890
-[v _TRMT `Vb ~T0 @X0 0 e@1217 ]
-"1027
-[v _TXREG `Vuc ~T0 @X0 0 e@25 ]
-"3712
-[v _RCIF `Vb ~T0 @X0 0 e@101 ]
-"1033
-[v _RCREG `Vuc ~T0 @X0 0 e@26 ]
-"3914
-[v _TXIF `Vb ~T0 @X0 0 e@100 ]
+"1776
+[v _SSPCON2 `Vuc ~T0 @X0 0 e@145 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic16f886.h: 49: extern volatile unsigned char INDF @ 0x000;
@@ -1678,7 +1650,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _arr1 :s 1C ]
 "81
 [v _arr2 `*Cuc ~T0 @X0 1 a ]
-[; ;Lifitrial1.c: 81: const unsigned char *arr2="\r\nEnter your choice \r\n 1.Slave 1(Address:0xAA\r\n2.Slave 2(Address:0xBB)\r\n3.Slave 3(Address:0xCC\r\n";
+[; ;Lifitrial1.c: 81: const unsigned char *arr2="\r\nAcknowledged\r\n";
 [e = _arr2 :s 2C ]
 "83
 [v _arr3 `*Cuc ~T0 @X0 1 a ]
@@ -1690,862 +1662,586 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _arr4 :s 4C ]
 "87
 [v _arr5 `*Cuc ~T0 @X0 1 a ]
-[; ;Lifitrial1.c: 87: const unsigned char *arr5= "I2C initialised:\r\n";
+[; ;Lifitrial1.c: 87: const unsigned char *arr5= "Sending TO Led\r\n";
 [e = _arr5 :s 5C ]
 "89
-[v _msg1 `*Cuc ~T0 @X0 1 a ]
-[; ;Lifitrial1.c: 89: const unsigned char *msg1="Sending to Slave 1 (Address 0xAA)\r\n";
-[e = _msg1 :s 6C ]
+[v _arr6 `*Cuc ~T0 @X0 1 a ]
+[; ;Lifitrial1.c: 89: const unsigned char *arr6= "Tx of 1 byte complete\r\n";
+[e = _arr6 :s 6C ]
 "91
-[v _msg2 `*Cuc ~T0 @X0 1 a ]
-[; ;Lifitrial1.c: 91: const unsigned char *msg2="Sending to Slave 2 (Address 0xBB)\r\n";
-[e = _msg2 :s 7C ]
+[v _arr7 `*Cuc ~T0 @X0 1 a ]
+[; ;Lifitrial1.c: 91: const unsigned char *arr7= "Tx completed all bytes\r\n";
+[e = _arr7 :s 7C ]
 "93
-[v _msg3 `*Cuc ~T0 @X0 1 a ]
-[; ;Lifitrial1.c: 93: const unsigned char *msg3="Sending to Slave 3 (Address 0xCC)\r\n";
-[e = _msg3 :s 8C ]
+[v _j `ui ~T0 @X0 1 a ]
 "95
-[v _msg4 `*Cuc ~T0 @X0 1 a ]
-[; ;Lifitrial1.c: 95: const unsigned char *msg4="address sent\r\n";
-[e = _msg4 :s 9C ]
+[v _LED_Output `uc ~T0 @X0 1 a ]
+[; ;Lifitrial1.c: 93: unsigned int j;
+[; ;Lifitrial1.c: 95: unsigned char LED_Output;
+[; ;Lifitrial1.c: 97: TRISB=0x00;
 "97
-[v _msg5 `*Cuc ~T0 @X0 1 a ]
-[; ;Lifitrial1.c: 97: const unsigned char *msg5="data sent\r\n";
-[e = _msg5 :s 10C ]
-"103
-[v _err `*Cuc ~T0 @X0 1 a ]
-[; ;Lifitrial1.c: 103: const unsigned char *err="No message will be sent since no slave no entered\r\n";
-[e = _err :s 11C ]
-"105
-[v _fin `*Cuc ~T0 @X0 1 a ]
-[; ;Lifitrial1.c: 105: const unsigned char *fin="Closing Communication\r\n";
-[e = _fin :s 12C ]
-"107
-[v _msgm `*Cuc ~T0 @X0 1 a ]
-[; ;Lifitrial1.c: 107: const unsigned char *msgm="You have entered choice number\r\n";
-[e = _msgm :s 13C ]
-"109
-[v _choice `uc ~T0 @X0 1 a ]
-[; ;Lifitrial1.c: 109: unsigned char choice;
-[; ;Lifitrial1.c: 111: OSCCONbits.IRCF = 0x07;
-"111
+[e = _TRISB -> -> 0 `i `uc ]
+[; ;Lifitrial1.c: 100: OSCCONbits.IRCF = 0x07;
+"100
 [e = . . _OSCCONbits 0 4 -> -> 7 `i `uc ]
-[; ;Lifitrial1.c: 113: while(!OSCCONbits.HTS);
-"113
+[; ;Lifitrial1.c: 102: while(!OSCCONbits.HTS);
+"102
 [e $U 141  ]
 [e :U 142 ]
 [e :U 141 ]
 [e $ ! != -> . . _OSCCONbits 0 2 `i -> -> -> 0 `i `Vuc `i 142  ]
 [e :U 143 ]
-[; ;Lifitrial1.c: 115: INTCON=0;
-"115
+[; ;Lifitrial1.c: 104: INTCON=0;
+"104
 [e = _INTCON -> -> 0 `i `uc ]
-[; ;Lifitrial1.c: 117: UART_Init(9600);
-"117
+[; ;Lifitrial1.c: 106: UART_Init(9600);
+"106
 [e ( _UART_Init (1 -> -> 9600 `i `l ]
-[; ;Lifitrial1.c: 119: UART_Write_Text(arr4);
-"119
+[; ;Lifitrial1.c: 108: UART_Write_Text(arr4);
+"108
 [e ( _UART_Write_Text (1 _arr4 ]
-[; ;Lifitrial1.c: 121: delay_ms(500);
-"121
+[; ;Lifitrial1.c: 110: delay_ms(500);
+"110
 [e ( _delay_ms (1 -> -> 500 `i `ui ]
-[; ;Lifitrial1.c: 123: I2C_init();
-"123
-[e ( _I2C_init ..  ]
-[; ;Lifitrial1.c: 125: UART_Write_Text(arr5);
-"125
-[e ( _UART_Write_Text (1 _arr5 ]
-[; ;Lifitrial1.c: 128: while(1)
-"128
+[; ;Lifitrial1.c: 112: while(1)
+"112
 [e :U 145 ]
+[; ;Lifitrial1.c: 113: {
+"113
+{
+[; ;Lifitrial1.c: 116: UART_Write_Text(arr1);
+"116
+[e ( _UART_Write_Text (1 _arr1 ]
+[; ;Lifitrial1.c: 118: is=UART_Read_Text();
+"118
+[e = _is ( _UART_Read_Text ..  ]
+[; ;Lifitrial1.c: 120: UART_Write_Text(arr2);
+"120
+[e ( _UART_Write_Text (1 _arr2 ]
+[; ;Lifitrial1.c: 122: UART_Write_Text(arr3);
+"122
+[e ( _UART_Write_Text (1 _arr3 ]
+[; ;Lifitrial1.c: 124: UART_Write_Text(is);
+"124
+[e ( _UART_Write_Text (1 -> _is `*Cuc ]
+[; ;Lifitrial1.c: 126: UART_Write_Text(arr5);
+"126
+[e ( _UART_Write_Text (1 _arr5 ]
+[; ;Lifitrial1.c: 128: while(*is)
+"128
+[e $U 147  ]
+[e :U 148 ]
 [; ;Lifitrial1.c: 129: {
 "129
 {
-[; ;Lifitrial1.c: 130: UART_Write_Text(arr1);
+[; ;Lifitrial1.c: 130: for(j=0;j<=7;j++)
 "130
-[e ( _UART_Write_Text (1 _arr1 ]
-[; ;Lifitrial1.c: 135: is=UART_Read_Text();
+{
+[e = _j -> -> 0 `i `ui ]
+[e $ <= _j -> -> 7 `i `ui 150  ]
+[e $U 151  ]
+"131
+[e :U 150 ]
+[; ;Lifitrial1.c: 131: {
+{
+[; ;Lifitrial1.c: 132: LED_Output= (*is&0x01)==1?1:0;
+"132
+[e = _LED_Output -> ? == & -> *U _is `i -> 1 `i -> 1 `i : -> 1 `i -> 0 `i `uc ]
+[; ;Lifitrial1.c: 133: RB0=LED_Output;
+"133
+[e = _RB0 -> _LED_Output `b ]
+[; ;Lifitrial1.c: 134: delay_ms(125);
+"134
+[e ( _delay_ms (1 -> -> 125 `i `ui ]
+[; ;Lifitrial1.c: 135: *is=*is>>1;
 "135
-[e = _is ( _UART_Read_Text ..  ]
-[; ;Lifitrial1.c: 137: UART_Write_Text(arr3);
+[e = *U _is -> >> -> *U _is `i -> 1 `i `uc ]
+"136
+}
+"130
+[e ++ _j -> -> 1 `i `ui ]
+[e $ <= _j -> -> 7 `i `ui 150  ]
+[e :U 151 ]
+"136
+}
+[; ;Lifitrial1.c: 136: }
+[; ;Lifitrial1.c: 137: is++;
 "137
-[e ( _UART_Write_Text (1 _arr3 ]
-[; ;Lifitrial1.c: 139: UART_Write_Text(is);
+[e ++ _is * -> -> 1 `i `x -> -> # *U _is `i `x ]
+[; ;Lifitrial1.c: 138: UART_Write_Text(arr6);
+"138
+[e ( _UART_Write_Text (1 _arr6 ]
 "139
-[e ( _UART_Write_Text (1 -> _is `*Cuc ]
-[; ;Lifitrial1.c: 141: UART_Write_Text(arr2);
-"141
-[e ( _UART_Write_Text (1 _arr2 ]
-[; ;Lifitrial1.c: 143: choice=UART_Read();
-"143
-[e = _choice ( _UART_Read ..  ]
-[; ;Lifitrial1.c: 145: UART_Write_Text(msgm);
-"145
-[e ( _UART_Write_Text (1 _msgm ]
-[; ;Lifitrial1.c: 147: UART_Write(choice);
-"147
-[e ( _UART_Write (1 _choice ]
-[; ;Lifitrial1.c: 219: UART_Write_Text(fin);
-"219
-[e ( _UART_Write_Text (1 _fin ]
-"221
+}
+[e :U 147 ]
+"128
+[e $ != -> *U _is `i -> -> -> 0 `i `uc `i 148  ]
+[e :U 149 ]
+[; ;Lifitrial1.c: 139: }
+[; ;Lifitrial1.c: 140: UART_Write_Text(arr7);
+"140
+[e ( _UART_Write_Text (1 _arr7 ]
+"142
 }
 [e :U 144 ]
-"128
+"112
 [e $U 145  ]
 [e :U 146 ]
-[; ;Lifitrial1.c: 221: }
-[; ;Lifitrial1.c: 223: }
-"223
+[; ;Lifitrial1.c: 142: }
+[; ;Lifitrial1.c: 149: }
+"149
 [e :UE 140 ]
 }
-"225
-[v _I2C_init `(v ~T0 @X0 1 ef ]
-"226
+"157
+[v _delay_us `(v ~T0 @X0 1 ef1`ui ]
+"158
 {
-[; ;Lifitrial1.c: 225: void I2C_init()
-[; ;Lifitrial1.c: 226: {
-[e :U _I2C_init ]
+[; ;Lifitrial1.c: 157: void delay_us(unsigned int i)
+[; ;Lifitrial1.c: 158: {
+[e :U _delay_us ]
+"157
+[v _i `ui ~T0 @X0 1 r1 ]
+"158
 [f ]
-[; ;Lifitrial1.c: 227: TRISCbits.TRISC3 = 1;
-"227
-[e = . . _TRISCbits 0 3 -> -> 1 `i `uc ]
-[; ;Lifitrial1.c: 228: TRISCbits.TRISC4 = 1;
-"228
-[e = . . _TRISCbits 0 4 -> -> 1 `i `uc ]
-[; ;Lifitrial1.c: 229: SSPIF=0;
-"229
-[e = _SSPIF -> -> 0 `i `b ]
-[; ;Lifitrial1.c: 230: SSPCON2=0x00;
-"230
-[e = _SSPCON2 -> -> 0 `i `uc ]
-[; ;Lifitrial1.c: 231: SSPSTAT|=0x00;
-"231
-[e =| _SSPSTAT -> -> 0 `i `uc ]
-[; ;Lifitrial1.c: 232: SSPADD=29;
-"232
-[e = _SSPADD -> -> 29 `i `uc ]
-[; ;Lifitrial1.c: 233: SSPCON|=0x28;
-"233
-[e =| _SSPCON -> -> 40 `i `uc ]
-[; ;Lifitrial1.c: 234: }
-"234
-[e :UE 147 ]
-}
-"240
-[v _I2C_Start `(v ~T0 @X0 1 ef ]
-"241
+[; ;Lifitrial1.c: 159: for (;i!=0x00;i--);
+"159
 {
-[; ;Lifitrial1.c: 240: void I2C_Start()
-[; ;Lifitrial1.c: 241: {
-[e :U _I2C_Start ]
-[f ]
-[; ;Lifitrial1.c: 242: SSPCON2bits.SEN = 1;
-"242
-[e = . . _SSPCON2bits 0 0 -> -> 1 `i `uc ]
-[; ;Lifitrial1.c: 243: while(SSPCON2bits.SEN);
-"243
-[e $U 149  ]
-[e :U 150 ]
-[e :U 149 ]
-[e $ != -> . . _SSPCON2bits 0 0 `i -> -> -> 0 `i `Vuc `i 150  ]
-[e :U 151 ]
-[; ;Lifitrial1.c: 244: PIR1bits.SSPIF = 0;
-"244
-[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
-[; ;Lifitrial1.c: 245: }
-"245
-[e :UE 148 ]
-}
-"251
-[v _I2C_Stop `(v ~T0 @X0 1 ef ]
-"252
-{
-[; ;Lifitrial1.c: 251: void I2C_Stop()
-[; ;Lifitrial1.c: 252: {
-[e :U _I2C_Stop ]
-[f ]
-[; ;Lifitrial1.c: 253: SSPCON2bits.PEN = 1;
-"253
-[e = . . _SSPCON2bits 0 2 -> -> 1 `i `uc ]
-[; ;Lifitrial1.c: 254: while(SSPCON2bits.PEN);
-"254
-[e $U 153  ]
+[e $ != _i -> -> 0 `i `ui 154  ]
+[e $U 155  ]
 [e :U 154 ]
-[e :U 153 ]
-[e $ != -> . . _SSPCON2bits 0 2 `i -> -> -> 0 `i `Vuc `i 154  ]
+[e -- _i -> -> 1 `i `ui ]
+[e $ != _i -> -> 0 `i `ui 154  ]
 [e :U 155 ]
-[; ;Lifitrial1.c: 255: PIR1bits.SSPIF = 0;
-"255
-[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
-[; ;Lifitrial1.c: 256: }
-"256
-[e :UE 152 ]
 }
-"261
-[v _I2C_Write `(v ~T0 @X0 1 ef1`uc ]
-"262
+[; ;Lifitrial1.c: 160: }
+"160
+[e :UE 153 ]
+}
+"162
+[v _delay_ms `(v ~T0 @X0 1 ef1`ui ]
+"163
 {
-[; ;Lifitrial1.c: 261: void I2C_Write(unsigned char Data)
-[; ;Lifitrial1.c: 262: {
-[e :U _I2C_Write ]
-"261
-[v _Data `uc ~T0 @X0 1 r1 ]
-"262
+[; ;Lifitrial1.c: 162: void delay_ms(unsigned int i)
+[; ;Lifitrial1.c: 163: {
+[e :U _delay_ms ]
+"162
+[v _i `ui ~T0 @X0 1 r1 ]
+"163
 [f ]
-[; ;Lifitrial1.c: 264: while((SSPSTATbits.BF));
-"264
-[e $U 157  ]
+[; ;Lifitrial1.c: 164: for(;i!=0x00;i--)
+"164
+{
+[e $ != _i -> -> 0 `i `ui 158  ]
+[e $U 159  ]
+"165
 [e :U 158 ]
-[e :U 157 ]
-[e $ != -> . . _SSPSTATbits 0 0 `i -> -> -> 0 `i `Vuc `i 158  ]
+[; ;Lifitrial1.c: 165: delay1ms();
+[e ( _delay1ms ..  ]
+"164
+[e -- _i -> -> 1 `i `ui ]
+[e $ != _i -> -> 0 `i `ui 158  ]
 [e :U 159 ]
-[; ;Lifitrial1.c: 265: SSPBUF = Data;
-"265
-[e = _SSPBUF _Data ]
-[; ;Lifitrial1.c: 266: while(!(PIR1bits.SSPIF));
-"266
-[e $U 160  ]
-[e :U 161 ]
-[e :U 160 ]
-[e $ ! != -> . . _PIR1bits 0 3 `i -> -> -> 0 `i `Vuc `i 161  ]
+"165
+}
+[; ;Lifitrial1.c: 166: }
+"166
+[e :UE 157 ]
+}
+"168
+[v _delay1ms `(v ~T0 @X0 1 ef ]
+"169
+{
+[; ;Lifitrial1.c: 168: void delay1ms(void)
+[; ;Lifitrial1.c: 169: {
+[e :U _delay1ms ]
+[f ]
+"170
+[v _j `ui ~T0 @X0 1 a ]
+[; ;Lifitrial1.c: 170: unsigned int j = 130;
+[e = _j -> -> 130 `i `ui ]
+[; ;Lifitrial1.c: 171: for (;j!=0x00;j--);
+"171
+{
+[e $ != _j -> -> 0 `i `ui 162  ]
+[e $U 163  ]
 [e :U 162 ]
-[; ;Lifitrial1.c: 267: UART_Write_Text("interrupt routine\r\n");
-"267
-[e ( _UART_Write_Text (1 :s 14C ]
-[; ;Lifitrial1.c: 269: }
-"269
-[e :UE 156 ]
+[e -- _j -> -> 1 `i `ui ]
+[e $ != _j -> -> 0 `i `ui 162  ]
+[e :U 163 ]
 }
-"271
-[v _I2C_Write_Text `(v ~T0 @X0 1 ef1`*Cuc ]
-"272
+[; ;Lifitrial1.c: 172: }
+"172
+[e :UE 161 ]
+}
+"174
+[v _UART_Init `(uc ~T0 @X0 1 ef1`l ]
+"175
 {
-[; ;Lifitrial1.c: 271: void I2C_Write_Text(const char *s)
-[; ;Lifitrial1.c: 272: {
-[e :U _I2C_Write_Text ]
-"271
-[v _s `*Cuc ~T0 @X0 1 r1 ]
-"272
+[; ;Lifitrial1.c: 174: char UART_Init(long baudrate)
+[; ;Lifitrial1.c: 175: {
+[e :U _UART_Init ]
+"174
+[v _baudrate `l ~T0 @X0 1 r1 ]
+"175
 [f ]
-"273
-[v _i `i ~T0 @X0 1 a ]
-[; ;Lifitrial1.c: 273: int i;
-[; ;Lifitrial1.c: 274: for(i=0;s[i]!='\0';i++)
-"274
+"176
+[v _x `ui ~T0 @X0 1 a ]
+[; ;Lifitrial1.c: 176: unsigned int x;
+[; ;Lifitrial1.c: 177: x = (8000000 - baudrate*64)/(baudrate*64);
+"177
+[e = _x -> / - -> 8000000 `l * _baudrate -> -> 64 `i `l * _baudrate -> -> 64 `i `l `ui ]
+[; ;Lifitrial1.c: 178: if(x>255)
+"178
+[e $ ! > _x -> -> 255 `i `ui 166  ]
+[; ;Lifitrial1.c: 179: {
+"179
 {
-[e = _i -> 0 `i ]
-[e $U 167  ]
-"275
-[e :U 164 ]
-[; ;Lifitrial1.c: 275: I2C_Write(s[i]);
-[e ( _I2C_Write (1 *U + _s * -> _i `x -> -> # *U _s `i `x ]
-"274
-[e ++ _i -> 1 `i ]
+[; ;Lifitrial1.c: 180: x = (8000000 - baudrate*16)/(baudrate*16);
+"180
+[e = _x -> / - -> 8000000 `l * _baudrate -> -> 16 `i `l * _baudrate -> -> 16 `i `l `ui ]
+[; ;Lifitrial1.c: 182: BRGH = 1;
+"182
+[e = _BRGH -> -> 1 `i `b ]
+[; ;Lifitrial1.c: 183: SPBRG = x;
+"183
+[e = _SPBRG -> _x `uc ]
+[; ;Lifitrial1.c: 184: SYNC = 0;
+"184
+[e = _SYNC -> -> 0 `i `b ]
+[; ;Lifitrial1.c: 185: SPEN = 1;
+"185
+[e = _SPEN -> -> 1 `i `b ]
+[; ;Lifitrial1.c: 186: CREN = 1;
+"186
+[e = _CREN -> -> 1 `i `b ]
+[; ;Lifitrial1.c: 187: TXEN = 1;
+"187
+[e = _TXEN -> -> 1 `i `b ]
+"188
+}
+[e :U 166 ]
+[; ;Lifitrial1.c: 188: }
+[; ;Lifitrial1.c: 189: if(x<256)
+"189
+[e $ ! < _x -> -> 256 `i `ui 167  ]
+[; ;Lifitrial1.c: 190: {
+"190
+{
+[; ;Lifitrial1.c: 191: BRGH = 0;
+"191
+[e = _BRGH -> -> 0 `i `b ]
+[; ;Lifitrial1.c: 192: SPBRG = x;
+"192
+[e = _SPBRG -> _x `uc ]
+[; ;Lifitrial1.c: 193: SYNC = 0;
+"193
+[e = _SYNC -> -> 0 `i `b ]
+[; ;Lifitrial1.c: 194: SPEN = 1;
+"194
+[e = _SPEN -> -> 1 `i `b ]
+[; ;Lifitrial1.c: 195: CREN = 1;
+"195
+[e = _CREN -> -> 1 `i `b ]
+[; ;Lifitrial1.c: 196: TXEN = 1;
+"196
+[e = _TXEN -> -> 1 `i `b ]
+[; ;Lifitrial1.c: 197: return 1;
+"197
+[e ) -> -> 1 `i `uc ]
+[e $UE 165  ]
+"198
+}
 [e :U 167 ]
-[e $ != -> *U + _s * -> _i `x -> -> # *U _s `i `x `ui -> 0 `ui 164  ]
-[e :U 165 ]
-"275
+[; ;Lifitrial1.c: 198: }
+[; ;Lifitrial1.c: 199: return 0;
+"199
+[e ) -> -> 0 `i `uc ]
+[e $UE 165  ]
+[; ;Lifitrial1.c: 200: }
+"200
+[e :UE 165 ]
 }
-[; ;Lifitrial1.c: 276: }
-"276
-[e :UE 163 ]
-}
-"278
-[v _I2C_address_send `(uc ~T0 @X0 1 ef ]
-"279
+"202
+[v _UART_Write `(v ~T0 @X0 1 ef1`uc ]
+"203
 {
-[; ;Lifitrial1.c: 278: char I2C_address_send()
-[; ;Lifitrial1.c: 279: {
-[e :U _I2C_address_send ]
+[; ;Lifitrial1.c: 202: void UART_Write(unsigned char data)
+[; ;Lifitrial1.c: 203: {
+[e :U _UART_Write ]
+"202
+[v _data `uc ~T0 @X0 1 r1 ]
+"203
 [f ]
-"280
-[v F1796 `uc ~T0 @X0 1 s con ]
-[; ;Lifitrial1.c: 280: static char con;
-[; ;Lifitrial1.c: 281: while(SSPSTATbits.BF);
-"281
+[; ;Lifitrial1.c: 204: while(!PIR1bits.TXIF);
+"204
 [e $U 169  ]
 [e :U 170 ]
 [e :U 169 ]
-[e $ != -> . . _SSPSTATbits 0 0 `i -> -> -> 0 `i `Vuc `i 170  ]
+[e $ ! != -> . . _PIR1bits 0 4 `i -> -> -> 0 `i `Vuc `i 170  ]
 [e :U 171 ]
-[; ;Lifitrial1.c: 282: SSPBUF = 0xAA;
-"282
-[e = _SSPBUF -> -> 170 `i `uc ]
-[; ;Lifitrial1.c: 283: if(!(SSPCON2bits.ACKSTAT))
-"283
-[e $ ! ! != -> . . _SSPCON2bits 0 6 `i -> -> -> 0 `i `Vuc `i 172  ]
-[; ;Lifitrial1.c: 284: con=1;
-"284
-[e = F1796 -> -> 1 `i `uc ]
-[e $U 173  ]
-"285
-[e :U 172 ]
-[; ;Lifitrial1.c: 285: else
-[; ;Lifitrial1.c: 286: con=0;
-"286
-[e = F1796 -> -> 0 `i `uc ]
+[; ;Lifitrial1.c: 205: while(!TRMT);
+"205
+[e $U 172  ]
 [e :U 173 ]
-[; ;Lifitrial1.c: 288: PIR1bits.SSPIF = 0;
-"288
-[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
-[; ;Lifitrial1.c: 289: return con;
-"289
-[e ) F1796 ]
-[e $UE 168  ]
-[; ;Lifitrial1.c: 290: }
-"290
+[e :U 172 ]
+[e $ ! _TRMT 173  ]
+[e :U 174 ]
+[; ;Lifitrial1.c: 206: TXREG = data;
+"206
+[e = _TXREG _data ]
+[; ;Lifitrial1.c: 207: }
+"207
 [e :UE 168 ]
 }
-"292
-[v _I2C_address_send1 `(uc ~T0 @X0 1 ef ]
-"293
-{
-[; ;Lifitrial1.c: 292: char I2C_address_send1()
-[; ;Lifitrial1.c: 293: {
-[e :U _I2C_address_send1 ]
-[f ]
-"294
-[v F1797 `uc ~T0 @X0 1 s con ]
-[; ;Lifitrial1.c: 294: static char con;
-[; ;Lifitrial1.c: 295: while(SSPSTATbits.BF);
-"295
-[e $U 175  ]
-[e :U 176 ]
-[e :U 175 ]
-[e $ != -> . . _SSPSTATbits 0 0 `i -> -> -> 0 `i `Vuc `i 176  ]
-[e :U 177 ]
-[; ;Lifitrial1.c: 296: SSPBUF = 0xBB;
-"296
-[e = _SSPBUF -> -> 187 `i `uc ]
-[; ;Lifitrial1.c: 297: if(!(SSPCON2bits.ACKSTAT))
-"297
-[e $ ! ! != -> . . _SSPCON2bits 0 6 `i -> -> -> 0 `i `Vuc `i 178  ]
-[; ;Lifitrial1.c: 298: con=1;
-"298
-[e = F1797 -> -> 1 `i `uc ]
-[e $U 179  ]
-"299
-[e :U 178 ]
-[; ;Lifitrial1.c: 299: else
-[; ;Lifitrial1.c: 300: con=0;
-"300
-[e = F1797 -> -> 0 `i `uc ]
-[e :U 179 ]
-[; ;Lifitrial1.c: 302: PIR1bits.SSPIF = 0;
-"302
-[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
-[; ;Lifitrial1.c: 303: return con;
-"303
-[e ) F1797 ]
-[e $UE 174  ]
-[; ;Lifitrial1.c: 304: }
-"304
-[e :UE 174 ]
-}
-"306
-[v _I2C_address_send2 `(uc ~T0 @X0 1 ef ]
-"307
-{
-[; ;Lifitrial1.c: 306: char I2C_address_send2()
-[; ;Lifitrial1.c: 307: {
-[e :U _I2C_address_send2 ]
-[f ]
-"308
-[v F1798 `uc ~T0 @X0 1 s con ]
-[; ;Lifitrial1.c: 308: static char con;
-[; ;Lifitrial1.c: 309: while(SSPSTATbits.BF);
-"309
-[e $U 181  ]
-[e :U 182 ]
-[e :U 181 ]
-[e $ != -> . . _SSPSTATbits 0 0 `i -> -> -> 0 `i `Vuc `i 182  ]
-[e :U 183 ]
-[; ;Lifitrial1.c: 310: SSPBUF = 0xCC;
-"310
-[e = _SSPBUF -> -> 204 `i `uc ]
-[; ;Lifitrial1.c: 311: if(!(SSPCON2bits.ACKSTAT))
-"311
-[e $ ! ! != -> . . _SSPCON2bits 0 6 `i -> -> -> 0 `i `Vuc `i 184  ]
-[; ;Lifitrial1.c: 312: con=1;
-"312
-[e = F1798 -> -> 1 `i `uc ]
-[e $U 185  ]
-"313
-[e :U 184 ]
-[; ;Lifitrial1.c: 313: else
-[; ;Lifitrial1.c: 314: con=0;
-"314
-[e = F1798 -> -> 0 `i `uc ]
-[e :U 185 ]
-[; ;Lifitrial1.c: 316: PIR1bits.SSPIF = 0;
-"316
-[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
-[; ;Lifitrial1.c: 317: return con;
-"317
-[e ) F1798 ]
-[e $UE 180  ]
-[; ;Lifitrial1.c: 318: }
-"318
-[e :UE 180 ]
-}
-"326
-[v _delay_us `(v ~T0 @X0 1 ef1`ui ]
-"327
-{
-[; ;Lifitrial1.c: 326: void delay_us(unsigned int i)
-[; ;Lifitrial1.c: 327: {
-[e :U _delay_us ]
-"326
-[v _i `ui ~T0 @X0 1 r1 ]
-"327
-[f ]
-[; ;Lifitrial1.c: 328: for (;i!=0x00;i--);
-"328
-{
-[e $ != _i -> -> 0 `i `ui 187  ]
-[e $U 188  ]
-[e :U 187 ]
-[e -- _i -> -> 1 `i `ui ]
-[e $ != _i -> -> 0 `i `ui 187  ]
-[e :U 188 ]
-}
-[; ;Lifitrial1.c: 329: }
-"329
-[e :UE 186 ]
-}
-"331
-[v _delay_ms `(v ~T0 @X0 1 ef1`ui ]
-"332
-{
-[; ;Lifitrial1.c: 331: void delay_ms(unsigned int i)
-[; ;Lifitrial1.c: 332: {
-[e :U _delay_ms ]
-"331
-[v _i `ui ~T0 @X0 1 r1 ]
-"332
-[f ]
-[; ;Lifitrial1.c: 333: for(;i!=0x00;i--)
-"333
-{
-[e $ != _i -> -> 0 `i `ui 191  ]
-[e $U 192  ]
-"334
-[e :U 191 ]
-[; ;Lifitrial1.c: 334: delay1ms();
-[e ( _delay1ms ..  ]
-"333
-[e -- _i -> -> 1 `i `ui ]
-[e $ != _i -> -> 0 `i `ui 191  ]
-[e :U 192 ]
-"334
-}
-[; ;Lifitrial1.c: 335: }
-"335
-[e :UE 190 ]
-}
-"337
-[v _delay1ms `(v ~T0 @X0 1 ef ]
-"338
-{
-[; ;Lifitrial1.c: 337: void delay1ms(void)
-[; ;Lifitrial1.c: 338: {
-[e :U _delay1ms ]
-[f ]
-"339
-[v _j `ui ~T0 @X0 1 a ]
-[; ;Lifitrial1.c: 339: unsigned int j = 130;
-[e = _j -> -> 130 `i `ui ]
-[; ;Lifitrial1.c: 340: for (;j!=0x00;j--);
-"340
-{
-[e $ != _j -> -> 0 `i `ui 195  ]
-[e $U 196  ]
-[e :U 195 ]
-[e -- _j -> -> 1 `i `ui ]
-[e $ != _j -> -> 0 `i `ui 195  ]
-[e :U 196 ]
-}
-[; ;Lifitrial1.c: 341: }
-"341
-[e :UE 194 ]
-}
-"343
-[v _UART_Init `(uc ~T0 @X0 1 ef1`l ]
-"344
-{
-[; ;Lifitrial1.c: 343: char UART_Init(long baudrate)
-[; ;Lifitrial1.c: 344: {
-[e :U _UART_Init ]
-"343
-[v _baudrate `l ~T0 @X0 1 r1 ]
-"344
-[f ]
-"345
-[v _x `ui ~T0 @X0 1 a ]
-[; ;Lifitrial1.c: 345: unsigned int x;
-[; ;Lifitrial1.c: 346: x = (8000000 - baudrate*64)/(baudrate*64);
-"346
-[e = _x -> / - -> 8000000 `l * _baudrate -> -> 64 `i `l * _baudrate -> -> 64 `i `l `ui ]
-[; ;Lifitrial1.c: 347: if(x>255)
-"347
-[e $ ! > _x -> -> 255 `i `ui 199  ]
-[; ;Lifitrial1.c: 348: {
-"348
-{
-[; ;Lifitrial1.c: 349: x = (8000000 - baudrate*16)/(baudrate*16);
-"349
-[e = _x -> / - -> 8000000 `l * _baudrate -> -> 16 `i `l * _baudrate -> -> 16 `i `l `ui ]
-[; ;Lifitrial1.c: 351: BRGH = 1;
-"351
-[e = _BRGH -> -> 1 `i `b ]
-[; ;Lifitrial1.c: 352: SPBRG = x;
-"352
-[e = _SPBRG -> _x `uc ]
-[; ;Lifitrial1.c: 353: SYNC = 0;
-"353
-[e = _SYNC -> -> 0 `i `b ]
-[; ;Lifitrial1.c: 354: SPEN = 1;
-"354
-[e = _SPEN -> -> 1 `i `b ]
-[; ;Lifitrial1.c: 355: CREN = 1;
-"355
-[e = _CREN -> -> 1 `i `b ]
-[; ;Lifitrial1.c: 356: TXEN = 1;
-"356
-[e = _TXEN -> -> 1 `i `b ]
-"357
-}
-[e :U 199 ]
-[; ;Lifitrial1.c: 357: }
-[; ;Lifitrial1.c: 358: if(x<256)
-"358
-[e $ ! < _x -> -> 256 `i `ui 200  ]
-[; ;Lifitrial1.c: 359: {
-"359
-{
-[; ;Lifitrial1.c: 360: BRGH = 0;
-"360
-[e = _BRGH -> -> 0 `i `b ]
-[; ;Lifitrial1.c: 361: SPBRG = x;
-"361
-[e = _SPBRG -> _x `uc ]
-[; ;Lifitrial1.c: 362: SYNC = 0;
-"362
-[e = _SYNC -> -> 0 `i `b ]
-[; ;Lifitrial1.c: 363: SPEN = 1;
-"363
-[e = _SPEN -> -> 1 `i `b ]
-[; ;Lifitrial1.c: 364: CREN = 1;
-"364
-[e = _CREN -> -> 1 `i `b ]
-[; ;Lifitrial1.c: 365: TXEN = 1;
-"365
-[e = _TXEN -> -> 1 `i `b ]
-[; ;Lifitrial1.c: 366: return 1;
-"366
-[e ) -> -> 1 `i `uc ]
-[e $UE 198  ]
-"367
-}
-[e :U 200 ]
-[; ;Lifitrial1.c: 367: }
-[; ;Lifitrial1.c: 368: return 0;
-"368
-[e ) -> -> 0 `i `uc ]
-[e $UE 198  ]
-[; ;Lifitrial1.c: 369: }
-"369
-[e :UE 198 ]
-}
-"371
-[v _UART_Write `(v ~T0 @X0 1 ef1`uc ]
-"372
-{
-[; ;Lifitrial1.c: 371: void UART_Write(unsigned char data)
-[; ;Lifitrial1.c: 372: {
-[e :U _UART_Write ]
-"371
-[v _data `uc ~T0 @X0 1 r1 ]
-"372
-[f ]
-[; ;Lifitrial1.c: 373: while(!PIR1bits.TXIF);
-"373
-[e $U 202  ]
-[e :U 203 ]
-[e :U 202 ]
-[e $ ! != -> . . _PIR1bits 0 4 `i -> -> -> 0 `i `Vuc `i 203  ]
-[e :U 204 ]
-[; ;Lifitrial1.c: 374: while(!TRMT);
-"374
-[e $U 205  ]
-[e :U 206 ]
-[e :U 205 ]
-[e $ ! _TRMT 206  ]
-[e :U 207 ]
-[; ;Lifitrial1.c: 375: TXREG = data;
-"375
-[e = _TXREG _data ]
-[; ;Lifitrial1.c: 376: }
-"376
-[e :UE 201 ]
-}
-"378
+"209
 [v _UART_TX_Empty `(uc ~T0 @X0 1 ef ]
-"379
+"210
 {
-[; ;Lifitrial1.c: 378: char UART_TX_Empty()
-[; ;Lifitrial1.c: 379: {
+[; ;Lifitrial1.c: 209: char UART_TX_Empty()
+[; ;Lifitrial1.c: 210: {
 [e :U _UART_TX_Empty ]
 [f ]
-[; ;Lifitrial1.c: 380: return TRMT;
-"380
+[; ;Lifitrial1.c: 211: return TRMT;
+"211
 [e ) -> -> _TRMT `i `uc ]
-[e $UE 208  ]
-[; ;Lifitrial1.c: 381: }
-"381
-[e :UE 208 ]
+[e $UE 175  ]
+[; ;Lifitrial1.c: 212: }
+"212
+[e :UE 175 ]
 }
-"383
+"214
 [v _UART_Write_Text `(v ~T0 @X0 1 ef1`*Cuc ]
-"384
+"215
 {
-[; ;Lifitrial1.c: 383: void UART_Write_Text(const char *text)
-[; ;Lifitrial1.c: 384: {
+[; ;Lifitrial1.c: 214: void UART_Write_Text(const char *text)
+[; ;Lifitrial1.c: 215: {
 [e :U _UART_Write_Text ]
-"383
+"214
 [v _text `*Cuc ~T0 @X0 1 r1 ]
-"384
+"215
 [f ]
-"385
+"216
 [v _i `i ~T0 @X0 1 a ]
-[; ;Lifitrial1.c: 385: int i;
-[; ;Lifitrial1.c: 386: for(i=0;text[i]!='\0';i++)
-"386
+[; ;Lifitrial1.c: 216: int i;
+[; ;Lifitrial1.c: 217: for(i=0;text[i]!='\0';i++)
+"217
 {
 [e = _i -> 0 `i ]
-[e $U 213  ]
-"387
-[e :U 210 ]
-[; ;Lifitrial1.c: 387: UART_Write(text[i]);
+[e $U 180  ]
+"218
+[e :U 177 ]
+[; ;Lifitrial1.c: 218: UART_Write(text[i]);
 [e ( _UART_Write (1 *U + _text * -> _i `x -> -> # *U _text `i `x ]
-"386
+"217
 [e ++ _i -> 1 `i ]
-[e :U 213 ]
-[e $ != -> *U + _text * -> _i `x -> -> # *U _text `i `x `ui -> 0 `ui 210  ]
-[e :U 211 ]
-"387
+[e :U 180 ]
+[e $ != -> *U + _text * -> _i `x -> -> # *U _text `i `x `ui -> 0 `ui 177  ]
+[e :U 178 ]
+"218
 }
-[; ;Lifitrial1.c: 389: }
-"389
-[e :UE 209 ]
+[; ;Lifitrial1.c: 220: }
+"220
+[e :UE 176 ]
 }
-"392
+"223
 [v _UART_Data_Ready `(uc ~T0 @X0 1 ef ]
-"393
+"224
 {
-[; ;Lifitrial1.c: 392: char UART_Data_Ready()
-[; ;Lifitrial1.c: 393: {
+[; ;Lifitrial1.c: 223: char UART_Data_Ready()
+[; ;Lifitrial1.c: 224: {
 [e :U _UART_Data_Ready ]
 [f ]
-[; ;Lifitrial1.c: 394: return RCIF;
-"394
+[; ;Lifitrial1.c: 225: return RCIF;
+"225
 [e ) -> -> _RCIF `i `uc ]
-[e $UE 214  ]
-[; ;Lifitrial1.c: 395: }
-"395
-[e :UE 214 ]
+[e $UE 181  ]
+[; ;Lifitrial1.c: 226: }
+"226
+[e :UE 181 ]
 }
-"397
+"228
 [v _UART_Read `(uc ~T0 @X0 1 ef ]
-"398
+"229
 {
-[; ;Lifitrial1.c: 397: char UART_Read()
-[; ;Lifitrial1.c: 398: {
+[; ;Lifitrial1.c: 228: char UART_Read()
+[; ;Lifitrial1.c: 229: {
 [e :U _UART_Read ]
 [f ]
-[; ;Lifitrial1.c: 399: while(!RCIF);
-"399
-[e $U 216  ]
-[e :U 217 ]
-[e :U 216 ]
-[e $ ! _RCIF 217  ]
-[e :U 218 ]
-[; ;Lifitrial1.c: 400: return RCREG;
-"400
+[; ;Lifitrial1.c: 230: while(!RCIF);
+"230
+[e $U 183  ]
+[e :U 184 ]
+[e :U 183 ]
+[e $ ! _RCIF 184  ]
+[e :U 185 ]
+[; ;Lifitrial1.c: 231: return RCREG;
+"231
 [e ) _RCREG ]
-[e $UE 215  ]
-[; ;Lifitrial1.c: 401: }
-"401
-[e :UE 215 ]
+[e $UE 182  ]
+[; ;Lifitrial1.c: 232: }
+"232
+[e :UE 182 ]
 }
-"403
+"234
 [v _UART_Read_Text `(*uc ~T0 @X0 1 ef ]
-"404
+"235
 {
-[; ;Lifitrial1.c: 403: unsigned char * UART_Read_Text()
-[; ;Lifitrial1.c: 404: {
+[; ;Lifitrial1.c: 234: unsigned char * UART_Read_Text()
+[; ;Lifitrial1.c: 235: {
 [e :U _UART_Read_Text ]
 [f ]
-"405
+"236
 [v _a `*Cuc ~T0 @X0 1 a ]
-[; ;Lifitrial1.c: 405: unsigned const char *a="Keyed in \r\n";
-[e = _a :s 15C ]
-"406
-[v F1809 `uc ~T0 @X0 -> 20 `i s string ]
-"407
+[; ;Lifitrial1.c: 236: unsigned const char *a="Keyed in \r\n";
+[e = _a :s 8C ]
+"238
+[v F1798 `uc ~T0 @X0 -> 20 `i s string ]
+"240
 [v _x `uc ~T0 @X0 1 a ]
 [v _i `uc ~T0 @X0 1 a ]
-[; ;Lifitrial1.c: 406: unsigned static char string[20];
-[; ;Lifitrial1.c: 407: unsigned char x, i = 0;
+[; ;Lifitrial1.c: 238: unsigned static char string[20];
+[; ;Lifitrial1.c: 240: unsigned char x, i = 0;
 [e = _i -> -> 0 `i `uc ]
-[; ;Lifitrial1.c: 410: while((x = UART_Read()) != 13)
-"410
-[e $U 220  ]
-[e :U 221 ]
-[; ;Lifitrial1.c: 411: {
-"411
+[; ;Lifitrial1.c: 242: while((x = UART_Read()) != 13)
+"242
+[e $U 187  ]
+[e :U 188 ]
+[; ;Lifitrial1.c: 243: {
+"243
 {
-[; ;Lifitrial1.c: 413: string[i++] = x;
-"413
-[e = *U + &U F1809 * -> ++ _i -> -> 1 `i `uc `ux -> -> # *U &U F1809 `ui `ux _x ]
-"414
+[; ;Lifitrial1.c: 246: string[i++] = x;
+"246
+[e = *U + &U F1798 * -> ++ _i -> -> 1 `i `uc `ux -> -> # *U &U F1798 `ui `ux _x ]
+"247
 }
-[e :U 220 ]
-"410
-[e $ != -> = _x ( _UART_Read ..  `i -> 13 `i 221  ]
-[e :U 222 ]
-[; ;Lifitrial1.c: 414: }
-[; ;Lifitrial1.c: 417: string[i] = '\0';
-"417
-[e = *U + &U F1809 * -> _i `ux -> -> # *U &U F1809 `ui `ux -> -> 0 `ui `uc ]
-[; ;Lifitrial1.c: 418: UART_Write_Text(a);
-"418
+[e :U 187 ]
+"242
+[e $ != -> = _x ( _UART_Read ..  `i -> 13 `i 188  ]
+[e :U 189 ]
+[; ;Lifitrial1.c: 247: }
+[; ;Lifitrial1.c: 250: string[i] = '\0';
+"250
+[e = *U + &U F1798 * -> _i `ux -> -> # *U &U F1798 `ui `ux -> -> 0 `ui `uc ]
+[; ;Lifitrial1.c: 251: UART_Write_Text(a);
+"251
 [e ( _UART_Write_Text (1 _a ]
-[; ;Lifitrial1.c: 421: return(string);
-"421
-[e ) &U F1809 ]
-[e $UE 219  ]
-[; ;Lifitrial1.c: 422: }
-"422
-[e :UE 219 ]
+[; ;Lifitrial1.c: 254: return(string);
+"254
+[e ) &U F1798 ]
+[e $UE 186  ]
+[; ;Lifitrial1.c: 255: }
+"255
+[e :UE 186 ]
 }
-"424
+"257
 [v _putch `(v ~T0 @X0 1 ef1`uc ]
-"425
+"258
 {
-[; ;Lifitrial1.c: 424: void putch(unsigned char byte)
-[; ;Lifitrial1.c: 425: {
+[; ;Lifitrial1.c: 257: void putch(unsigned char byte)
+[; ;Lifitrial1.c: 258: {
 [e :U _putch ]
-"424
+"257
 [v _byte `uc ~T0 @X0 1 r1 ]
-"425
+"258
 [f ]
-[; ;Lifitrial1.c: 427: while(!TXIF)
-"427
-[e $U 224  ]
-[e :U 225 ]
-[; ;Lifitrial1.c: 428: continue;
-"428
-[e $U 224  ]
-[e :U 224 ]
-"427
-[e $ ! _TXIF 225  ]
-[e :U 226 ]
-[; ;Lifitrial1.c: 429: TXREG = byte;
-"429
+[; ;Lifitrial1.c: 260: while(!TXIF)
+"260
+[e $U 191  ]
+[e :U 192 ]
+[; ;Lifitrial1.c: 261: continue;
+"261
+[e $U 191  ]
+[e :U 191 ]
+"260
+[e $ ! _TXIF 192  ]
+[e :U 193 ]
+[; ;Lifitrial1.c: 262: TXREG = byte;
+"262
 [e = _TXREG _byte ]
-[; ;Lifitrial1.c: 430: }
-"430
-[e :UE 223 ]
+[; ;Lifitrial1.c: 263: }
+"263
+[e :UE 190 ]
 }
-"432
+"265
 [v _getch `(uc ~T0 @X0 1 ef ]
-"433
+"266
 {
-[; ;Lifitrial1.c: 432: unsigned char getch()
-[; ;Lifitrial1.c: 433: {
+[; ;Lifitrial1.c: 265: unsigned char getch()
+[; ;Lifitrial1.c: 266: {
 [e :U _getch ]
 [f ]
-[; ;Lifitrial1.c: 435: while(!RCIF)
-"435
-[e $U 228  ]
-[e :U 229 ]
-[; ;Lifitrial1.c: 436: continue;
-"436
-[e $U 228  ]
-[e :U 228 ]
-"435
-[e $ ! _RCIF 229  ]
-[e :U 230 ]
-[; ;Lifitrial1.c: 437: return RCREG;
-"437
+[; ;Lifitrial1.c: 268: while(!RCIF)
+"268
+[e $U 195  ]
+[e :U 196 ]
+[; ;Lifitrial1.c: 269: continue;
+"269
+[e $U 195  ]
+[e :U 195 ]
+"268
+[e $ ! _RCIF 196  ]
+[e :U 197 ]
+[; ;Lifitrial1.c: 270: return RCREG;
+"270
 [e ) _RCREG ]
-[e $UE 227  ]
-[; ;Lifitrial1.c: 438: }
-"438
-[e :UE 227 ]
+[e $UE 194  ]
+[; ;Lifitrial1.c: 271: }
+"271
+[e :UE 194 ]
 }
-"440
+"273
 [v _getche `(uc ~T0 @X0 1 ef ]
-"441
+"274
 {
-[; ;Lifitrial1.c: 440: unsigned char getche(void)
-[; ;Lifitrial1.c: 441: {
+[; ;Lifitrial1.c: 273: unsigned char getche(void)
+[; ;Lifitrial1.c: 274: {
 [e :U _getche ]
 [f ]
-"442
+"275
 [v _c `uc ~T0 @X0 1 a ]
-[; ;Lifitrial1.c: 442: unsigned char c;
-[; ;Lifitrial1.c: 443: putch(c = getch());
-"443
+[; ;Lifitrial1.c: 275: unsigned char c;
+[; ;Lifitrial1.c: 276: putch(c = getch());
+"276
 [e ( _putch (1 = _c ( _getch ..  ]
-[; ;Lifitrial1.c: 444: return c;
-"444
+[; ;Lifitrial1.c: 277: return c;
+"277
 [e ) _c ]
-[e $UE 231  ]
-[; ;Lifitrial1.c: 445: }
-"445
-[e :UE 231 ]
+[e $UE 198  ]
+[; ;Lifitrial1.c: 278: }
+"278
+[e :UE 198 ]
 }
-"447
+"280
 [v _i2c_idle `(v ~T0 @X0 1 ef ]
-"448
+"281
 {
-[; ;Lifitrial1.c: 447: void i2c_idle(void)
-[; ;Lifitrial1.c: 448: {
+[; ;Lifitrial1.c: 280: void i2c_idle(void)
+[; ;Lifitrial1.c: 281: {
 [e :U _i2c_idle ]
 [f ]
-[; ;Lifitrial1.c: 449: while((SSPSTATbits.R));
-"449
-[e $U 233  ]
-[e :U 234 ]
-[e :U 233 ]
-[e $ != -> . . _SSPSTATbits 1 1 `i -> -> -> 0 `i `Vuc `i 234  ]
-[e :U 235 ]
-[; ;Lifitrial1.c: 451: while((!((SSPCON2 & 0x1F) == 0x00)));
-"451
-[e $U 236  ]
-[e :U 237 ]
-[e :U 236 ]
-[e $ ! == & -> _SSPCON2 `i -> 31 `i -> 0 `i 237  ]
-[e :U 238 ]
-[; ;Lifitrial1.c: 452: }
-"452
-[e :UE 232 ]
+[; ;Lifitrial1.c: 282: while((SSPSTATbits.R));
+"282
+[e $U 200  ]
+[e :U 201 ]
+[e :U 200 ]
+[e $ != -> . . _SSPSTATbits 1 1 `i -> -> -> 0 `i `Vuc `i 201  ]
+[e :U 202 ]
+[; ;Lifitrial1.c: 284: while((!((SSPCON2 & 0x1F) == 0x00)));
+"284
+[e $U 203  ]
+[e :U 204 ]
+[e :U 203 ]
+[e $ ! == & -> _SSPCON2 `i -> 31 `i -> 0 `i 204  ]
+[e :U 205 ]
+[; ;Lifitrial1.c: 285: }
+"285
+[e :UE 199 ]
 }
-[a 9C 97 100 100 114 101 115 115 32 115 101 110 116 13 10 0 ]
-[a 10C 100 97 116 97 32 115 101 110 116 13 10 0 ]
-[a 13C 89 111 117 32 104 97 118 101 32 101 110 116 101 114 101 100 32 99 104 111 105 99 101 32 110 117 109 98 101 114 13 10 0 ]
-[a 12C 67 108 111 115 105 110 103 32 67 111 109 109 117 110 105 99 97 116 105 111 110 13 10 0 ]
-[a 14C 105 110 116 101 114 114 117 112 116 32 114 111 117 116 105 110 101 13 10 0 ]
+[a 7C 84 120 32 99 111 109 112 108 101 116 101 100 32 97 108 108 32 98 121 116 101 115 13 10 0 ]
+[a 6C 84 120 32 111 102 32 49 32 98 121 116 101 32 99 111 109 112 108 101 116 101 13 10 0 ]
 [a 4C 85 65 82 84 32 73 110 105 116 105 97 108 105 115 101 100 13 10 0 ]
-[a 11C 78 111 32 109 101 115 115 97 103 101 32 119 105 108 108 32 98 101 32 115 101 110 116 32 115 105 110 99 101 32 110 111 32 115 108 97 118 101 32 110 111 32 101 110 116 101 114 101 100 13 10 0 ]
-[a 2C 13 10 69 110 116 101 114 32 121 111 117 114 32 99 104 111 105 99 101 32 13 10 32 49 46 83 108 97 118 101 32 49 40 65 100 100 114 101 115 115 58 48 120 65 65 13 10 50 46 83 108 97 118 101 32 50 40 65 100 100 114 101 115 115 58 48 120 66 66 41 13 10 51 46 83 108 97 118 101 32 51 40 65 100 100 114 101 115 115 58 48 120 67 67 13 10 0 ]
-[a 5C 73 50 67 32 105 110 105 116 105 97 108 105 115 101 100 58 13 10 0 ]
+[a 2C 13 10 65 99 107 110 111 119 108 101 100 103 101 100 13 10 0 ]
+[a 5C 83 101 110 100 105 110 103 32 84 79 32 76 101 100 13 10 0 ]
 [a 3C 89 111 117 32 104 97 118 101 32 101 110 116 101 114 101 100 58 13 10 0 ]
-[a 8C 83 101 110 100 105 110 103 32 116 111 32 83 108 97 118 101 32 51 32 40 65 100 100 114 101 115 115 32 48 120 67 67 41 13 10 0 ]
-[a 7C 83 101 110 100 105 110 103 32 116 111 32 83 108 97 118 101 32 50 32 40 65 100 100 114 101 115 115 32 48 120 66 66 41 13 10 0 ]
-[a 6C 83 101 110 100 105 110 103 32 116 111 32 83 108 97 118 101 32 49 32 40 65 100 100 114 101 115 115 32 48 120 65 65 41 13 10 0 ]
 [a 1C 13 10 116 97 107 105 110 103 32 105 110 32 116 104 101 32 116 101 120 116 32 13 10 0 ]
-[a 15C 75 101 121 101 100 32 105 110 32 13 10 0 ]
+[a 8C 75 101 121 101 100 32 105 110 32 13 10 0 ]

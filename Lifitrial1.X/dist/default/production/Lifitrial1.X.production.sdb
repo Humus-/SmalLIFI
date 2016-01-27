@@ -13,33 +13,29 @@
 [v _eecpymem eecpymem `(v  1 e 0 0 ]
 "24
 [v _memcpyee memcpyee `(v  1 e 0 0 ]
-"75 C:\Users\Himanshu_\MPLABXProjects\Lifitrial1.X\Lifitrial1.c
+"75 C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\Lifitrial1.X\Lifitrial1.c
 [v _main main `(v  1 e 0 0 ]
-"225
-[v _I2C_init I2C_init `(v  1 e 0 0 ]
-"261
-[v _I2C_Write I2C_Write `(v  1 e 0 0 ]
-"331
+"162
 [v _delay_ms delay_ms `(v  1 e 0 0 ]
-"337
+"168
 [v _delay1ms delay1ms `(v  1 e 0 0 ]
-"343
+"174
 [v _UART_Init UART_Init `(uc  1 e 1 0 ]
-"371
+"202
 [v _UART_Write UART_Write `(v  1 e 0 0 ]
-"383
+"214
 [v _UART_Write_Text UART_Write_Text `(v  1 e 0 0 ]
-"397
+"228
 [v _UART_Read UART_Read `(uc  1 e 1 0 ]
-"403
+"234
 [v _UART_Read_Text UART_Read_Text `(*.4uc  1 e 1 0 ]
-"424
+"257
 [v _putch putch `(v  1 e 0 0 ]
-"432
+"265
 [v _getch getch `(uc  1 e 1 0 ]
 "369 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f886.h
 [v _INTCON INTCON `VEuc  1 e 1 @11 ]
-[s S125 . 1 `uc 1 TMR1IF 1 0 :1:0 
+[s S77 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 CCP1IF 1 0 :1:2 
 `uc 1 SSPIF 1 0 :1:3 
@@ -48,61 +44,31 @@
 `uc 1 ADIF 1 0 :1:6 
 ]
 "462
-[u S133 . 1 `S125 1 . 1 0 ]
-[v _PIR1bits PIR1bits `VES133  1 e 1 @12 ]
-"744
-[v _SSPBUF SSPBUF `VEuc  1 e 1 @19 ]
-"750
-[v _SSPCON SSPCON `VEuc  1 e 1 @20 ]
+[u S85 . 1 `S77 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES85  1 e 1 @12 ]
 "1027
 [v _TXREG TXREG `VEuc  1 e 1 @25 ]
 "1033
 [v _RCREG RCREG `VEuc  1 e 1 @26 ]
-[s S78 . 1 `uc 1 TRISC0 1 0 :1:0 
-`uc 1 TRISC1 1 0 :1:1 
-`uc 1 TRISC2 1 0 :1:2 
-`uc 1 TRISC3 1 0 :1:3 
-`uc 1 TRISC4 1 0 :1:4 
-`uc 1 TRISC5 1 0 :1:5 
-`uc 1 TRISC6 1 0 :1:6 
-`uc 1 TRISC7 1 0 :1:7 
-]
-"1440
-[u S87 . 1 `S78 1 . 1 0 ]
-[v _TRISCbits TRISCbits `VES87  1 e 1 @135 ]
-[s S19 . 1 `uc 1 SCS 1 0 :1:0 
+"1362
+[v _TRISB TRISB `VEuc  1 e 1 @134 ]
+[s S20 . 1 `uc 1 SCS 1 0 :1:0 
 `uc 1 LTS 1 0 :1:1 
 `uc 1 HTS 1 0 :1:2 
 `uc 1 OSTS 1 0 :1:3 
 `uc 1 IRCF 1 0 :3:4 
 ]
 "1681
-[s S25 . 1 `uc 1 . 1 0 :4:0 
+[s S26 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 IRCF0 1 0 :1:4 
 `uc 1 IRCF1 1 0 :1:5 
 `uc 1 IRCF2 1 0 :1:6 
 ]
-[u S30 . 1 `S19 1 . 1 0 `S25 1 . 1 0 ]
-[v _OSCCONbits OSCCONbits `VES30  1 e 1 @143 ]
+[u S31 . 1 `S20 1 . 1 0 `S26 1 . 1 0 ]
+[v _OSCCONbits OSCCONbits `VES31  1 e 1 @143 ]
 "1776
 [v _SSPCON2 SSPCON2 `VEuc  1 e 1 @145 ]
-[s S104 . 1 `uc 1 SEN 1 0 :1:0 
-`uc 1 RSEN 1 0 :1:1 
-`uc 1 PEN 1 0 :1:2 
-`uc 1 RCEN 1 0 :1:3 
-`uc 1 ACKEN 1 0 :1:4 
-`uc 1 ACKDT 1 0 :1:5 
-`uc 1 ACKSTAT 1 0 :1:6 
-`uc 1 GCEN 1 0 :1:7 
-]
-"1793
-[u S113 . 1 `S104 1 . 1 0 ]
-[v _SSPCON2bits SSPCON2bits `VES113  1 e 1 @145 ]
-"1843
-[v _SSPADD SSPADD `VEuc  1 e 1 @147 ]
-"1970
-[v _SSPSTAT SSPSTAT `VEuc  1 e 1 @148 ]
-[s S144 . 1 `uc 1 BF 1 0 :1:0 
+[s S101 . 1 `uc 1 BF 1 0 :1:0 
 `uc 1 UA 1 0 :1:1 
 `uc 1 R_nW 1 0 :1:2 
 `uc 1 S 1 0 :1:3 
@@ -112,51 +78,51 @@
 `uc 1 SMP 1 0 :1:7 
 ]
 "2024
-[s S153 . 1 `uc 1 . 1 0 :2:0 
+[s S110 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 D 1 0 :1:5 
 ]
-[s S158 . 1 `uc 1 . 1 0 :2:0 
+[s S115 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 I2C_READ 1 0 :1:2 
 `uc 1 I2C_START 1 0 :1:3 
 `uc 1 I2C_STOP 1 0 :1:4 
 `uc 1 I2C_DATA 1 0 :1:5 
 ]
-[s S164 . 1 `uc 1 . 1 0 :2:0 
+[s S121 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nW 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nA 1 0 :1:5 
 ]
-[s S169 . 1 `uc 1 . 1 0 :2:0 
+[s S126 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nWRITE 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nADDRESS 1 0 :1:5 
 ]
-[s S174 . 1 `uc 1 . 1 0 :2:0 
+[s S131 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R_W 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 D_A 1 0 :1:5 
 ]
-[s S179 . 1 `uc 1 . 1 0 :2:0 
+[s S136 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 READ_WRITE 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 DATA_ADDRESS 1 0 :1:5 
 ]
-[u S184 . 1 `S144 1 . 1 0 `S153 1 . 1 0 `S158 1 . 1 0 `S164 1 . 1 0 `S169 1 . 1 0 `S174 1 . 1 0 `S179 1 . 1 0 ]
-[v _SSPSTATbits SSPSTATbits `VES184  1 e 1 @148 ]
+[u S141 . 1 `S101 1 . 1 0 `S110 1 . 1 0 `S115 1 . 1 0 `S121 1 . 1 0 `S126 1 . 1 0 `S131 1 . 1 0 `S136 1 . 1 0 ]
+[v _SSPSTATbits SSPSTATbits `VES141  1 e 1 @148 ]
 "2430
 [v _SPBRG SPBRG `VEuc  1 e 1 @153 ]
 "3392
 [v _BRGH BRGH `VEb  1 e 0 @1218 ]
 "3486
 [v _CREN CREN `VEb  1 e 0 @196 ]
+"3664
+[v _RB0 RB0 `VEb  1 e 0 @48 ]
 "3712
 [v _RCIF RCIF `VEb  1 e 0 @101 ]
 "3746
 [v _SPEN SPEN `VEb  1 e 0 @199 ]
-"3758
-[v _SSPIF SSPIF `VEb  1 e 0 @99 ]
 "3782
 [v _SYNC SYNC `VEb  1 e 0 @1220 ]
 "3890
@@ -165,96 +131,86 @@
 [v _TXEN TXEN `VEb  1 e 0 @1221 ]
 "3914
 [v _TXIF TXIF `VEb  1 e 0 @100 ]
-"70 C:\Users\Himanshu_\MPLABXProjects\Lifitrial1.X\Lifitrial1.c
+"70 C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\Lifitrial1.X\Lifitrial1.c
 [v _is is `*.4uc  1 e 1 0 ]
 "75
 [v _main main `(v  1 e 0 0 ]
 {
-"107
-[v main@msgm msgm `*.25DCCuc  1 a 2 46 ]
-"105
-[v main@fin fin `*.25DCCuc  1 a 2 44 ]
-"87
-[v main@arr5 arr5 `*.25DCCuc  1 a 2 42 ]
-"85
-[v main@arr4 arr4 `*.25DCCuc  1 a 2 40 ]
-"83
-[v main@arr3 arr3 `*.25DCCuc  1 a 2 38 ]
-"81
-[v main@arr2 arr2 `*.25DCCuc  1 a 2 36 ]
-"79
-[v main@arr1 arr1 `*.25DCCuc  1 a 2 34 ]
-"103
-[v main@err err `*.25DCCuc  1 a 2 32 ]
-"97
-[v main@msg5 msg5 `*.25DCCuc  1 a 2 30 ]
-"95
-[v main@msg4 msg4 `*.25DCCuc  1 a 2 28 ]
 "93
-[v main@msg3 msg3 `*.25DCCuc  1 a 2 26 ]
+[v main@j j `ui  1 a 2 30 ]
+"95
+[v main@LED_Output LED_Output `uc  1 a 1 29 ]
 "91
-[v main@msg2 msg2 `*.25DCCuc  1 a 2 24 ]
+[v main@arr7 arr7 `*.24DCCuc  1 a 1 28 ]
 "89
-[v main@msg1 msg1 `*.25DCCuc  1 a 2 22 ]
-"109
-[v main@choice choice `uc  1 a 1 48 ]
-"223
+[v main@arr6 arr6 `*.24DCCuc  1 a 1 27 ]
+"87
+[v main@arr5 arr5 `*.24DCCuc  1 a 1 26 ]
+"85
+[v main@arr4 arr4 `*.24DCCuc  1 a 1 25 ]
+"83
+[v main@arr3 arr3 `*.24DCCuc  1 a 1 24 ]
+"81
+[v main@arr2 arr2 `*.24DCCuc  1 a 1 23 ]
+"79
+[v main@arr1 arr1 `*.24DCCuc  1 a 1 22 ]
+"149
 } 0
-"331
+"162
 [v _delay_ms delay_ms `(v  1 e 0 0 ]
 {
 [v delay_ms@i i `ui  1 p 2 2 ]
-"335
+"166
 } 0
-"337
+"168
 [v _delay1ms delay1ms `(v  1 e 0 0 ]
 {
-"339
+"170
 [v delay1ms@j j `ui  1 a 2 0 ]
-"341
+"172
 } 0
-"403
+"234
 [v _UART_Read_Text UART_Read_Text `(*.4uc  1 e 1 0 ]
 {
-"405
-[v UART_Read_Text@a a `*.25DCCuc  1 a 2 9 ]
-"407
-[v UART_Read_Text@i i `uc  1 a 1 12 ]
-[v UART_Read_Text@x x `uc  1 a 1 11 ]
-"406
+"240
+[v UART_Read_Text@i i `uc  1 a 1 11 ]
+[v UART_Read_Text@x x `uc  1 a 1 10 ]
+"236
+[v UART_Read_Text@a a `*.24DCCuc  1 a 1 9 ]
+"238
 [v UART_Read_Text@string string `[20]uc  1 s 20 string ]
-"422
+"255
 } 0
-"383
+"214
 [v _UART_Write_Text UART_Write_Text `(v  1 e 0 0 ]
 {
-"385
+"216
 [v UART_Write_Text@i i `i  1 a 2 6 ]
-"383
+"214
 [v UART_Write_Text@text text `*.26DCCuc  1 p 2 1 ]
-"389
+"220
 } 0
-"371
+"202
 [v _UART_Write UART_Write `(v  1 e 0 0 ]
 {
 [v UART_Write@data data `uc  1 a 1 wreg ]
 [v UART_Write@data data `uc  1 a 1 wreg ]
 [v UART_Write@data data `uc  1 a 1 0 ]
-"376
+"207
 } 0
-"397
+"228
 [v _UART_Read UART_Read `(uc  1 e 1 0 ]
 {
-"401
+"232
 } 0
-"343
+"174
 [v _UART_Init UART_Init `(uc  1 e 1 0 ]
 {
-"345
+"176
 [v UART_Init@x x `ui  1 a 2 9 ]
-"343
+"174
 [v UART_Init@baudrate baudrate `l  1 p 4 6 ]
-"369
+"200
 } 0
 "6 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\aldiv.c
 [v ___aldiv __aldiv `(l  1 e 4 0 ]
@@ -268,9 +224,4 @@
 [v ___aldiv@divisor divisor `l  1 p 4 0 ]
 [v ___aldiv@dividend dividend `l  1 p 4 4 ]
 "42
-} 0
-"225 C:\Users\Himanshu_\MPLABXProjects\Lifitrial1.X\Lifitrial1.c
-[v _I2C_init I2C_init `(v  1 e 0 0 ]
-{
-"234
 } 0
