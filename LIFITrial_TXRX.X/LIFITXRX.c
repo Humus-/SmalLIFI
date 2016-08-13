@@ -152,6 +152,8 @@ void main(void)
                 xx10+0=xx10...next iteration 1--sent ....so we have no--no<<1--x100+1=x101 ...next iteration 1 sent--no--no<<1=1010..
                 1010+1=1011---its reverse....change a bit...i.e either change the msbs to be sent first or Recieve logic u change
                 and recommit again
+                see transmit logic and change
+                
                 */
                 
                 no+=LED_Input;
