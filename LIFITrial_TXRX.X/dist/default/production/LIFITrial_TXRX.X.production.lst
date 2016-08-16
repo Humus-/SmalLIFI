@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC LITE Macro Assembler V1.34 build -361300703 
-                                                                                               Sat Aug 13 21:59:13 2016
+                                                                                               Tue Aug 16 21:59:49 2016
 
 Microchip Technology Omniscient Code Generator (Lite mode) build 201502162209
      1                           	processor	16F886
@@ -344,13 +344,13 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 201502162209
    338  07F6  3045               	movlw	low __pbssBANK0
    339  07F7  0084               	movwf	4
    340  07F8  305A               	movlw	low (__pbssBANK0+21)
-   341  07F9  120A  118A  24F8   	fcall	clear_ram0
+   341  07F9  120A  118A  24EA   	fcall	clear_ram0
    342  07FC                     end_of_initialization:	
    343                           ;End of C runtime variable initialization code
    344                           
    345  07FC                     __end_of__initialization:	
    346  07FC  0183               	clrf	3
-   347  07FD  120A  118A  2EF4   	ljmp	_main	;jump to C main() function
+   347  07FD  120A  118A  2EE6   	ljmp	_main	;jump to C main() function
    348                           
    349                           	psect	bitbssBANK0
    350  02D0                     __pbitbssBANK0:	
@@ -365,19 +365,19 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 201502162209
    359  0046                     	ds	20
    360                           
    361                           	psect	clrtext
-   362  04F8                     clear_ram0:	
+   362  04EA                     clear_ram0:	
    363                           ;	Called with FSR containing the base address, and
    364                           ;	W with the last address+1
    365                           
-   366  04F8  0064               	clrwdt	;clear the watchdog before getting into this loop
-   367  04F9                     clrloop0:	
-   368  04F9  0180               	clrf	0	;clear RAM location pointed to by FSR
-   369  04FA  0A84               	incf	4,f	;increment pointer
-   370  04FB  0604               	xorwf	4,w	;XOR with final address
-   371  04FC  1903               	btfsc	3,2	;have we reached the end yet?
-   372  04FD  3400               	retlw	0	;all done for this memory range, return
-   373  04FE  0604               	xorwf	4,w	;XOR again to restore value
-   374  04FF  2CF9               	goto	clrloop0	;do the next byte
+   366  04EA  0064               	clrwdt	;clear the watchdog before getting into this loop
+   367  04EB                     clrloop0:	
+   368  04EB  0180               	clrf	0	;clear RAM location pointed to by FSR
+   369  04EC  0A84               	incf	4,f	;increment pointer
+   370  04ED  0604               	xorwf	4,w	;XOR with final address
+   371  04EE  1903               	btfsc	3,2	;have we reached the end yet?
+   372  04EF  3400               	retlw	0	;all done for this memory range, return
+   373  04F0  0604               	xorwf	4,w	;XOR again to restore value
+   374  04F1  2CEB               	goto	clrloop0	;do the next byte
    375                           
    376                           	psect	cstackCOMMON
    377  0070                     __pcstackCOMMON:	
@@ -472,7 +472,7 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 201502162209
    466  007B                     ??_main:	
    467                           
    468                           ; 0 bytes @ 0xB
-   469  007B                     	ds	2
+   469  007B                     	ds	3
    470                           
    471                           	psect	cstackBANK0
    472  0020                     __pcstackBANK0:	
@@ -539,23 +539,23 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 201502162209
    533                           
    534                           ; 1 bytes @ 0x1F
    535  003F                     	ds	1
-   536  0040                     main@j:	
+   536  0040                     main@no:	
    537                           
    538                           ; 2 bytes @ 0x20
    539  0040                     	ds	2
-   540  0042                     main@LED_Input:	
+   540  0042                     main@j:	
    541                           
-   542                           ; 1 bytes @ 0x22
-   543  0042                     	ds	1
-   544  0043                     main@no:	
+   542                           ; 2 bytes @ 0x22
+   543  0042                     	ds	2
+   544  0044                     main@LED_Input:	
    545                           
-   546                           ; 2 bytes @ 0x23
-   547  0043                     	ds	2
+   546                           ; 1 bytes @ 0x24
+   547  0044                     	ds	1
    548                           
    549                           	psect	maintext
-   550  06F4                     __pmaintext:	
+   550  06E6                     __pmaintext:	
    551 ;;
-   552 ;;Main: autosize = 0, tempsize = 2, incstack = 0, save=0
+   552 ;;Main: autosize = 0, tempsize = 3, incstack = 0, save=0
    553 ;;
    554 ;; *************** function _main *****************
    555 ;; Defined at:
@@ -563,9 +563,9 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 201502162209
    557 ;; Parameters:    Size  Location     Type
    558 ;;		None
    559 ;; Auto vars:     Size  Location     Type
-   560 ;;  no              2   35[BANK0 ] unsigned int 
-   561 ;;  j               2   32[BANK0 ] unsigned int 
-   562 ;;  LED_Input       1   34[BANK0 ] unsigned char 
+   560 ;;  j               2   34[BANK0 ] unsigned int 
+   561 ;;  no              2   32[BANK0 ] unsigned int 
+   562 ;;  LED_Input       1   36[BANK0 ] unsigned char 
    563 ;;  LED_Output      1   31[BANK0 ] unsigned char 
    564 ;;  arr9            1   30[BANK0 ] PTR const unsigned char 
    565 ;;		 -> STR_9(17), 
@@ -585,1288 +585,1306 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 201502162209
    579 ;;		 -> STR_2(17), 
    580 ;;  arr1            1   22[BANK0 ] PTR const unsigned char 
    581 ;;		 -> STR_1(24), 
-   582 ;; Return value:  Size  Location     Type
-   583 ;;		None               void
-   584 ;; Registers used:
-   585 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
-   586 ;; Tracked objects:
-   587 ;;		On entry : B00/0
-   588 ;;		On exit  : 0/0
-   589 ;;		Unchanged: 0/0
-   590 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   591 ;;      Params:         0       0       0       0       0
-   592 ;;      Locals:         0      15       0       0       0
-   593 ;;      Temps:          2       0       0       0       0
-   594 ;;      Totals:         2      15       0       0       0
-   595 ;;Total ram usage:       17 bytes
-   596 ;; Hardware stack levels required when called:    3
-   597 ;; This function calls:
-   598 ;;		_UART_Init
-   599 ;;		_UART_Read_Text
-   600 ;;		_UART_Write
-   601 ;;		_UART_Write_Text
-   602 ;;		_delay_ms
-   603 ;; This function is called by:
-   604 ;;		Startup code after reset
-   605 ;; This function uses a non-reentrant model
-   606 ;;
-   607                           
+   582 ;;  RX_C            1    0        unsigned char 
+   583 ;; Return value:  Size  Location     Type
+   584 ;;		None               void
+   585 ;; Registers used:
+   586 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+   587 ;; Tracked objects:
+   588 ;;		On entry : B00/0
+   589 ;;		On exit  : 0/0
+   590 ;;		Unchanged: 0/0
+   591 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   592 ;;      Params:         0       0       0       0       0
+   593 ;;      Locals:         0      15       0       0       0
+   594 ;;      Temps:          3       0       0       0       0
+   595 ;;      Totals:         3      15       0       0       0
+   596 ;;Total ram usage:       18 bytes
+   597 ;; Hardware stack levels required when called:    3
+   598 ;; This function calls:
+   599 ;;		_UART_Init
+   600 ;;		_UART_Read_Text
+   601 ;;		_UART_Write
+   602 ;;		_UART_Write_Text
+   603 ;;		_delay_ms
+   604 ;; This function is called by:
+   605 ;;		Startup code after reset
+   606 ;; This function uses a non-reentrant model
+   607 ;;
    608                           
-   609                           ;psect for function _main
-   610  06F4                     _main:	
-   611                           
-   612                           ;LIFITXRX.c: 79: const unsigned char * arr1 = "\r\ntaking in the text \r\n";
-   613                           
-   614                           ;incstack = 0
-   615                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+pclath+cstack]
-   616  06F4  301A               	movlw	(low ((STR_1-__stringbase)| (0+32768)))& (0+255)
-   617  06F5  00FB               	movwf	??_main
-   618  06F6  087B               	movf	??_main,w
-   619  06F7  1283               	bcf	3,5	;RP0=0, select bank0
-   620  06F8  1303               	bcf	3,6	;RP1=0, select bank0
-   621  06F9  00B6               	movwf	main@arr1
-   622                           
-   623                           ;LIFITXRX.c: 81: const unsigned char *arr2="\r\nAcknowledged\r\n";
-   624  06FA  3093               	movlw	(low ((STR_2-__stringbase)| (0+32768)))& (0+255)
-   625  06FB  00FB               	movwf	??_main
-   626  06FC  087B               	movf	??_main,w
-   627  06FD  00B7               	movwf	main@arr2
-   628                           
-   629                           ;LIFITXRX.c: 83: const unsigned char *arr3= "You have entered:\r\n";
-   630  06FE  304A               	movlw	(low ((STR_3-__stringbase)| (0+32768)))& (0+255)
-   631  06FF  00FB               	movwf	??_main
-   632  0700  087B               	movf	??_main,w
-   633  0701  00B8               	movwf	main@arr3
-   634                           
-   635                           ;LIFITXRX.c: 85: const unsigned char *arr4= "UART Initialised\r\n";
-   636  0702  305E               	movlw	(low ((STR_4-__stringbase)| (0+32768)))& (0+255)
-   637  0703  00FB               	movwf	??_main
-   638  0704  087B               	movf	??_main,w
-   639  0705  00B9               	movwf	main@arr4
-   640                           
-   641                           ;LIFITXRX.c: 87: const unsigned char *arr5= "Sending TO Led\r\n";
-   642  0706  3082               	movlw	(low ((STR_5-__stringbase)| (0+32768)))& (0+255)
-   643  0707  00FB               	movwf	??_main
-   644  0708  087B               	movf	??_main,w
-   645  0709  00BA               	movwf	main@arr5
-   646                           
-   647                           ;LIFITXRX.c: 89: const unsigned char *arr6= "Tx of 1 byte complete\r\n";
-   648  070A  3032               	movlw	(low ((STR_6-__stringbase)| (0+32768)))& (0+255)
-   649  070B  00FB               	movwf	??_main
-   650  070C  087B               	movf	??_main,w
-   651  070D  00BB               	movwf	main@arr6
-   652                           
-   653                           ;LIFITXRX.c: 91: const unsigned char *arr7= "Tx completed all bytes\r\n";
-   654  070E  3001               	movlw	(low ((STR_7-__stringbase)| (0+32768)))& (0+255)
-   655  070F  00FB               	movwf	??_main
-   656  0710  087B               	movf	??_main,w
-   657  0711  00BC               	movwf	main@arr7
-   658                           
-   659                           ;LIFITXRX.c: 93: const unsigned char *arr8="RX 1\r\n";
-   660  0712  30B0               	movlw	(low ((STR_8-__stringbase)| (0+32768)))& (0+255)
-   661  0713  00FB               	movwf	??_main
-   662  0714  087B               	movf	??_main,w
-   663  0715  00BD               	movwf	main@arr8
-   664                           
-   665                           ;LIFITXRX.c: 95: const unsigned char *arr9="RX 0..........\r\n";
-   666  0716  3071               	movlw	(low ((STR_9-__stringbase)| (0+32768)))& (0+255)
-   667  0717  00FB               	movwf	??_main
-   668  0718  087B               	movf	??_main,w
-   669  0719  00BE               	movwf	main@arr9
-   670                           
-   671                           ;LIFITXRX.c: 97: unsigned int no;
-   672                           ;LIFITXRX.c: 98: unsigned int j;
-   673                           ;LIFITXRX.c: 100: unsigned char LED_Output,LED_Input;
-   674                           ;LIFITXRX.c: 102: TRISB=0x00;
-   675  071A  1683               	bsf	3,5	;RP0=1, select bank1
-   676  071B  1303               	bcf	3,6	;RP1=0, select bank1
-   677  071C  0186               	clrf	6	;volatile
-   678                           
-   679                           ;LIFITXRX.c: 103: TRISC=0x08;
-   680  071D  3008               	movlw	8
-   681  071E  0087               	movwf	7	;volatile
-   682                           
-   683                           ;LIFITXRX.c: 105: OSCCONbits.IRCF = 0x07;
-   684  071F  3070               	movlw	112
-   685  0720  048F               	iorwf	15,f	;volatile
-   686  0721                     l59:	
-   687                           ;LIFITXRX.c: 107: while(!OSCCONbits.HTS);
-   688                           
-   689  0721  1D0F               	btfss	15,2	;volatile
-   690  0722  2F21               	goto	l59
-   691                           
-   692                           ;LIFITXRX.c: 109: INTCON=0;
-   693  0723  018B               	clrf	11	;volatile
-   694                           
-   695                           ;LIFITXRX.c: 111: UART_Init(9600);
-   696  0724  3000               	movlw	0
-   697  0725  1283               	bcf	3,5	;RP0=0, select bank0
-   698  0726  1303               	bcf	3,6	;RP1=0, select bank0
-   699  0727  00A9               	movwf	UART_Init@baudrate+3
-   700  0728  3000               	movlw	0
-   701  0729  00A8               	movwf	UART_Init@baudrate+2
-   702  072A  3025               	movlw	37
-   703  072B  00A7               	movwf	UART_Init@baudrate+1
-   704  072C  3080               	movlw	128
-   705  072D  00A6               	movwf	UART_Init@baudrate
-   706  072E  120A  118A  2607  120A  118A  	fcall	_UART_Init
-   707                           
-   708                           ;LIFITXRX.c: 113: UART_Write_Text(arr4);
-   709  0733  1283               	bcf	3,5	;RP0=0, select bank0
-   710  0734  1303               	bcf	3,6	;RP1=0, select bank0
-   711  0735  0839               	movf	main@arr4,w
-   712  0736  120A  118A  252D  120A  118A  	fcall	_UART_Write_Text
-   713                           
-   714                           ;LIFITXRX.c: 115: delay_ms(500);
-   715  073B  30F4               	movlw	244
-   716  073C  00F2               	movwf	delay_ms@i
-   717  073D  3001               	movlw	1
-   718  073E  00F3               	movwf	delay_ms@i+1
-   719  073F  120A  118A  251D  120A  118A  	fcall	_delay_ms
-   720  0744                     l981:	
-   721                           ;LIFITXRX.c: 117: while(1)
-   722                           
-   723                           
-   724                           ;LIFITXRX.c: 118: {
-   725                           ;LIFITXRX.c: 121: UART_Write_Text(arr1);
-   726  0744  1283               	bcf	3,5	;RP0=0, select bank0
-   727  0745  1303               	bcf	3,6	;RP1=0, select bank0
-   728  0746  0836               	movf	main@arr1,w
-   729  0747  120A  118A  252D  120A  118A  	fcall	_UART_Write_Text
-   730                           
-   731                           ;LIFITXRX.c: 123: is=UART_Read_Text();
-   732  074C  120A  118A  254F  120A  118A  	fcall	_UART_Read_Text
-   733  0751  00FB               	movwf	??_main
-   734  0752  087B               	movf	??_main,w
-   735  0753  1283               	bcf	3,5	;RP0=0, select bank0
-   736  0754  1303               	bcf	3,6	;RP1=0, select bank0
-   737  0755  00C5               	movwf	_is
-   738                           
-   739                           ;LIFITXRX.c: 125: UART_Write_Text(arr2);
-   740  0756  0837               	movf	main@arr2,w
-   741  0757  120A  118A  252D  120A  118A  	fcall	_UART_Write_Text
-   742                           
-   743                           ;LIFITXRX.c: 127: UART_Write_Text(arr3);
-   744  075C  1283               	bcf	3,5	;RP0=0, select bank0
-   745  075D  1303               	bcf	3,6	;RP1=0, select bank0
-   746  075E  0838               	movf	main@arr3,w
-   747  075F  120A  118A  252D  120A  118A  	fcall	_UART_Write_Text
-   748                           
-   749                           ;LIFITXRX.c: 131: UART_Write_Text(arr5);
-   750  0764  1283               	bcf	3,5	;RP0=0, select bank0
-   751  0765  1303               	bcf	3,6	;RP1=0, select bank0
-   752  0766  083A               	movf	main@arr5,w
-   753  0767  120A  118A  252D  120A  118A  	fcall	_UART_Write_Text
-   754  076C                     l63:	
-   755                           ;LIFITXRX.c: 133: while(*is)
-   756                           
-   757  076C  1283               	bcf	3,5	;RP0=0, select bank0
-   758  076D  1303               	bcf	3,6	;RP1=0, select bank0
-   759  076E  0845               	movf	_is,w
-   760  076F  0084               	movwf	4
-   761  0770  1383               	bcf	3,7	;select IRP bank0
-   762  0771  0800               	movf	0,w
-   763  0772  1903               	btfsc	3,2
-   764  0773  2FED               	goto	l1027
-   765                           
-   766                           ;LIFITXRX.c: 134: {
-   767                           ;LIFITXRX.c: 135: no=0;
-   768  0774  1283               	bcf	3,5	;RP0=0, select bank0
-   769  0775  1303               	bcf	3,6	;RP1=0, select bank0
-   770  0776  01C3               	clrf	main@no
-   771  0777  01C4               	clrf	main@no+1
-   772                           
-   773                           ;LIFITXRX.c: 136: for(j=0;j<=7;j++)
-   774  0778  01C0               	clrf	main@j
-   775  0779  01C1               	clrf	main@j+1
-   776  077A  3000               	movlw	0
-   777  077B  0241               	subwf	main@j+1,w
-   778  077C  3008               	movlw	8
-   779  077D  1903               	skipnz
-   780  077E  0240               	subwf	main@j,w
-   781  077F  1803               	btfsc	3,0
-   782  0780  2FDA               	goto	l1021
-   783  0781                     l997:	
-   784                           
-   785                           ;LIFITXRX.c: 137: {
-   786                           ;LIFITXRX.c: 138: LED_Output= (*is&0x01)==1?1:0;
-   787  0781  0845               	movf	_is,w
-   788  0782  0084               	movwf	4
-   789  0783  1383               	bcf	3,7	;select IRP bank0
-   790  0784  1C00               	btfss	0,0
-   791  0785  2F88               	goto	u720
-   792  0786  3001               	movlw	1
-   793  0787  2F89               	goto	u730
-   794  0788                     u720:	
-   795  0788  3000               	movlw	0
-   796  0789                     u730:	
-   797  0789  00FB               	movwf	??_main
-   798  078A  087B               	movf	??_main,w
-   799  078B  00BF               	movwf	main@LED_Output
-   800                           
-   801                           ;LIFITXRX.c: 139: RB0=LED_Output;
-   802  078C  1C3F               	btfss	main@LED_Output,0
-   803  078D  2F92               	goto	u740
-   804  078E  1283               	bcf	3,5	;RP0=0, select bank0
-   805  078F  1303               	bcf	3,6	;RP1=0, select bank0
-   806  0790  1406               	bsf	6,0	;volatile
-   807  0791  2F95               	goto	l1001
-   808  0792                     u740:	
-   809  0792  1283               	bcf	3,5	;RP0=0, select bank0
-   810  0793  1303               	bcf	3,6	;RP1=0, select bank0
-   811  0794  1006               	bcf	6,0	;volatile
-   812  0795                     l1001:	
-   813                           
-   814                           ;LIFITXRX.c: 140: LED_Input=RC3;
-   815  0795  3000               	movlw	0
-   816  0796  1987               	btfsc	7,3	;volatile
-   817  0797  3001               	movlw	1
-   818  0798  00C2               	movwf	main@LED_Input
-   819                           
-   820                           ;LIFITXRX.c: 141: if(LED_Input==1)
-   821  0799  0342               	decf	main@LED_Input,w
-   822  079A  1D03               	btfss	3,2
-   823  079B  2F9E               	goto	l1007
-   824                           
-   825                           ;LIFITXRX.c: 143: UART_Write_Text(arr8);
-   826  079C  083D               	movf	main@arr8,w
-   827  079D  2FA1               	goto	L1
-   828  079E                     l1007:	
-   829                           
-   830                           ;LIFITXRX.c: 144: else
-   831                           ;LIFITXRX.c: 146: UART_Write_Text(arr9);
-   832  079E  1283               	bcf	3,5	;RP0=0, select bank0
-   833  079F  1303               	bcf	3,6	;RP1=0, select bank0
-   834  07A0  083E               	movf	main@arr9,w
-   835  07A1                     L1:	
-   836  07A1  120A  118A  252D  120A  118A  	fcall	_UART_Write_Text
-   837                           
-   838                           ;LIFITXRX.c: 147: no = no<<1;
-   839  07A6  1003               	clrc
-   840  07A7  1283               	bcf	3,5	;RP0=0, select bank0
-   841  07A8  1303               	bcf	3,6	;RP1=0, select bank0
-   842  07A9  0D43               	rlf	main@no,w
-   843  07AA  00C3               	movwf	main@no
-   844  07AB  0D44               	rlf	main@no+1,w
-   845  07AC  00C4               	movwf	main@no+1
-   846                           
-   847                           ;LIFITXRX.c: 148: no+=LED_Input;
-   848  07AD  0842               	movf	main@LED_Input,w
-   849  07AE  00FB               	movwf	??_main
-   850  07AF  01FC               	clrf	??_main+1
-   851  07B0  087B               	movf	??_main,w
-   852  07B1  07C3               	addwf	main@no,f
-   853  07B2  1803               	skipnc
-   854  07B3  0AC4               	incf	main@no+1,f
-   855  07B4  087C               	movf	??_main+1,w
-   856  07B5  07C4               	addwf	main@no+1,f
-   857                           
-   858                           ;LIFITXRX.c: 149: delay_ms(1000);
-   859  07B6  30E8               	movlw	232
-   860  07B7  00F2               	movwf	delay_ms@i
-   861  07B8  3003               	movlw	3
-   862  07B9  00F3               	movwf	delay_ms@i+1
-   863  07BA  120A  118A  251D  120A  118A  	fcall	_delay_ms
+   609                           
+   610                           ;psect for function _main
+   611  06E6                     _main:	
+   612                           
+   613                           ;LIFITXRX.c: 79: const unsigned char * arr1 = "\r\ntaking in the text \r\n";
+   614                           
+   615                           ;incstack = 0
+   616                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+   617  06E6  301A               	movlw	(low ((STR_1-__stringbase)| (0+32768)))& (0+255)
+   618  06E7  00FB               	movwf	??_main
+   619  06E8  087B               	movf	??_main,w
+   620  06E9  1283               	bcf	3,5	;RP0=0, select bank0
+   621  06EA  1303               	bcf	3,6	;RP1=0, select bank0
+   622  06EB  00B6               	movwf	main@arr1
+   623                           
+   624                           ;LIFITXRX.c: 81: const unsigned char *arr2="\r\nAcknowledged\r\n";
+   625  06EC  3093               	movlw	(low ((STR_2-__stringbase)| (0+32768)))& (0+255)
+   626  06ED  00FB               	movwf	??_main
+   627  06EE  087B               	movf	??_main,w
+   628  06EF  00B7               	movwf	main@arr2
+   629                           
+   630                           ;LIFITXRX.c: 83: const unsigned char *arr3= "You have entered:\r\n";
+   631  06F0  304A               	movlw	(low ((STR_3-__stringbase)| (0+32768)))& (0+255)
+   632  06F1  00FB               	movwf	??_main
+   633  06F2  087B               	movf	??_main,w
+   634  06F3  00B8               	movwf	main@arr3
+   635                           
+   636                           ;LIFITXRX.c: 85: const unsigned char *arr4= "UART Initialised\r\n";
+   637  06F4  305E               	movlw	(low ((STR_4-__stringbase)| (0+32768)))& (0+255)
+   638  06F5  00FB               	movwf	??_main
+   639  06F6  087B               	movf	??_main,w
+   640  06F7  00B9               	movwf	main@arr4
+   641                           
+   642                           ;LIFITXRX.c: 87: const unsigned char *arr5= "Sending TO Led\r\n";
+   643  06F8  3082               	movlw	(low ((STR_5-__stringbase)| (0+32768)))& (0+255)
+   644  06F9  00FB               	movwf	??_main
+   645  06FA  087B               	movf	??_main,w
+   646  06FB  00BA               	movwf	main@arr5
+   647                           
+   648                           ;LIFITXRX.c: 89: const unsigned char *arr6= "Tx of 1 byte complete\r\n";
+   649  06FC  3032               	movlw	(low ((STR_6-__stringbase)| (0+32768)))& (0+255)
+   650  06FD  00FB               	movwf	??_main
+   651  06FE  087B               	movf	??_main,w
+   652  06FF  00BB               	movwf	main@arr6
+   653                           
+   654                           ;LIFITXRX.c: 91: const unsigned char *arr7= "Tx completed all bytes\r\n";
+   655  0700  3001               	movlw	(low ((STR_7-__stringbase)| (0+32768)))& (0+255)
+   656  0701  00FB               	movwf	??_main
+   657  0702  087B               	movf	??_main,w
+   658  0703  00BC               	movwf	main@arr7
+   659                           
+   660                           ;LIFITXRX.c: 93: const unsigned char *arr8="RX 1\r\n";
+   661  0704  30B0               	movlw	(low ((STR_8-__stringbase)| (0+32768)))& (0+255)
+   662  0705  00FB               	movwf	??_main
+   663  0706  087B               	movf	??_main,w
+   664  0707  00BD               	movwf	main@arr8
+   665                           
+   666                           ;LIFITXRX.c: 95: const unsigned char *arr9="RX 0..........\r\n";
+   667  0708  3071               	movlw	(low ((STR_9-__stringbase)| (0+32768)))& (0+255)
+   668  0709  00FB               	movwf	??_main
+   669  070A  087B               	movf	??_main,w
+   670  070B  00BE               	movwf	main@arr9
+   671                           
+   672                           ;LIFITXRX.c: 97: unsigned int no;
+   673                           ;LIFITXRX.c: 98: unsigned char RX_C;
+   674                           ;LIFITXRX.c: 99: unsigned int j;
+   675                           ;LIFITXRX.c: 101: unsigned char LED_Output,LED_Input;
+   676                           ;LIFITXRX.c: 103: TRISB=0x00;
+   677  070C  1683               	bsf	3,5	;RP0=1, select bank1
+   678  070D  1303               	bcf	3,6	;RP1=0, select bank1
+   679  070E  0186               	clrf	6	;volatile
+   680                           
+   681                           ;LIFITXRX.c: 104: TRISC=0x08;
+   682  070F  3008               	movlw	8
+   683  0710  0087               	movwf	7	;volatile
+   684                           
+   685                           ;LIFITXRX.c: 106: OSCCONbits.IRCF = 0x07;
+   686  0711  3070               	movlw	112
+   687  0712  048F               	iorwf	15,f	;volatile
+   688  0713                     l59:	
+   689                           ;LIFITXRX.c: 108: while(!OSCCONbits.HTS);
+   690                           
+   691  0713  1D0F               	btfss	15,2	;volatile
+   692  0714  2F13               	goto	l59
+   693                           
+   694                           ;LIFITXRX.c: 110: INTCON=0;
+   695  0715  018B               	clrf	11	;volatile
+   696                           
+   697                           ;LIFITXRX.c: 112: UART_Init(9600);
+   698  0716  3000               	movlw	0
+   699  0717  1283               	bcf	3,5	;RP0=0, select bank0
+   700  0718  1303               	bcf	3,6	;RP1=0, select bank0
+   701  0719  00A9               	movwf	UART_Init@baudrate+3
+   702  071A  3000               	movlw	0
+   703  071B  00A8               	movwf	UART_Init@baudrate+2
+   704  071C  3025               	movlw	37
+   705  071D  00A7               	movwf	UART_Init@baudrate+1
+   706  071E  3080               	movlw	128
+   707  071F  00A6               	movwf	UART_Init@baudrate
+   708  0720  120A  118A  25F9  120A  118A  	fcall	_UART_Init
+   709                           
+   710                           ;LIFITXRX.c: 114: UART_Write_Text(arr4);
+   711  0725  1283               	bcf	3,5	;RP0=0, select bank0
+   712  0726  1303               	bcf	3,6	;RP1=0, select bank0
+   713  0727  0839               	movf	main@arr4,w
+   714  0728  120A  118A  251F  120A  118A  	fcall	_UART_Write_Text
+   715                           
+   716                           ;LIFITXRX.c: 116: delay_ms(500);
+   717  072D  30F4               	movlw	244
+   718  072E  00F2               	movwf	delay_ms@i
+   719  072F  3001               	movlw	1
+   720  0730  00F3               	movwf	delay_ms@i+1
+   721  0731  120A  118A  250F  120A  118A  	fcall	_delay_ms
+   722  0736                     l977:	
+   723                           ;LIFITXRX.c: 118: while(1)
+   724                           
+   725                           
+   726                           ;LIFITXRX.c: 119: {
+   727                           ;LIFITXRX.c: 122: UART_Write_Text(arr1);
+   728  0736  1283               	bcf	3,5	;RP0=0, select bank0
+   729  0737  1303               	bcf	3,6	;RP1=0, select bank0
+   730  0738  0836               	movf	main@arr1,w
+   731  0739  120A  118A  251F  120A  118A  	fcall	_UART_Write_Text
+   732                           
+   733                           ;LIFITXRX.c: 124: is=UART_Read_Text();
+   734  073E  120A  118A  2541  120A  118A  	fcall	_UART_Read_Text
+   735  0743  00FB               	movwf	??_main
+   736  0744  087B               	movf	??_main,w
+   737  0745  1283               	bcf	3,5	;RP0=0, select bank0
+   738  0746  1303               	bcf	3,6	;RP1=0, select bank0
+   739  0747  00C5               	movwf	_is
+   740                           
+   741                           ;LIFITXRX.c: 126: UART_Write_Text(arr2);
+   742  0748  0837               	movf	main@arr2,w
+   743  0749  120A  118A  251F  120A  118A  	fcall	_UART_Write_Text
+   744                           
+   745                           ;LIFITXRX.c: 128: UART_Write_Text(arr3);
+   746  074E  1283               	bcf	3,5	;RP0=0, select bank0
+   747  074F  1303               	bcf	3,6	;RP1=0, select bank0
+   748  0750  0838               	movf	main@arr3,w
+   749  0751  120A  118A  251F  120A  118A  	fcall	_UART_Write_Text
+   750                           
+   751                           ;LIFITXRX.c: 132: UART_Write_Text(arr5);
+   752  0756  1283               	bcf	3,5	;RP0=0, select bank0
+   753  0757  1303               	bcf	3,6	;RP1=0, select bank0
+   754  0758  083A               	movf	main@arr5,w
+   755  0759  120A  118A  251F  120A  118A  	fcall	_UART_Write_Text
+   756  075E                     l63:	
+   757                           ;LIFITXRX.c: 134: while(*is)
+   758                           
+   759  075E  1283               	bcf	3,5	;RP0=0, select bank0
+   760  075F  1303               	bcf	3,6	;RP1=0, select bank0
+   761  0760  0845               	movf	_is,w
+   762  0761  0084               	movwf	4
+   763  0762  1383               	bcf	3,7	;select IRP bank0
+   764  0763  0800               	movf	0,w
+   765  0764  1903               	btfsc	3,2
+   766  0765  2FED               	goto	l1019
+   767                           
+   768                           ;LIFITXRX.c: 135: {
+   769                           ;LIFITXRX.c: 136: no=0;
+   770  0766  1283               	bcf	3,5	;RP0=0, select bank0
+   771  0767  1303               	bcf	3,6	;RP1=0, select bank0
+   772  0768  01C0               	clrf	main@no
+   773  0769  01C1               	clrf	main@no+1
+   774                           
+   775                           ;LIFITXRX.c: 137: for(j=0;j<=7;j++)
+   776  076A  01C2               	clrf	main@j
+   777  076B  01C3               	clrf	main@j+1
+   778  076C  3000               	movlw	0
+   779  076D  0243               	subwf	main@j+1,w
+   780  076E  3008               	movlw	8
+   781  076F  1903               	skipnz
+   782  0770  0242               	subwf	main@j,w
+   783  0771  1803               	btfsc	3,0
+   784  0772  2FDA               	goto	l1013
+   785  0773                     l993:	
+   786                           
+   787                           ;LIFITXRX.c: 138: {
+   788                           ;LIFITXRX.c: 139: LED_Output= (*is&0x01)==1?1:0;
+   789  0773  0845               	movf	_is,w
+   790  0774  0084               	movwf	4
+   791  0775  1383               	bcf	3,7	;select IRP bank0
+   792  0776  1C00               	btfss	0,0
+   793  0777  2F7A               	goto	u730
+   794  0778  3001               	movlw	1
+   795  0779  2F7B               	goto	u740
+   796  077A                     u730:	
+   797  077A  3000               	movlw	0
+   798  077B                     u740:	
+   799  077B  00FB               	movwf	??_main
+   800  077C  087B               	movf	??_main,w
+   801  077D  00BF               	movwf	main@LED_Output
+   802                           
+   803                           ;LIFITXRX.c: 140: RB0=LED_Output;
+   804  077E  1C3F               	btfss	main@LED_Output,0
+   805  077F  2F84               	goto	u750
+   806  0780  1283               	bcf	3,5	;RP0=0, select bank0
+   807  0781  1303               	bcf	3,6	;RP1=0, select bank0
+   808  0782  1406               	bsf	6,0	;volatile
+   809  0783  2F87               	goto	l997
+   810  0784                     u750:	
+   811  0784  1283               	bcf	3,5	;RP0=0, select bank0
+   812  0785  1303               	bcf	3,6	;RP1=0, select bank0
+   813  0786  1006               	bcf	6,0	;volatile
+   814  0787                     l997:	
+   815                           
+   816                           ;LIFITXRX.c: 141: LED_Input=RC3;
+   817  0787  3000               	movlw	0
+   818  0788  1987               	btfsc	7,3	;volatile
+   819  0789  3001               	movlw	1
+   820  078A  00C4               	movwf	main@LED_Input
+   821                           
+   822                           ;LIFITXRX.c: 142: if(LED_Input==1)
+   823  078B  0344               	decf	main@LED_Input,w
+   824  078C  1D03               	btfss	3,2
+   825  078D  2F90               	goto	l1003
+   826                           
+   827                           ;LIFITXRX.c: 144: UART_Write_Text(arr8);
+   828  078E  083D               	movf	main@arr8,w
+   829  078F  2F93               	goto	L1
+   830  0790                     l1003:	
+   831                           
+   832                           ;LIFITXRX.c: 145: else
+   833                           ;LIFITXRX.c: 147: UART_Write_Text(arr9);
+   834  0790  1283               	bcf	3,5	;RP0=0, select bank0
+   835  0791  1303               	bcf	3,6	;RP1=0, select bank0
+   836  0792  083E               	movf	main@arr9,w
+   837  0793                     L1:	
+   838  0793  120A  118A  251F  120A  118A  	fcall	_UART_Write_Text
+   839                           
+   840                           ;LIFITXRX.c: 148: no = no+LED_Input<<j;
+   841  0798  1283               	bcf	3,5	;RP0=0, select bank0
+   842  0799  1303               	bcf	3,6	;RP1=0, select bank0
+   843  079A  0A42               	incf	main@j,w
+   844  079B  00FB               	movwf	??_main
+   845  079C  0844               	movf	main@LED_Input,w
+   846  079D  0740               	addwf	main@no,w
+   847  079E  00FC               	movwf	??_main+1
+   848  079F  0841               	movf	main@no+1,w
+   849  07A0  1803               	skipnc
+   850  07A1  0A41               	incf	main@no+1,w
+   851  07A2  00FD               	movwf	??_main+2
+   852  07A3  2FA7               	goto	u784
+   853  07A4                     u785:	
+   854  07A4  1003               	clrc
+   855  07A5  0DFC               	rlf	??_main+1,f
+   856  07A6  0DFD               	rlf	??_main+2,f
+   857  07A7                     u784:	
+   858  07A7  0BFB               	decfsz	??_main,f
+   859  07A8  2FA4               	goto	u785
+   860  07A9  087C               	movf	??_main+1,w
+   861  07AA  00C0               	movwf	main@no
+   862  07AB  087D               	movf	??_main+2,w
+   863  07AC  00C1               	movwf	main@no+1
    864                           
-   865                           ;LIFITXRX.c: 150: *is=*is>>1;
-   866  07BF  1283               	bcf	3,5	;RP0=0, select bank0
-   867  07C0  1303               	bcf	3,6	;RP1=0, select bank0
-   868  07C1  0845               	movf	_is,w
-   869  07C2  0084               	movwf	4
-   870  07C3  1383               	bcf	3,7	;select IRP bank0
-   871  07C4  0800               	movf	0,w
-   872  07C5  00FB               	movwf	??_main
-   873  07C6  1003               	clrc
-   874  07C7  0C7B               	rrf	??_main,w
-   875  07C8  00FC               	movwf	??_main+1
-   876  07C9  0845               	movf	_is,w
-   877  07CA  0084               	movwf	4
-   878  07CB  087C               	movf	??_main+1,w
-   879  07CC  0080               	movwf	0
-   880  07CD  3001               	movlw	1
-   881  07CE  07C0               	addwf	main@j,f
-   882  07CF  1803               	skipnc
-   883  07D0  0AC1               	incf	main@j+1,f
-   884  07D1  3000               	movlw	0
-   885  07D2  07C1               	addwf	main@j+1,f
-   886  07D3  3000               	movlw	0
-   887  07D4  0241               	subwf	main@j+1,w
-   888  07D5  3008               	movlw	8
-   889  07D6  1903               	skipnz
-   890  07D7  0240               	subwf	main@j,w
-   891  07D8  1C03               	skipc
-   892  07D9  2F81               	goto	l997
-   893  07DA                     l1021:	
-   894                           
-   895                           ;LIFITXRX.c: 151: }
-   896                           ;LIFITXRX.c: 152: is++;
-   897  07DA  3001               	movlw	1
-   898  07DB  00FB               	movwf	??_main
-   899  07DC  087B               	movf	??_main,w
-   900  07DD  07C5               	addwf	_is,f
-   901                           
-   902                           ;LIFITXRX.c: 159: UART_Write_Text(arr6);
-   903  07DE  083B               	movf	main@arr6,w
-   904  07DF  120A  118A  252D  120A  118A  	fcall	_UART_Write_Text
-   905                           
-   906                           ;LIFITXRX.c: 160: UART_Write((unsigned char)no);
-   907  07E4  1283               	bcf	3,5	;RP0=0, select bank0
-   908  07E5  1303               	bcf	3,6	;RP1=0, select bank0
-   909  07E6  0843               	movf	main@no,w
-   910  07E7  120A  118A  2500  120A  118A  	fcall	_UART_Write
-   911  07EC  2F6C               	goto	l63
-   912  07ED                     l1027:	
-   913                           
-   914                           ;LIFITXRX.c: 162: }
-   915                           ;LIFITXRX.c: 164: UART_Write_Text(arr7);
-   916  07ED  083C               	movf	main@arr7,w
-   917  07EE  120A  118A  252D  120A  118A  	fcall	_UART_Write_Text
-   918  07F3  2F44               	goto	l981
-   919  07F4                     __end_of_main:	
-   920                           
-   921                           	psect	text1
-   922  051D                     __ptext1:	
-   923 ;; *************** function _delay_ms *****************
-   924 ;; Defined at:
-   925 ;;		line 180 in file "LIFITXRX.c"
-   926 ;; Parameters:    Size  Location     Type
-   927 ;;  i               2    2[COMMON] unsigned int 
-   928 ;; Auto vars:     Size  Location     Type
-   929 ;;		None
-   930 ;; Return value:  Size  Location     Type
-   931 ;;		None               void
-   932 ;; Registers used:
-   933 ;;		wreg, status,2, status,0, pclath, cstack
-   934 ;; Tracked objects:
-   935 ;;		On entry : 0/0
-   936 ;;		On exit  : 0/0
-   937 ;;		Unchanged: 0/0
-   938 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   939 ;;      Params:         2       0       0       0       0
-   940 ;;      Locals:         0       0       0       0       0
-   941 ;;      Temps:          0       0       0       0       0
-   942 ;;      Totals:         2       0       0       0       0
-   943 ;;Total ram usage:        2 bytes
-   944 ;; Hardware stack levels used:    1
-   945 ;; Hardware stack levels required when called:    1
-   946 ;; This function calls:
-   947 ;;		_delay1ms
-   948 ;; This function is called by:
-   949 ;;		_main
-   950 ;; This function uses a non-reentrant model
-   951 ;;
-   952                           
-   953                           
-   954                           ;psect for function _delay_ms
-   955  051D                     _delay_ms:	
-   956                           
-   957                           ;LIFITXRX.c: 182: for(;i!=0x00;i--)
-   958                           
-   959                           ;incstack = 0
-   960                           ; Regs used in _delay_ms: [wreg+status,2+status,0+pclath+cstack]
-   961  051D  0872               	movf	delay_ms@i,w
-   962  051E  0473               	iorwf	delay_ms@i+1,w
-   963  051F  1903               	btfsc	3,2
-   964  0520  0008               	return
-   965                           
-   966                           ;LIFITXRX.c: 183: delay1ms();
-   967  0521  120A  118A  250E  120A  118A  	fcall	_delay1ms
-   968  0526  3001               	movlw	1
-   969  0527  02F2               	subwf	delay_ms@i,f
-   970  0528  3000               	movlw	0
-   971  0529  1C03               	skipc
-   972  052A  03F3               	decf	delay_ms@i+1,f
-   973  052B  02F3               	subwf	delay_ms@i+1,f
-   974  052C  2D1D               	goto	_delay_ms
-   975  052D                     __end_of_delay_ms:	
+   865                           ;LIFITXRX.c: 150: no+=LED_Input;
+   866  07AD  0844               	movf	main@LED_Input,w
+   867  07AE  00FB               	movwf	??_main
+   868  07AF  01FC               	clrf	??_main+1
+   869  07B0  087B               	movf	??_main,w
+   870  07B1  07C0               	addwf	main@no,f
+   871  07B2  1803               	skipnc
+   872  07B3  0AC1               	incf	main@no+1,f
+   873  07B4  087C               	movf	??_main+1,w
+   874  07B5  07C1               	addwf	main@no+1,f
+   875                           
+   876                           ;LIFITXRX.c: 151: delay_ms(1000);
+   877  07B6  30E8               	movlw	232
+   878  07B7  00F2               	movwf	delay_ms@i
+   879  07B8  3003               	movlw	3
+   880  07B9  00F3               	movwf	delay_ms@i+1
+   881  07BA  120A  118A  250F  120A  118A  	fcall	_delay_ms
+   882                           
+   883                           ;LIFITXRX.c: 152: *is=*is>>1;
+   884  07BF  1283               	bcf	3,5	;RP0=0, select bank0
+   885  07C0  1303               	bcf	3,6	;RP1=0, select bank0
+   886  07C1  0845               	movf	_is,w
+   887  07C2  0084               	movwf	4
+   888  07C3  1383               	bcf	3,7	;select IRP bank0
+   889  07C4  0800               	movf	0,w
+   890  07C5  00FB               	movwf	??_main
+   891  07C6  1003               	clrc
+   892  07C7  0C7B               	rrf	??_main,w
+   893  07C8  00FC               	movwf	??_main+1
+   894  07C9  0845               	movf	_is,w
+   895  07CA  0084               	movwf	4
+   896  07CB  087C               	movf	??_main+1,w
+   897  07CC  0080               	movwf	0
+   898  07CD  3001               	movlw	1
+   899  07CE  07C2               	addwf	main@j,f
+   900  07CF  1803               	skipnc
+   901  07D0  0AC3               	incf	main@j+1,f
+   902  07D1  3000               	movlw	0
+   903  07D2  07C3               	addwf	main@j+1,f
+   904  07D3  3000               	movlw	0
+   905  07D4  0243               	subwf	main@j+1,w
+   906  07D5  3008               	movlw	8
+   907  07D6  1903               	skipnz
+   908  07D7  0242               	subwf	main@j,w
+   909  07D8  1C03               	skipc
+   910  07D9  2F73               	goto	l993
+   911  07DA                     l1013:	
+   912                           
+   913                           ;LIFITXRX.c: 153: }
+   914                           ;LIFITXRX.c: 154: is++;
+   915  07DA  3001               	movlw	1
+   916  07DB  00FB               	movwf	??_main
+   917  07DC  087B               	movf	??_main,w
+   918  07DD  07C5               	addwf	_is,f
+   919                           
+   920                           ;LIFITXRX.c: 161: UART_Write_Text(arr6);
+   921  07DE  083B               	movf	main@arr6,w
+   922  07DF  120A  118A  251F  120A  118A  	fcall	_UART_Write_Text
+   923                           
+   924                           ;LIFITXRX.c: 162: UART_Write((unsigned char)no);
+   925  07E4  1283               	bcf	3,5	;RP0=0, select bank0
+   926  07E5  1303               	bcf	3,6	;RP1=0, select bank0
+   927  07E6  0840               	movf	main@no,w
+   928  07E7  120A  118A  24F2  120A  118A  	fcall	_UART_Write
+   929  07EC  2F5E               	goto	l63
+   930  07ED                     l1019:	
+   931                           
+   932                           ;LIFITXRX.c: 164: }
+   933                           ;LIFITXRX.c: 166: UART_Write_Text(arr7);
+   934  07ED  083C               	movf	main@arr7,w
+   935  07EE  120A  118A  251F  120A  118A  	fcall	_UART_Write_Text
+   936  07F3  2F36               	goto	l977
+   937  07F4                     __end_of_main:	
+   938                           
+   939                           	psect	text1
+   940  050F                     __ptext1:	
+   941 ;; *************** function _delay_ms *****************
+   942 ;; Defined at:
+   943 ;;		line 182 in file "LIFITXRX.c"
+   944 ;; Parameters:    Size  Location     Type
+   945 ;;  i               2    2[COMMON] unsigned int 
+   946 ;; Auto vars:     Size  Location     Type
+   947 ;;		None
+   948 ;; Return value:  Size  Location     Type
+   949 ;;		None               void
+   950 ;; Registers used:
+   951 ;;		wreg, status,2, status,0, pclath, cstack
+   952 ;; Tracked objects:
+   953 ;;		On entry : 0/0
+   954 ;;		On exit  : 0/0
+   955 ;;		Unchanged: 0/0
+   956 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   957 ;;      Params:         2       0       0       0       0
+   958 ;;      Locals:         0       0       0       0       0
+   959 ;;      Temps:          0       0       0       0       0
+   960 ;;      Totals:         2       0       0       0       0
+   961 ;;Total ram usage:        2 bytes
+   962 ;; Hardware stack levels used:    1
+   963 ;; Hardware stack levels required when called:    1
+   964 ;; This function calls:
+   965 ;;		_delay1ms
+   966 ;; This function is called by:
+   967 ;;		_main
+   968 ;; This function uses a non-reentrant model
+   969 ;;
+   970                           
+   971                           
+   972                           ;psect for function _delay_ms
+   973  050F                     _delay_ms:	
+   974                           
+   975                           ;LIFITXRX.c: 184: for(;i!=0x00;i--)
    976                           
-   977                           	psect	text2
-   978  050E                     __ptext2:	
-   979 ;; *************** function _delay1ms *****************
-   980 ;; Defined at:
-   981 ;;		line 186 in file "LIFITXRX.c"
-   982 ;; Parameters:    Size  Location     Type
-   983 ;;		None
-   984 ;; Auto vars:     Size  Location     Type
-   985 ;;  j               2    0[COMMON] unsigned int 
-   986 ;; Return value:  Size  Location     Type
-   987 ;;		None               void
-   988 ;; Registers used:
-   989 ;;		wreg, status,2, status,0
-   990 ;; Tracked objects:
-   991 ;;		On entry : 0/0
-   992 ;;		On exit  : 0/0
-   993 ;;		Unchanged: 0/0
-   994 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   995 ;;      Params:         0       0       0       0       0
-   996 ;;      Locals:         2       0       0       0       0
-   997 ;;      Temps:          0       0       0       0       0
-   998 ;;      Totals:         2       0       0       0       0
-   999 ;;Total ram usage:        2 bytes
-  1000 ;; Hardware stack levels used:    1
-  1001 ;; This function calls:
-  1002 ;;		Nothing
-  1003 ;; This function is called by:
-  1004 ;;		_delay_ms
-  1005 ;; This function uses a non-reentrant model
-  1006 ;;
-  1007                           
-  1008                           
-  1009                           ;psect for function _delay1ms
-  1010  050E                     _delay1ms:	
-  1011                           
-  1012                           ;LIFITXRX.c: 188: unsigned int j = 130;
-  1013                           
-  1014                           ;incstack = 0
-  1015                           ; Regs used in _delay1ms: [wreg+status,2+status,0]
-  1016  050E  3082               	movlw	130
-  1017  050F  00F0               	movwf	delay1ms@j
-  1018  0510  3000               	movlw	0
-  1019  0511  00F1               	movwf	delay1ms@j+1
-  1020  0512                     L2:	
-  1021                           
-  1022                           ;LIFITXRX.c: 189: for (;j!=0x00;j--);
-  1023  0512  0870               	movf	delay1ms@j,w
-  1024  0513  0471               	iorwf	delay1ms@j+1,w
-  1025  0514  1903               	btfsc	3,2
-  1026  0515  0008               	return
-  1027  0516  3001               	movlw	1
-  1028  0517  02F0               	subwf	delay1ms@j,f
-  1029  0518  3000               	movlw	0
-  1030  0519  1C03               	skipc
-  1031  051A  03F1               	decf	delay1ms@j+1,f
-  1032  051B  02F1               	subwf	delay1ms@j+1,f
-  1033  051C  2D12               	goto	L2
-  1034  051D                     __end_of_delay1ms:	
-  1035                           
-  1036                           	psect	text3
-  1037  054F                     __ptext3:	
-  1038 ;; *************** function _UART_Read_Text *****************
-  1039 ;; Defined at:
-  1040 ;;		line 252 in file "LIFITXRX.c"
-  1041 ;; Parameters:    Size  Location     Type
-  1042 ;;		None
-  1043 ;; Auto vars:     Size  Location     Type
-  1044 ;;  i               1    7[COMMON] unsigned char 
-  1045 ;;  x               1    6[COMMON] unsigned char 
-  1046 ;;  a               1    5[COMMON] PTR const unsigned char 
-  1047 ;;		 -> STR_10(12), 
-  1048 ;; Return value:  Size  Location     Type
-  1049 ;;                  1    wreg      PTR unsigned char 
-  1050 ;; Registers used:
-  1051 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
-  1052 ;; Tracked objects:
-  1053 ;;		On entry : 0/0
-  1054 ;;		On exit  : 0/0
-  1055 ;;		Unchanged: 0/0
-  1056 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-  1057 ;;      Params:         0       0       0       0       0
-  1058 ;;      Locals:         3       0       0       0       0
-  1059 ;;      Temps:          1       0       0       0       0
-  1060 ;;      Totals:         4       0       0       0       0
-  1061 ;;Total ram usage:        4 bytes
-  1062 ;; Hardware stack levels used:    1
-  1063 ;; Hardware stack levels required when called:    2
-  1064 ;; This function calls:
-  1065 ;;		_UART_Read
-  1066 ;;		_UART_Write_Text
-  1067 ;; This function is called by:
-  1068 ;;		_main
-  1069 ;; This function uses a non-reentrant model
-  1070 ;;
-  1071                           
-  1072                           
-  1073                           ;psect for function _UART_Read_Text
-  1074  054F                     _UART_Read_Text:	
-  1075                           
-  1076                           ;LIFITXRX.c: 254: unsigned const char *a="Keyed in \r\n";
-  1077                           
-  1078                           ;incstack = 0
-  1079                           ; Regs used in _UART_Read_Text: [wreg-fsr0h+status,2+status,0+pclath+cstack]
-  1080  054F  30A4               	movlw	(low ((STR_10-__stringbase)| (0+32768)))& (0+255)
-  1081  0550  00F4               	movwf	??_UART_Read_Text
-  1082  0551  0874               	movf	??_UART_Read_Text,w
-  1083  0552  00F5               	movwf	UART_Read_Text@a
-  1084                           
-  1085                           ;LIFITXRX.c: 256: unsigned static char string[20];
-  1086                           ;LIFITXRX.c: 258: unsigned char x, i = 0;
-  1087  0553  01F7               	clrf	UART_Read_Text@i
-  1088  0554                     l955:	
-  1089                           ;LIFITXRX.c: 260: while((x = UART_Read()) != 13)
+   977                           ;incstack = 0
+   978                           ; Regs used in _delay_ms: [wreg+status,2+status,0+pclath+cstack]
+   979  050F  0872               	movf	delay_ms@i,w
+   980  0510  0473               	iorwf	delay_ms@i+1,w
+   981  0511  1903               	btfsc	3,2
+   982  0512  0008               	return
+   983                           
+   984                           ;LIFITXRX.c: 185: delay1ms();
+   985  0513  120A  118A  2500  120A  118A  	fcall	_delay1ms
+   986  0518  3001               	movlw	1
+   987  0519  02F2               	subwf	delay_ms@i,f
+   988  051A  3000               	movlw	0
+   989  051B  1C03               	skipc
+   990  051C  03F3               	decf	delay_ms@i+1,f
+   991  051D  02F3               	subwf	delay_ms@i+1,f
+   992  051E  2D0F               	goto	_delay_ms
+   993  051F                     __end_of_delay_ms:	
+   994                           
+   995                           	psect	text2
+   996  0500                     __ptext2:	
+   997 ;; *************** function _delay1ms *****************
+   998 ;; Defined at:
+   999 ;;		line 188 in file "LIFITXRX.c"
+  1000 ;; Parameters:    Size  Location     Type
+  1001 ;;		None
+  1002 ;; Auto vars:     Size  Location     Type
+  1003 ;;  j               2    0[COMMON] unsigned int 
+  1004 ;; Return value:  Size  Location     Type
+  1005 ;;		None               void
+  1006 ;; Registers used:
+  1007 ;;		wreg, status,2, status,0
+  1008 ;; Tracked objects:
+  1009 ;;		On entry : 0/0
+  1010 ;;		On exit  : 0/0
+  1011 ;;		Unchanged: 0/0
+  1012 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1013 ;;      Params:         0       0       0       0       0
+  1014 ;;      Locals:         2       0       0       0       0
+  1015 ;;      Temps:          0       0       0       0       0
+  1016 ;;      Totals:         2       0       0       0       0
+  1017 ;;Total ram usage:        2 bytes
+  1018 ;; Hardware stack levels used:    1
+  1019 ;; This function calls:
+  1020 ;;		Nothing
+  1021 ;; This function is called by:
+  1022 ;;		_delay_ms
+  1023 ;; This function uses a non-reentrant model
+  1024 ;;
+  1025                           
+  1026                           
+  1027                           ;psect for function _delay1ms
+  1028  0500                     _delay1ms:	
+  1029                           
+  1030                           ;LIFITXRX.c: 190: unsigned int j = 130;
+  1031                           
+  1032                           ;incstack = 0
+  1033                           ; Regs used in _delay1ms: [wreg+status,2+status,0]
+  1034  0500  3082               	movlw	130
+  1035  0501  00F0               	movwf	delay1ms@j
+  1036  0502  3000               	movlw	0
+  1037  0503  00F1               	movwf	delay1ms@j+1
+  1038  0504                     L2:	
+  1039                           
+  1040                           ;LIFITXRX.c: 191: for (;j!=0x00;j--);
+  1041  0504  0870               	movf	delay1ms@j,w
+  1042  0505  0471               	iorwf	delay1ms@j+1,w
+  1043  0506  1903               	btfsc	3,2
+  1044  0507  0008               	return
+  1045  0508  3001               	movlw	1
+  1046  0509  02F0               	subwf	delay1ms@j,f
+  1047  050A  3000               	movlw	0
+  1048  050B  1C03               	skipc
+  1049  050C  03F1               	decf	delay1ms@j+1,f
+  1050  050D  02F1               	subwf	delay1ms@j+1,f
+  1051  050E  2D04               	goto	L2
+  1052  050F                     __end_of_delay1ms:	
+  1053                           
+  1054                           	psect	text3
+  1055  0541                     __ptext3:	
+  1056 ;; *************** function _UART_Read_Text *****************
+  1057 ;; Defined at:
+  1058 ;;		line 254 in file "LIFITXRX.c"
+  1059 ;; Parameters:    Size  Location     Type
+  1060 ;;		None
+  1061 ;; Auto vars:     Size  Location     Type
+  1062 ;;  i               1    7[COMMON] unsigned char 
+  1063 ;;  x               1    6[COMMON] unsigned char 
+  1064 ;;  a               1    5[COMMON] PTR const unsigned char 
+  1065 ;;		 -> STR_10(12), 
+  1066 ;; Return value:  Size  Location     Type
+  1067 ;;                  1    wreg      PTR unsigned char 
+  1068 ;; Registers used:
+  1069 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+  1070 ;; Tracked objects:
+  1071 ;;		On entry : 0/0
+  1072 ;;		On exit  : 0/0
+  1073 ;;		Unchanged: 0/0
+  1074 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1075 ;;      Params:         0       0       0       0       0
+  1076 ;;      Locals:         3       0       0       0       0
+  1077 ;;      Temps:          1       0       0       0       0
+  1078 ;;      Totals:         4       0       0       0       0
+  1079 ;;Total ram usage:        4 bytes
+  1080 ;; Hardware stack levels used:    1
+  1081 ;; Hardware stack levels required when called:    2
+  1082 ;; This function calls:
+  1083 ;;		_UART_Read
+  1084 ;;		_UART_Write_Text
+  1085 ;; This function is called by:
+  1086 ;;		_main
+  1087 ;; This function uses a non-reentrant model
+  1088 ;;
+  1089                           
   1090                           
-  1091  0554  120A  118A  24F2  120A  118A  	fcall	_UART_Read
-  1092  0559  00F4               	movwf	??_UART_Read_Text
-  1093  055A  0874               	movf	??_UART_Read_Text,w
-  1094  055B  00F6               	movwf	UART_Read_Text@x
-  1095  055C  300D               	movlw	13
-  1096  055D  0676               	xorwf	UART_Read_Text@x,w
-  1097  055E  1903               	btfsc	3,2
-  1098  055F  2D6D               	goto	l957
-  1099                           
-  1100                           ;LIFITXRX.c: 261: {
-  1101                           ;LIFITXRX.c: 264: string[i++] = x;
-  1102  0560  0876               	movf	UART_Read_Text@x,w
-  1103  0561  00F4               	movwf	??_UART_Read_Text
-  1104  0562  0877               	movf	UART_Read_Text@i,w
-  1105  0563  3E46               	addlw	(low (UART_Read_Text@string| 0))& (0+255)
-  1106  0564  0084               	movwf	4
-  1107  0565  0874               	movf	??_UART_Read_Text,w
-  1108  0566  1383               	bcf	3,7	;select IRP bank0
-  1109  0567  0080               	movwf	0
-  1110  0568  3001               	movlw	1
-  1111  0569  00F4               	movwf	??_UART_Read_Text
-  1112  056A  0874               	movf	??_UART_Read_Text,w
-  1113  056B  07F7               	addwf	UART_Read_Text@i,f
-  1114  056C  2D54               	goto	l955
-  1115  056D                     l957:	
-  1116                           
-  1117                           ;LIFITXRX.c: 265: }
-  1118                           ;LIFITXRX.c: 268: string[i] = '\0';
-  1119  056D  0877               	movf	UART_Read_Text@i,w
-  1120  056E  3E46               	addlw	(low (UART_Read_Text@string| 0))& (0+255)
-  1121  056F  0084               	movwf	4
-  1122  0570  1383               	bcf	3,7	;select IRP bank0
-  1123  0571  0180               	clrf	0
-  1124                           
-  1125                           ;LIFITXRX.c: 269: UART_Write_Text(a);
-  1126  0572  0875               	movf	UART_Read_Text@a,w
-  1127  0573  120A  118A  252D   	fcall	_UART_Write_Text
-  1128                           
-  1129                           ;LIFITXRX.c: 272: return(string);
-  1130  0576  3046               	movlw	(low (UART_Read_Text@string| 0))& (0+255)
-  1131  0577  0008               	return
-  1132  0578                     __end_of_UART_Read_Text:	
-  1133                           
-  1134                           	psect	text4
-  1135  052D                     __ptext4:	
-  1136 ;; *************** function _UART_Write_Text *****************
-  1137 ;; Defined at:
-  1138 ;;		line 232 in file "LIFITXRX.c"
-  1139 ;; Parameters:    Size  Location     Type
-  1140 ;;  text            1    wreg     PTR const unsigned char 
-  1141 ;;		 -> STR_10(12), STR_9(17), STR_8(7), STR_7(25), 
-  1142 ;;		 -> STR_6(24), STR_5(17), STR_4(19), STR_3(20), 
-  1143 ;;		 -> STR_2(17), STR_1(24), 
-  1144 ;; Auto vars:     Size  Location     Type
-  1145 ;;  text            1    3[COMMON] PTR const unsigned char 
-  1146 ;;		 -> STR_10(12), STR_9(17), STR_8(7), STR_7(25), 
-  1147 ;;		 -> STR_6(24), STR_5(17), STR_4(19), STR_3(20), 
-  1148 ;;		 -> STR_2(17), STR_1(24), 
-  1149 ;;  i               2    1[COMMON] int 
-  1150 ;; Return value:  Size  Location     Type
-  1151 ;;		None               void
-  1152 ;; Registers used:
-  1153 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
-  1154 ;; Tracked objects:
-  1155 ;;		On entry : 0/0
-  1156 ;;		On exit  : 0/0
-  1157 ;;		Unchanged: 0/0
-  1158 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-  1159 ;;      Params:         0       0       0       0       0
-  1160 ;;      Locals:         3       0       0       0       0
-  1161 ;;      Temps:          0       0       0       0       0
-  1162 ;;      Totals:         3       0       0       0       0
-  1163 ;;Total ram usage:        3 bytes
-  1164 ;; Hardware stack levels used:    1
-  1165 ;; Hardware stack levels required when called:    1
-  1166 ;; This function calls:
-  1167 ;;		_UART_Write
-  1168 ;; This function is called by:
-  1169 ;;		_main
-  1170 ;;		_UART_Read_Text
-  1171 ;; This function uses a non-reentrant model
-  1172 ;;
-  1173                           
-  1174                           
-  1175                           ;psect for function _UART_Write_Text
-  1176  052D                     _UART_Write_Text:	
-  1177                           
-  1178                           ;incstack = 0
-  1179                           ; Regs used in _UART_Write_Text: [wreg-fsr0h+status,2+status,0+pclath+cstack]
-  1180                           ;UART_Write_Text@text stored from wreg
-  1181  052D  00F3               	movwf	UART_Write_Text@text
-  1182                           
-  1183                           ;LIFITXRX.c: 234: int i;
-  1184                           ;LIFITXRX.c: 235: for(i=0;text[i]!='\0';i++)
-  1185  052E  01F1               	clrf	UART_Write_Text@i
-  1186  052F  01F2               	clrf	UART_Write_Text@i+1
-  1187  0530                     l845:	
-  1188  0530  0871               	movf	UART_Write_Text@i,w
-  1189  0531  0773               	addwf	UART_Write_Text@text,w
-  1190  0532  0084               	movwf	4
-  1191  0533  120A  118A  2003  120A  118A  	fcall	stringdir
-  1192  0538  3A00               	xorlw	0
-  1193  0539  1903               	btfsc	3,2
-  1194  053A  0008               	return
+  1091                           ;psect for function _UART_Read_Text
+  1092  0541                     _UART_Read_Text:	
+  1093                           
+  1094                           ;LIFITXRX.c: 256: unsigned const char *a="Keyed in \r\n";
+  1095                           
+  1096                           ;incstack = 0
+  1097                           ; Regs used in _UART_Read_Text: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+  1098  0541  30A4               	movlw	(low ((STR_10-__stringbase)| (0+32768)))& (0+255)
+  1099  0542  00F4               	movwf	??_UART_Read_Text
+  1100  0543  0874               	movf	??_UART_Read_Text,w
+  1101  0544  00F5               	movwf	UART_Read_Text@a
+  1102                           
+  1103                           ;LIFITXRX.c: 258: unsigned static char string[20];
+  1104                           ;LIFITXRX.c: 260: unsigned char x, i = 0;
+  1105  0545  01F7               	clrf	UART_Read_Text@i
+  1106  0546                     l951:	
+  1107                           ;LIFITXRX.c: 262: while((x = UART_Read()) != 13)
+  1108                           
+  1109  0546  120A  118A  24E4  120A  118A  	fcall	_UART_Read
+  1110  054B  00F4               	movwf	??_UART_Read_Text
+  1111  054C  0874               	movf	??_UART_Read_Text,w
+  1112  054D  00F6               	movwf	UART_Read_Text@x
+  1113  054E  300D               	movlw	13
+  1114  054F  0676               	xorwf	UART_Read_Text@x,w
+  1115  0550  1903               	btfsc	3,2
+  1116  0551  2D5F               	goto	l953
+  1117                           
+  1118                           ;LIFITXRX.c: 263: {
+  1119                           ;LIFITXRX.c: 266: string[i++] = x;
+  1120  0552  0876               	movf	UART_Read_Text@x,w
+  1121  0553  00F4               	movwf	??_UART_Read_Text
+  1122  0554  0877               	movf	UART_Read_Text@i,w
+  1123  0555  3E46               	addlw	(low (UART_Read_Text@string| 0))& (0+255)
+  1124  0556  0084               	movwf	4
+  1125  0557  0874               	movf	??_UART_Read_Text,w
+  1126  0558  1383               	bcf	3,7	;select IRP bank0
+  1127  0559  0080               	movwf	0
+  1128  055A  3001               	movlw	1
+  1129  055B  00F4               	movwf	??_UART_Read_Text
+  1130  055C  0874               	movf	??_UART_Read_Text,w
+  1131  055D  07F7               	addwf	UART_Read_Text@i,f
+  1132  055E  2D46               	goto	l951
+  1133  055F                     l953:	
+  1134                           
+  1135                           ;LIFITXRX.c: 267: }
+  1136                           ;LIFITXRX.c: 270: string[i] = '\0';
+  1137  055F  0877               	movf	UART_Read_Text@i,w
+  1138  0560  3E46               	addlw	(low (UART_Read_Text@string| 0))& (0+255)
+  1139  0561  0084               	movwf	4
+  1140  0562  1383               	bcf	3,7	;select IRP bank0
+  1141  0563  0180               	clrf	0
+  1142                           
+  1143                           ;LIFITXRX.c: 271: UART_Write_Text(a);
+  1144  0564  0875               	movf	UART_Read_Text@a,w
+  1145  0565  120A  118A  251F   	fcall	_UART_Write_Text
+  1146                           
+  1147                           ;LIFITXRX.c: 274: return(string);
+  1148  0568  3046               	movlw	(low (UART_Read_Text@string| 0))& (0+255)
+  1149  0569  0008               	return
+  1150  056A                     __end_of_UART_Read_Text:	
+  1151                           
+  1152                           	psect	text4
+  1153  051F                     __ptext4:	
+  1154 ;; *************** function _UART_Write_Text *****************
+  1155 ;; Defined at:
+  1156 ;;		line 234 in file "LIFITXRX.c"
+  1157 ;; Parameters:    Size  Location     Type
+  1158 ;;  text            1    wreg     PTR const unsigned char 
+  1159 ;;		 -> STR_10(12), STR_9(17), STR_8(7), STR_7(25), 
+  1160 ;;		 -> STR_6(24), STR_5(17), STR_4(19), STR_3(20), 
+  1161 ;;		 -> STR_2(17), STR_1(24), 
+  1162 ;; Auto vars:     Size  Location     Type
+  1163 ;;  text            1    3[COMMON] PTR const unsigned char 
+  1164 ;;		 -> STR_10(12), STR_9(17), STR_8(7), STR_7(25), 
+  1165 ;;		 -> STR_6(24), STR_5(17), STR_4(19), STR_3(20), 
+  1166 ;;		 -> STR_2(17), STR_1(24), 
+  1167 ;;  i               2    1[COMMON] int 
+  1168 ;; Return value:  Size  Location     Type
+  1169 ;;		None               void
+  1170 ;; Registers used:
+  1171 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+  1172 ;; Tracked objects:
+  1173 ;;		On entry : 0/0
+  1174 ;;		On exit  : 0/0
+  1175 ;;		Unchanged: 0/0
+  1176 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1177 ;;      Params:         0       0       0       0       0
+  1178 ;;      Locals:         3       0       0       0       0
+  1179 ;;      Temps:          0       0       0       0       0
+  1180 ;;      Totals:         3       0       0       0       0
+  1181 ;;Total ram usage:        3 bytes
+  1182 ;; Hardware stack levels used:    1
+  1183 ;; Hardware stack levels required when called:    1
+  1184 ;; This function calls:
+  1185 ;;		_UART_Write
+  1186 ;; This function is called by:
+  1187 ;;		_main
+  1188 ;;		_UART_Read_Text
+  1189 ;; This function uses a non-reentrant model
+  1190 ;;
+  1191                           
+  1192                           
+  1193                           ;psect for function _UART_Write_Text
+  1194  051F                     _UART_Write_Text:	
   1195                           
-  1196                           ;LIFITXRX.c: 236: UART_Write(text[i]);
-  1197  053B  0871               	movf	UART_Write_Text@i,w
-  1198  053C  0773               	addwf	UART_Write_Text@text,w
-  1199  053D  0084               	movwf	4
-  1200  053E  120A  118A  2003  120A  118A  	fcall	stringdir
-  1201  0543  120A  118A  2500  120A  118A  	fcall	_UART_Write
-  1202  0548  3001               	movlw	1
-  1203  0549  07F1               	addwf	UART_Write_Text@i,f
-  1204  054A  1803               	skipnc
-  1205  054B  0AF2               	incf	UART_Write_Text@i+1,f
-  1206  054C  3000               	movlw	0
-  1207  054D  07F2               	addwf	UART_Write_Text@i+1,f
-  1208  054E  2D30               	goto	l845
-  1209  054F                     __end_of_UART_Write_Text:	
-  1210                           
-  1211                           	psect	text5
-  1212  0500                     __ptext5:	
-  1213 ;; *************** function _UART_Write *****************
-  1214 ;; Defined at:
-  1215 ;;		line 220 in file "LIFITXRX.c"
-  1216 ;; Parameters:    Size  Location     Type
-  1217 ;;  data            1    wreg     unsigned char 
-  1218 ;; Auto vars:     Size  Location     Type
-  1219 ;;  data            1    0[COMMON] unsigned char 
-  1220 ;; Return value:  Size  Location     Type
-  1221 ;;		None               void
-  1222 ;; Registers used:
-  1223 ;;		wreg
-  1224 ;; Tracked objects:
-  1225 ;;		On entry : 0/0
-  1226 ;;		On exit  : 0/0
-  1227 ;;		Unchanged: 0/0
-  1228 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-  1229 ;;      Params:         0       0       0       0       0
-  1230 ;;      Locals:         1       0       0       0       0
-  1231 ;;      Temps:          0       0       0       0       0
-  1232 ;;      Totals:         1       0       0       0       0
-  1233 ;;Total ram usage:        1 bytes
-  1234 ;; Hardware stack levels used:    1
-  1235 ;; This function calls:
-  1236 ;;		Nothing
-  1237 ;; This function is called by:
-  1238 ;;		_main
-  1239 ;;		_UART_Write_Text
-  1240 ;; This function uses a non-reentrant model
-  1241 ;;
-  1242                           
-  1243                           
-  1244                           ;psect for function _UART_Write
-  1245  0500                     _UART_Write:	
-  1246                           
-  1247                           ;incstack = 0
-  1248                           ; Regs used in _UART_Write: [wreg]
-  1249                           ;UART_Write@data stored from wreg
-  1250  0500  00F0               	movwf	UART_Write@data
-  1251  0501                     l95:	
-  1252                           ;LIFITXRX.c: 222: while(!PIR1bits.TXIF);
-  1253                           
-  1254  0501  1283               	bcf	3,5	;RP0=0, select bank0
-  1255  0502  1303               	bcf	3,6	;RP1=0, select bank0
-  1256  0503  1E0C               	btfss	12,4	;volatile
-  1257  0504  2D01               	goto	l95
-  1258  0505                     l98:	
-  1259                           ;LIFITXRX.c: 223: while(!TRMT);
+  1196                           ;incstack = 0
+  1197                           ; Regs used in _UART_Write_Text: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+  1198                           ;UART_Write_Text@text stored from wreg
+  1199  051F  00F3               	movwf	UART_Write_Text@text
+  1200                           
+  1201                           ;LIFITXRX.c: 236: int i;
+  1202                           ;LIFITXRX.c: 237: for(i=0;text[i]!='\0';i++)
+  1203  0520  01F1               	clrf	UART_Write_Text@i
+  1204  0521  01F2               	clrf	UART_Write_Text@i+1
+  1205  0522                     l841:	
+  1206  0522  0871               	movf	UART_Write_Text@i,w
+  1207  0523  0773               	addwf	UART_Write_Text@text,w
+  1208  0524  0084               	movwf	4
+  1209  0525  120A  118A  2003  120A  118A  	fcall	stringdir
+  1210  052A  3A00               	xorlw	0
+  1211  052B  1903               	btfsc	3,2
+  1212  052C  0008               	return
+  1213                           
+  1214                           ;LIFITXRX.c: 238: UART_Write(text[i]);
+  1215  052D  0871               	movf	UART_Write_Text@i,w
+  1216  052E  0773               	addwf	UART_Write_Text@text,w
+  1217  052F  0084               	movwf	4
+  1218  0530  120A  118A  2003  120A  118A  	fcall	stringdir
+  1219  0535  120A  118A  24F2  120A  118A  	fcall	_UART_Write
+  1220  053A  3001               	movlw	1
+  1221  053B  07F1               	addwf	UART_Write_Text@i,f
+  1222  053C  1803               	skipnc
+  1223  053D  0AF2               	incf	UART_Write_Text@i+1,f
+  1224  053E  3000               	movlw	0
+  1225  053F  07F2               	addwf	UART_Write_Text@i+1,f
+  1226  0540  2D22               	goto	l841
+  1227  0541                     __end_of_UART_Write_Text:	
+  1228                           
+  1229                           	psect	text5
+  1230  04F2                     __ptext5:	
+  1231 ;; *************** function _UART_Write *****************
+  1232 ;; Defined at:
+  1233 ;;		line 222 in file "LIFITXRX.c"
+  1234 ;; Parameters:    Size  Location     Type
+  1235 ;;  data            1    wreg     unsigned char 
+  1236 ;; Auto vars:     Size  Location     Type
+  1237 ;;  data            1    0[COMMON] unsigned char 
+  1238 ;; Return value:  Size  Location     Type
+  1239 ;;		None               void
+  1240 ;; Registers used:
+  1241 ;;		wreg
+  1242 ;; Tracked objects:
+  1243 ;;		On entry : 0/0
+  1244 ;;		On exit  : 0/0
+  1245 ;;		Unchanged: 0/0
+  1246 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1247 ;;      Params:         0       0       0       0       0
+  1248 ;;      Locals:         1       0       0       0       0
+  1249 ;;      Temps:          0       0       0       0       0
+  1250 ;;      Totals:         1       0       0       0       0
+  1251 ;;Total ram usage:        1 bytes
+  1252 ;; Hardware stack levels used:    1
+  1253 ;; This function calls:
+  1254 ;;		Nothing
+  1255 ;; This function is called by:
+  1256 ;;		_main
+  1257 ;;		_UART_Write_Text
+  1258 ;; This function uses a non-reentrant model
+  1259 ;;
   1260                           
-  1261  0505  1683               	bsf	3,5	;RP0=1, select bank1
-  1262  0506  1303               	bcf	3,6	;RP1=0, select bank1
-  1263  0507  1C98               	btfss	24,1	;volatile
-  1264  0508  2D05               	goto	l98
-  1265                           
-  1266                           ;LIFITXRX.c: 224: TXREG = data;
-  1267  0509  0870               	movf	UART_Write@data,w
-  1268  050A  1283               	bcf	3,5	;RP0=0, select bank0
-  1269  050B  1303               	bcf	3,6	;RP1=0, select bank0
-  1270  050C  0099               	movwf	25	;volatile
-  1271  050D  0008               	return
-  1272  050E                     __end_of_UART_Write:	
-  1273                           
-  1274                           	psect	text6
-  1275  04F2                     __ptext6:	
-  1276 ;; *************** function _UART_Read *****************
-  1277 ;; Defined at:
-  1278 ;;		line 246 in file "LIFITXRX.c"
-  1279 ;; Parameters:    Size  Location     Type
-  1280 ;;		None
-  1281 ;; Auto vars:     Size  Location     Type
-  1282 ;;		None
-  1283 ;; Return value:  Size  Location     Type
-  1284 ;;                  1    wreg      unsigned char 
-  1285 ;; Registers used:
-  1286 ;;		wreg
-  1287 ;; Tracked objects:
-  1288 ;;		On entry : 0/0
-  1289 ;;		On exit  : 0/0
-  1290 ;;		Unchanged: 0/0
-  1291 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-  1292 ;;      Params:         0       0       0       0       0
-  1293 ;;      Locals:         0       0       0       0       0
-  1294 ;;      Temps:          0       0       0       0       0
-  1295 ;;      Totals:         0       0       0       0       0
-  1296 ;;Total ram usage:        0 bytes
-  1297 ;; Hardware stack levels used:    1
-  1298 ;; This function calls:
-  1299 ;;		Nothing
-  1300 ;; This function is called by:
-  1301 ;;		_UART_Read_Text
-  1302 ;; This function uses a non-reentrant model
-  1303 ;;
-  1304                           
-  1305                           
-  1306                           ;psect for function _UART_Read
-  1307  04F2                     _UART_Read:	
-  1308  04F2                     l116:	
-  1309                           ;LIFITXRX.c: 248: while(!RCIF);
-  1310                           
-  1311                           ;incstack = 0
-  1312                           ; Regs used in _UART_Read: [wreg]
-  1313                           
-  1314  04F2  1283               	bcf	3,5	;RP0=0, select bank0
-  1315  04F3  1303               	bcf	3,6	;RP1=0, select bank0
-  1316  04F4  1E8C               	btfss	12,5	;volatile
-  1317  04F5  2CF2               	goto	l116
-  1318                           
-  1319                           ;LIFITXRX.c: 249: return RCREG;
-  1320  04F6  081A               	movf	26,w	;volatile
-  1321  04F7  0008               	return
-  1322  04F8                     __end_of_UART_Read:	
+  1261                           
+  1262                           ;psect for function _UART_Write
+  1263  04F2                     _UART_Write:	
+  1264                           
+  1265                           ;incstack = 0
+  1266                           ; Regs used in _UART_Write: [wreg]
+  1267                           ;UART_Write@data stored from wreg
+  1268  04F2  00F0               	movwf	UART_Write@data
+  1269  04F3                     l95:	
+  1270                           ;LIFITXRX.c: 224: while(!PIR1bits.TXIF);
+  1271                           
+  1272  04F3  1283               	bcf	3,5	;RP0=0, select bank0
+  1273  04F4  1303               	bcf	3,6	;RP1=0, select bank0
+  1274  04F5  1E0C               	btfss	12,4	;volatile
+  1275  04F6  2CF3               	goto	l95
+  1276  04F7                     l98:	
+  1277                           ;LIFITXRX.c: 225: while(!TRMT);
+  1278                           
+  1279  04F7  1683               	bsf	3,5	;RP0=1, select bank1
+  1280  04F8  1303               	bcf	3,6	;RP1=0, select bank1
+  1281  04F9  1C98               	btfss	24,1	;volatile
+  1282  04FA  2CF7               	goto	l98
+  1283                           
+  1284                           ;LIFITXRX.c: 226: TXREG = data;
+  1285  04FB  0870               	movf	UART_Write@data,w
+  1286  04FC  1283               	bcf	3,5	;RP0=0, select bank0
+  1287  04FD  1303               	bcf	3,6	;RP1=0, select bank0
+  1288  04FE  0099               	movwf	25	;volatile
+  1289  04FF  0008               	return
+  1290  0500                     __end_of_UART_Write:	
+  1291                           
+  1292                           	psect	text6
+  1293  04E4                     __ptext6:	
+  1294 ;; *************** function _UART_Read *****************
+  1295 ;; Defined at:
+  1296 ;;		line 248 in file "LIFITXRX.c"
+  1297 ;; Parameters:    Size  Location     Type
+  1298 ;;		None
+  1299 ;; Auto vars:     Size  Location     Type
+  1300 ;;		None
+  1301 ;; Return value:  Size  Location     Type
+  1302 ;;                  1    wreg      unsigned char 
+  1303 ;; Registers used:
+  1304 ;;		wreg
+  1305 ;; Tracked objects:
+  1306 ;;		On entry : 0/0
+  1307 ;;		On exit  : 0/0
+  1308 ;;		Unchanged: 0/0
+  1309 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1310 ;;      Params:         0       0       0       0       0
+  1311 ;;      Locals:         0       0       0       0       0
+  1312 ;;      Temps:          0       0       0       0       0
+  1313 ;;      Totals:         0       0       0       0       0
+  1314 ;;Total ram usage:        0 bytes
+  1315 ;; Hardware stack levels used:    1
+  1316 ;; This function calls:
+  1317 ;;		Nothing
+  1318 ;; This function is called by:
+  1319 ;;		_UART_Read_Text
+  1320 ;; This function uses a non-reentrant model
+  1321 ;;
+  1322                           
   1323                           
-  1324                           	psect	text7
-  1325  0607                     __ptext7:	
-  1326 ;; *************** function _UART_Init *****************
-  1327 ;; Defined at:
-  1328 ;;		line 192 in file "LIFITXRX.c"
-  1329 ;; Parameters:    Size  Location     Type
-  1330 ;;  baudrate        4    6[BANK0 ] long 
-  1331 ;; Auto vars:     Size  Location     Type
-  1332 ;;  x               2    9[COMMON] unsigned int 
-  1333 ;; Return value:  Size  Location     Type
-  1334 ;;                  1    wreg      unsigned char 
-  1335 ;; Registers used:
-  1336 ;;		wreg, status,2, status,0, pclath, cstack
-  1337 ;; Tracked objects:
-  1338 ;;		On entry : 0/0
-  1339 ;;		On exit  : 0/0
-  1340 ;;		Unchanged: 0/0
-  1341 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-  1342 ;;      Params:         0       4       0       0       0
-  1343 ;;      Locals:         2       0       0       0       0
-  1344 ;;      Temps:          0      12       0       0       0
-  1345 ;;      Totals:         2      16       0       0       0
-  1346 ;;Total ram usage:       18 bytes
-  1347 ;; Hardware stack levels used:    1
-  1348 ;; Hardware stack levels required when called:    1
-  1349 ;; This function calls:
-  1350 ;;		___aldiv
-  1351 ;; This function is called by:
-  1352 ;;		_main
-  1353 ;; This function uses a non-reentrant model
-  1354 ;;
-  1355                           
-  1356                           
-  1357                           ;psect for function _UART_Init
-  1358  0607                     _UART_Init:	
-  1359                           
-  1360                           ;LIFITXRX.c: 194: unsigned int x;
-  1361                           ;LIFITXRX.c: 195: x = (8000000 - baudrate*64)/(baudrate*64);
-  1362                           
-  1363                           ;incstack = 0
-  1364                           ; Regs used in _UART_Init: [wreg+status,2+status,0+pclath+cstack]
-  1365  0607  1283               	bcf	3,5	;RP0=0, select bank0
-  1366  0608  1303               	bcf	3,6	;RP1=0, select bank0
-  1367  0609  0826               	movf	UART_Init@baudrate,w
-  1368  060A  00AA               	movwf	??_UART_Init
-  1369  060B  0827               	movf	UART_Init@baudrate+1,w
-  1370  060C  00AB               	movwf	??_UART_Init+1
-  1371  060D  0828               	movf	UART_Init@baudrate+2,w
-  1372  060E  00AC               	movwf	??_UART_Init+2
-  1373  060F  0829               	movf	UART_Init@baudrate+3,w
-  1374  0610  00AD               	movwf	??_UART_Init+3
-  1375  0611  3006               	movlw	6
-  1376  0612                     u595:	
-  1377  0612  1003               	clrc
-  1378  0613  0DAA               	rlf	??_UART_Init,f
-  1379  0614  0DAB               	rlf	??_UART_Init+1,f
-  1380  0615  0DAC               	rlf	??_UART_Init+2,f
-  1381  0616  0DAD               	rlf	??_UART_Init+3,f
-  1382  0617  3EFF               	addlw	-1
-  1383  0618  1D03               	skipz
-  1384  0619  2E12               	goto	u595
-  1385  061A  082D               	movf	??_UART_Init+3,w
-  1386  061B  00F3               	movwf	___aldiv@divisor+3
-  1387  061C  082C               	movf	??_UART_Init+2,w
-  1388  061D  00F2               	movwf	___aldiv@divisor+2
-  1389  061E  082B               	movf	??_UART_Init+1,w
-  1390  061F  00F1               	movwf	___aldiv@divisor+1
-  1391  0620  082A               	movf	??_UART_Init,w
-  1392  0621  00F0               	movwf	___aldiv@divisor
-  1393  0622  3000               	movlw	0
-  1394  0623  00AE               	movwf	??_UART_Init+4
-  1395  0624  3012               	movlw	18
-  1396  0625  00AF               	movwf	??_UART_Init+5
-  1397  0626  307A               	movlw	122
-  1398  0627  00B0               	movwf	??_UART_Init+6
-  1399  0628  3000               	movlw	0
-  1400  0629  00B1               	movwf	??_UART_Init+7
-  1401  062A  0826               	movf	UART_Init@baudrate,w
-  1402  062B  00B2               	movwf	??_UART_Init+8
-  1403  062C  0827               	movf	UART_Init@baudrate+1,w
-  1404  062D  00B3               	movwf	??_UART_Init+9
-  1405  062E  0828               	movf	UART_Init@baudrate+2,w
-  1406  062F  00B4               	movwf	??_UART_Init+10
-  1407  0630  0829               	movf	UART_Init@baudrate+3,w
-  1408  0631  00B5               	movwf	??_UART_Init+11
-  1409  0632  3006               	movlw	6
-  1410  0633                     u605:	
-  1411  0633  1003               	clrc
-  1412  0634  0DB2               	rlf	??_UART_Init+8,f
-  1413  0635  0DB3               	rlf	??_UART_Init+9,f
-  1414  0636  0DB4               	rlf	??_UART_Init+10,f
-  1415  0637  0DB5               	rlf	??_UART_Init+11,f
-  1416  0638  3EFF               	addlw	-1
-  1417  0639  1D03               	skipz
-  1418  063A  2E33               	goto	u605
-  1419  063B  09B2               	comf	??_UART_Init+8,f
-  1420  063C  09B3               	comf	??_UART_Init+9,f
-  1421  063D  09B4               	comf	??_UART_Init+10,f
-  1422  063E  09B5               	comf	??_UART_Init+11,f
-  1423  063F  0AB2               	incf	??_UART_Init+8,f
-  1424  0640  1903               	skipnz
-  1425  0641  0AB3               	incf	??_UART_Init+9,f
-  1426  0642  1903               	skipnz
-  1427  0643  0AB4               	incf	??_UART_Init+10,f
-  1428  0644  1903               	skipnz
-  1429  0645  0AB5               	incf	??_UART_Init+11,f
-  1430  0646  0832               	movf	??_UART_Init+8,w
-  1431  0647  07AE               	addwf	??_UART_Init+4,f
-  1432  0648  0833               	movf	??_UART_Init+9,w
-  1433  0649  1803               	skipnc
-  1434  064A  0F33               	incfsz	??_UART_Init+9,w
-  1435  064B  2E4D               	goto	u610
-  1436  064C  2E4E               	goto	u611
-  1437  064D                     u610:	
-  1438  064D  07AF               	addwf	??_UART_Init+5,f
-  1439  064E                     u611:	
-  1440  064E  0834               	movf	??_UART_Init+10,w
-  1441  064F  1803               	skipnc
-  1442  0650  0F34               	incfsz	??_UART_Init+10,w
-  1443  0651  2E53               	goto	u612
-  1444  0652  2E54               	goto	u613
-  1445  0653                     u612:	
-  1446  0653  07B0               	addwf	??_UART_Init+6,f
-  1447  0654                     u613:	
-  1448  0654  0835               	movf	??_UART_Init+11,w
-  1449  0655  1803               	skipnc
-  1450  0656  0A35               	incf	??_UART_Init+11,w
-  1451  0657  07B1               	addwf	??_UART_Init+7,f
-  1452  0658  0831               	movf	??_UART_Init+7,w
-  1453  0659  00F7               	movwf	___aldiv@dividend+3
-  1454  065A  0830               	movf	??_UART_Init+6,w
-  1455  065B  00F6               	movwf	___aldiv@dividend+2
-  1456  065C  082F               	movf	??_UART_Init+5,w
-  1457  065D  00F5               	movwf	___aldiv@dividend+1
-  1458  065E  082E               	movf	??_UART_Init+4,w
-  1459  065F  00F4               	movwf	___aldiv@dividend
-  1460  0660  120A  118A  2578  120A  118A  	fcall	___aldiv
-  1461  0665  0871               	movf	?___aldiv+1,w
-  1462  0666  00FA               	movwf	UART_Init@x+1
-  1463  0667  0870               	movf	?___aldiv,w
-  1464  0668  00F9               	movwf	UART_Init@x
-  1465                           
-  1466                           ;LIFITXRX.c: 196: if(x>255)
-  1467  0669  3001               	movlw	1
-  1468  066A  027A               	subwf	UART_Init@x+1,w
-  1469  066B  3000               	movlw	0
-  1470  066C  1903               	skipnz
-  1471  066D  0279               	subwf	UART_Init@x,w
-  1472  066E  1C03               	skipc
-  1473  066F  2EDF               	goto	l921
-  1474                           
-  1475                           ;LIFITXRX.c: 197: {
-  1476                           ;LIFITXRX.c: 198: x = (8000000 - baudrate*16)/(baudrate*16);
-  1477  0670  1283               	bcf	3,5	;RP0=0, select bank0
-  1478  0671  1303               	bcf	3,6	;RP1=0, select bank0
-  1479  0672  0826               	movf	UART_Init@baudrate,w
-  1480  0673  00AA               	movwf	??_UART_Init
-  1481  0674  0827               	movf	UART_Init@baudrate+1,w
-  1482  0675  00AB               	movwf	??_UART_Init+1
-  1483  0676  0828               	movf	UART_Init@baudrate+2,w
-  1484  0677  00AC               	movwf	??_UART_Init+2
-  1485  0678  0829               	movf	UART_Init@baudrate+3,w
-  1486  0679  00AD               	movwf	??_UART_Init+3
-  1487  067A  3004               	movlw	4
-  1488  067B                     u635:	
-  1489  067B  1003               	clrc
-  1490  067C  0DAA               	rlf	??_UART_Init,f
-  1491  067D  0DAB               	rlf	??_UART_Init+1,f
-  1492  067E  0DAC               	rlf	??_UART_Init+2,f
-  1493  067F  0DAD               	rlf	??_UART_Init+3,f
-  1494  0680  3EFF               	addlw	-1
-  1495  0681  1D03               	skipz
-  1496  0682  2E7B               	goto	u635
-  1497  0683  082D               	movf	??_UART_Init+3,w
-  1498  0684  00F3               	movwf	___aldiv@divisor+3
-  1499  0685  082C               	movf	??_UART_Init+2,w
-  1500  0686  00F2               	movwf	___aldiv@divisor+2
-  1501  0687  082B               	movf	??_UART_Init+1,w
-  1502  0688  00F1               	movwf	___aldiv@divisor+1
-  1503  0689  082A               	movf	??_UART_Init,w
-  1504  068A  00F0               	movwf	___aldiv@divisor
-  1505  068B  3000               	movlw	0
-  1506  068C  00AE               	movwf	??_UART_Init+4
-  1507  068D  3012               	movlw	18
-  1508  068E  00AF               	movwf	??_UART_Init+5
-  1509  068F  307A               	movlw	122
-  1510  0690  00B0               	movwf	??_UART_Init+6
-  1511  0691  3000               	movlw	0
-  1512  0692  00B1               	movwf	??_UART_Init+7
-  1513  0693  0826               	movf	UART_Init@baudrate,w
-  1514  0694  00B2               	movwf	??_UART_Init+8
-  1515  0695  0827               	movf	UART_Init@baudrate+1,w
-  1516  0696  00B3               	movwf	??_UART_Init+9
-  1517  0697  0828               	movf	UART_Init@baudrate+2,w
-  1518  0698  00B4               	movwf	??_UART_Init+10
-  1519  0699  0829               	movf	UART_Init@baudrate+3,w
-  1520  069A  00B5               	movwf	??_UART_Init+11
-  1521  069B  3004               	movlw	4
-  1522  069C                     u645:	
-  1523  069C  1003               	clrc
-  1524  069D  0DB2               	rlf	??_UART_Init+8,f
-  1525  069E  0DB3               	rlf	??_UART_Init+9,f
-  1526  069F  0DB4               	rlf	??_UART_Init+10,f
-  1527  06A0  0DB5               	rlf	??_UART_Init+11,f
-  1528  06A1  3EFF               	addlw	-1
-  1529  06A2  1D03               	skipz
-  1530  06A3  2E9C               	goto	u645
-  1531  06A4  09B2               	comf	??_UART_Init+8,f
-  1532  06A5  09B3               	comf	??_UART_Init+9,f
-  1533  06A6  09B4               	comf	??_UART_Init+10,f
-  1534  06A7  09B5               	comf	??_UART_Init+11,f
-  1535  06A8  0AB2               	incf	??_UART_Init+8,f
-  1536  06A9  1903               	skipnz
-  1537  06AA  0AB3               	incf	??_UART_Init+9,f
-  1538  06AB  1903               	skipnz
-  1539  06AC  0AB4               	incf	??_UART_Init+10,f
-  1540  06AD  1903               	skipnz
-  1541  06AE  0AB5               	incf	??_UART_Init+11,f
-  1542  06AF  0832               	movf	??_UART_Init+8,w
-  1543  06B0  07AE               	addwf	??_UART_Init+4,f
-  1544  06B1  0833               	movf	??_UART_Init+9,w
-  1545  06B2  1803               	skipnc
-  1546  06B3  0F33               	incfsz	??_UART_Init+9,w
-  1547  06B4  2EB6               	goto	u650
-  1548  06B5  2EB7               	goto	u651
-  1549  06B6                     u650:	
-  1550  06B6  07AF               	addwf	??_UART_Init+5,f
-  1551  06B7                     u651:	
-  1552  06B7  0834               	movf	??_UART_Init+10,w
-  1553  06B8  1803               	skipnc
-  1554  06B9  0F34               	incfsz	??_UART_Init+10,w
-  1555  06BA  2EBC               	goto	u652
-  1556  06BB  2EBD               	goto	u653
-  1557  06BC                     u652:	
-  1558  06BC  07B0               	addwf	??_UART_Init+6,f
-  1559  06BD                     u653:	
-  1560  06BD  0835               	movf	??_UART_Init+11,w
-  1561  06BE  1803               	skipnc
-  1562  06BF  0A35               	incf	??_UART_Init+11,w
-  1563  06C0  07B1               	addwf	??_UART_Init+7,f
-  1564  06C1  0831               	movf	??_UART_Init+7,w
-  1565  06C2  00F7               	movwf	___aldiv@dividend+3
-  1566  06C3  0830               	movf	??_UART_Init+6,w
-  1567  06C4  00F6               	movwf	___aldiv@dividend+2
-  1568  06C5  082F               	movf	??_UART_Init+5,w
-  1569  06C6  00F5               	movwf	___aldiv@dividend+1
-  1570  06C7  082E               	movf	??_UART_Init+4,w
-  1571  06C8  00F4               	movwf	___aldiv@dividend
-  1572  06C9  120A  118A  2578  120A  118A  	fcall	___aldiv
-  1573  06CE  0871               	movf	?___aldiv+1,w
-  1574  06CF  00FA               	movwf	UART_Init@x+1
-  1575  06D0  0870               	movf	?___aldiv,w
-  1576  06D1  00F9               	movwf	UART_Init@x
-  1577                           
-  1578                           ;LIFITXRX.c: 200: BRGH = 1;
-  1579  06D2  1683               	bsf	3,5	;RP0=1, select bank1
-  1580  06D3  1303               	bcf	3,6	;RP1=0, select bank1
-  1581  06D4  1518               	bsf	24,2	;volatile
-  1582                           
-  1583                           ;LIFITXRX.c: 201: SPBRG = x;
-  1584  06D5  0879               	movf	UART_Init@x,w
-  1585  06D6  0099               	movwf	25	;volatile
-  1586                           
-  1587                           ;LIFITXRX.c: 202: SYNC = 0;
-  1588  06D7  1218               	bcf	24,4	;volatile
-  1589                           
-  1590                           ;LIFITXRX.c: 203: SPEN = 1;
-  1591  06D8  1283               	bcf	3,5	;RP0=0, select bank0
-  1592  06D9  1303               	bcf	3,6	;RP1=0, select bank0
-  1593  06DA  1798               	bsf	24,7	;volatile
-  1594                           
-  1595                           ;LIFITXRX.c: 204: CREN = 1;
-  1596  06DB  1618               	bsf	24,4	;volatile
-  1597                           
-  1598                           ;LIFITXRX.c: 205: TXEN = 1;
-  1599  06DC  1683               	bsf	3,5	;RP0=1, select bank1
-  1600  06DD  1303               	bcf	3,6	;RP1=0, select bank1
-  1601  06DE  1698               	bsf	24,5	;volatile
-  1602  06DF                     l921:	
-  1603                           
-  1604                           ;LIFITXRX.c: 206: }
-  1605                           ;LIFITXRX.c: 207: if(x<256)
-  1606  06DF  3001               	movlw	1
-  1607  06E0  027A               	subwf	UART_Init@x+1,w
-  1608  06E1  3000               	movlw	0
-  1609  06E2  1903               	skipnz
-  1610  06E3  0279               	subwf	UART_Init@x,w
-  1611  06E4  1803               	skipnc
-  1612  06E5  0008               	return
-  1613                           
-  1614                           ;LIFITXRX.c: 208: {
-  1615                           ;LIFITXRX.c: 209: BRGH = 0;
-  1616  06E6  1683               	bsf	3,5	;RP0=1, select bank1
-  1617  06E7  1303               	bcf	3,6	;RP1=0, select bank1
-  1618  06E8  1118               	bcf	24,2	;volatile
-  1619                           
-  1620                           ;LIFITXRX.c: 210: SPBRG = x;
-  1621  06E9  0879               	movf	UART_Init@x,w
-  1622  06EA  0099               	movwf	25	;volatile
-  1623                           
-  1624                           ;LIFITXRX.c: 211: SYNC = 0;
-  1625  06EB  1218               	bcf	24,4	;volatile
-  1626                           
-  1627                           ;LIFITXRX.c: 212: SPEN = 1;
-  1628  06EC  1283               	bcf	3,5	;RP0=0, select bank0
-  1629  06ED  1303               	bcf	3,6	;RP1=0, select bank0
-  1630  06EE  1798               	bsf	24,7	;volatile
+  1324                           ;psect for function _UART_Read
+  1325  04E4                     _UART_Read:	
+  1326  04E4                     l116:	
+  1327                           ;LIFITXRX.c: 250: while(!RCIF);
+  1328                           
+  1329                           ;incstack = 0
+  1330                           ; Regs used in _UART_Read: [wreg]
+  1331                           
+  1332  04E4  1283               	bcf	3,5	;RP0=0, select bank0
+  1333  04E5  1303               	bcf	3,6	;RP1=0, select bank0
+  1334  04E6  1E8C               	btfss	12,5	;volatile
+  1335  04E7  2CE4               	goto	l116
+  1336                           
+  1337                           ;LIFITXRX.c: 251: return RCREG;
+  1338  04E8  081A               	movf	26,w	;volatile
+  1339  04E9  0008               	return
+  1340  04EA                     __end_of_UART_Read:	
+  1341                           
+  1342                           	psect	text7
+  1343  05F9                     __ptext7:	
+  1344 ;; *************** function _UART_Init *****************
+  1345 ;; Defined at:
+  1346 ;;		line 194 in file "LIFITXRX.c"
+  1347 ;; Parameters:    Size  Location     Type
+  1348 ;;  baudrate        4    6[BANK0 ] long 
+  1349 ;; Auto vars:     Size  Location     Type
+  1350 ;;  x               2    9[COMMON] unsigned int 
+  1351 ;; Return value:  Size  Location     Type
+  1352 ;;                  1    wreg      unsigned char 
+  1353 ;; Registers used:
+  1354 ;;		wreg, status,2, status,0, pclath, cstack
+  1355 ;; Tracked objects:
+  1356 ;;		On entry : 0/0
+  1357 ;;		On exit  : 0/0
+  1358 ;;		Unchanged: 0/0
+  1359 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1360 ;;      Params:         0       4       0       0       0
+  1361 ;;      Locals:         2       0       0       0       0
+  1362 ;;      Temps:          0      12       0       0       0
+  1363 ;;      Totals:         2      16       0       0       0
+  1364 ;;Total ram usage:       18 bytes
+  1365 ;; Hardware stack levels used:    1
+  1366 ;; Hardware stack levels required when called:    1
+  1367 ;; This function calls:
+  1368 ;;		___aldiv
+  1369 ;; This function is called by:
+  1370 ;;		_main
+  1371 ;; This function uses a non-reentrant model
+  1372 ;;
+  1373                           
+  1374                           
+  1375                           ;psect for function _UART_Init
+  1376  05F9                     _UART_Init:	
+  1377                           
+  1378                           ;LIFITXRX.c: 196: unsigned int x;
+  1379                           ;LIFITXRX.c: 197: x = (8000000 - baudrate*64)/(baudrate*64);
+  1380                           
+  1381                           ;incstack = 0
+  1382                           ; Regs used in _UART_Init: [wreg+status,2+status,0+pclath+cstack]
+  1383  05F9  1283               	bcf	3,5	;RP0=0, select bank0
+  1384  05FA  1303               	bcf	3,6	;RP1=0, select bank0
+  1385  05FB  0826               	movf	UART_Init@baudrate,w
+  1386  05FC  00AA               	movwf	??_UART_Init
+  1387  05FD  0827               	movf	UART_Init@baudrate+1,w
+  1388  05FE  00AB               	movwf	??_UART_Init+1
+  1389  05FF  0828               	movf	UART_Init@baudrate+2,w
+  1390  0600  00AC               	movwf	??_UART_Init+2
+  1391  0601  0829               	movf	UART_Init@baudrate+3,w
+  1392  0602  00AD               	movwf	??_UART_Init+3
+  1393  0603  3006               	movlw	6
+  1394  0604                     u605:	
+  1395  0604  1003               	clrc
+  1396  0605  0DAA               	rlf	??_UART_Init,f
+  1397  0606  0DAB               	rlf	??_UART_Init+1,f
+  1398  0607  0DAC               	rlf	??_UART_Init+2,f
+  1399  0608  0DAD               	rlf	??_UART_Init+3,f
+  1400  0609  3EFF               	addlw	-1
+  1401  060A  1D03               	skipz
+  1402  060B  2E04               	goto	u605
+  1403  060C  082D               	movf	??_UART_Init+3,w
+  1404  060D  00F3               	movwf	___aldiv@divisor+3
+  1405  060E  082C               	movf	??_UART_Init+2,w
+  1406  060F  00F2               	movwf	___aldiv@divisor+2
+  1407  0610  082B               	movf	??_UART_Init+1,w
+  1408  0611  00F1               	movwf	___aldiv@divisor+1
+  1409  0612  082A               	movf	??_UART_Init,w
+  1410  0613  00F0               	movwf	___aldiv@divisor
+  1411  0614  3000               	movlw	0
+  1412  0615  00AE               	movwf	??_UART_Init+4
+  1413  0616  3012               	movlw	18
+  1414  0617  00AF               	movwf	??_UART_Init+5
+  1415  0618  307A               	movlw	122
+  1416  0619  00B0               	movwf	??_UART_Init+6
+  1417  061A  3000               	movlw	0
+  1418  061B  00B1               	movwf	??_UART_Init+7
+  1419  061C  0826               	movf	UART_Init@baudrate,w
+  1420  061D  00B2               	movwf	??_UART_Init+8
+  1421  061E  0827               	movf	UART_Init@baudrate+1,w
+  1422  061F  00B3               	movwf	??_UART_Init+9
+  1423  0620  0828               	movf	UART_Init@baudrate+2,w
+  1424  0621  00B4               	movwf	??_UART_Init+10
+  1425  0622  0829               	movf	UART_Init@baudrate+3,w
+  1426  0623  00B5               	movwf	??_UART_Init+11
+  1427  0624  3006               	movlw	6
+  1428  0625                     u615:	
+  1429  0625  1003               	clrc
+  1430  0626  0DB2               	rlf	??_UART_Init+8,f
+  1431  0627  0DB3               	rlf	??_UART_Init+9,f
+  1432  0628  0DB4               	rlf	??_UART_Init+10,f
+  1433  0629  0DB5               	rlf	??_UART_Init+11,f
+  1434  062A  3EFF               	addlw	-1
+  1435  062B  1D03               	skipz
+  1436  062C  2E25               	goto	u615
+  1437  062D  09B2               	comf	??_UART_Init+8,f
+  1438  062E  09B3               	comf	??_UART_Init+9,f
+  1439  062F  09B4               	comf	??_UART_Init+10,f
+  1440  0630  09B5               	comf	??_UART_Init+11,f
+  1441  0631  0AB2               	incf	??_UART_Init+8,f
+  1442  0632  1903               	skipnz
+  1443  0633  0AB3               	incf	??_UART_Init+9,f
+  1444  0634  1903               	skipnz
+  1445  0635  0AB4               	incf	??_UART_Init+10,f
+  1446  0636  1903               	skipnz
+  1447  0637  0AB5               	incf	??_UART_Init+11,f
+  1448  0638  0832               	movf	??_UART_Init+8,w
+  1449  0639  07AE               	addwf	??_UART_Init+4,f
+  1450  063A  0833               	movf	??_UART_Init+9,w
+  1451  063B  1803               	skipnc
+  1452  063C  0F33               	incfsz	??_UART_Init+9,w
+  1453  063D  2E3F               	goto	u620
+  1454  063E  2E40               	goto	u621
+  1455  063F                     u620:	
+  1456  063F  07AF               	addwf	??_UART_Init+5,f
+  1457  0640                     u621:	
+  1458  0640  0834               	movf	??_UART_Init+10,w
+  1459  0641  1803               	skipnc
+  1460  0642  0F34               	incfsz	??_UART_Init+10,w
+  1461  0643  2E45               	goto	u622
+  1462  0644  2E46               	goto	u623
+  1463  0645                     u622:	
+  1464  0645  07B0               	addwf	??_UART_Init+6,f
+  1465  0646                     u623:	
+  1466  0646  0835               	movf	??_UART_Init+11,w
+  1467  0647  1803               	skipnc
+  1468  0648  0A35               	incf	??_UART_Init+11,w
+  1469  0649  07B1               	addwf	??_UART_Init+7,f
+  1470  064A  0831               	movf	??_UART_Init+7,w
+  1471  064B  00F7               	movwf	___aldiv@dividend+3
+  1472  064C  0830               	movf	??_UART_Init+6,w
+  1473  064D  00F6               	movwf	___aldiv@dividend+2
+  1474  064E  082F               	movf	??_UART_Init+5,w
+  1475  064F  00F5               	movwf	___aldiv@dividend+1
+  1476  0650  082E               	movf	??_UART_Init+4,w
+  1477  0651  00F4               	movwf	___aldiv@dividend
+  1478  0652  120A  118A  256A  120A  118A  	fcall	___aldiv
+  1479  0657  0871               	movf	?___aldiv+1,w
+  1480  0658  00FA               	movwf	UART_Init@x+1
+  1481  0659  0870               	movf	?___aldiv,w
+  1482  065A  00F9               	movwf	UART_Init@x
+  1483                           
+  1484                           ;LIFITXRX.c: 198: if(x>255)
+  1485  065B  3001               	movlw	1
+  1486  065C  027A               	subwf	UART_Init@x+1,w
+  1487  065D  3000               	movlw	0
+  1488  065E  1903               	skipnz
+  1489  065F  0279               	subwf	UART_Init@x,w
+  1490  0660  1C03               	skipc
+  1491  0661  2ED1               	goto	l917
+  1492                           
+  1493                           ;LIFITXRX.c: 199: {
+  1494                           ;LIFITXRX.c: 200: x = (8000000 - baudrate*16)/(baudrate*16);
+  1495  0662  1283               	bcf	3,5	;RP0=0, select bank0
+  1496  0663  1303               	bcf	3,6	;RP1=0, select bank0
+  1497  0664  0826               	movf	UART_Init@baudrate,w
+  1498  0665  00AA               	movwf	??_UART_Init
+  1499  0666  0827               	movf	UART_Init@baudrate+1,w
+  1500  0667  00AB               	movwf	??_UART_Init+1
+  1501  0668  0828               	movf	UART_Init@baudrate+2,w
+  1502  0669  00AC               	movwf	??_UART_Init+2
+  1503  066A  0829               	movf	UART_Init@baudrate+3,w
+  1504  066B  00AD               	movwf	??_UART_Init+3
+  1505  066C  3004               	movlw	4
+  1506  066D                     u645:	
+  1507  066D  1003               	clrc
+  1508  066E  0DAA               	rlf	??_UART_Init,f
+  1509  066F  0DAB               	rlf	??_UART_Init+1,f
+  1510  0670  0DAC               	rlf	??_UART_Init+2,f
+  1511  0671  0DAD               	rlf	??_UART_Init+3,f
+  1512  0672  3EFF               	addlw	-1
+  1513  0673  1D03               	skipz
+  1514  0674  2E6D               	goto	u645
+  1515  0675  082D               	movf	??_UART_Init+3,w
+  1516  0676  00F3               	movwf	___aldiv@divisor+3
+  1517  0677  082C               	movf	??_UART_Init+2,w
+  1518  0678  00F2               	movwf	___aldiv@divisor+2
+  1519  0679  082B               	movf	??_UART_Init+1,w
+  1520  067A  00F1               	movwf	___aldiv@divisor+1
+  1521  067B  082A               	movf	??_UART_Init,w
+  1522  067C  00F0               	movwf	___aldiv@divisor
+  1523  067D  3000               	movlw	0
+  1524  067E  00AE               	movwf	??_UART_Init+4
+  1525  067F  3012               	movlw	18
+  1526  0680  00AF               	movwf	??_UART_Init+5
+  1527  0681  307A               	movlw	122
+  1528  0682  00B0               	movwf	??_UART_Init+6
+  1529  0683  3000               	movlw	0
+  1530  0684  00B1               	movwf	??_UART_Init+7
+  1531  0685  0826               	movf	UART_Init@baudrate,w
+  1532  0686  00B2               	movwf	??_UART_Init+8
+  1533  0687  0827               	movf	UART_Init@baudrate+1,w
+  1534  0688  00B3               	movwf	??_UART_Init+9
+  1535  0689  0828               	movf	UART_Init@baudrate+2,w
+  1536  068A  00B4               	movwf	??_UART_Init+10
+  1537  068B  0829               	movf	UART_Init@baudrate+3,w
+  1538  068C  00B5               	movwf	??_UART_Init+11
+  1539  068D  3004               	movlw	4
+  1540  068E                     u655:	
+  1541  068E  1003               	clrc
+  1542  068F  0DB2               	rlf	??_UART_Init+8,f
+  1543  0690  0DB3               	rlf	??_UART_Init+9,f
+  1544  0691  0DB4               	rlf	??_UART_Init+10,f
+  1545  0692  0DB5               	rlf	??_UART_Init+11,f
+  1546  0693  3EFF               	addlw	-1
+  1547  0694  1D03               	skipz
+  1548  0695  2E8E               	goto	u655
+  1549  0696  09B2               	comf	??_UART_Init+8,f
+  1550  0697  09B3               	comf	??_UART_Init+9,f
+  1551  0698  09B4               	comf	??_UART_Init+10,f
+  1552  0699  09B5               	comf	??_UART_Init+11,f
+  1553  069A  0AB2               	incf	??_UART_Init+8,f
+  1554  069B  1903               	skipnz
+  1555  069C  0AB3               	incf	??_UART_Init+9,f
+  1556  069D  1903               	skipnz
+  1557  069E  0AB4               	incf	??_UART_Init+10,f
+  1558  069F  1903               	skipnz
+  1559  06A0  0AB5               	incf	??_UART_Init+11,f
+  1560  06A1  0832               	movf	??_UART_Init+8,w
+  1561  06A2  07AE               	addwf	??_UART_Init+4,f
+  1562  06A3  0833               	movf	??_UART_Init+9,w
+  1563  06A4  1803               	skipnc
+  1564  06A5  0F33               	incfsz	??_UART_Init+9,w
+  1565  06A6  2EA8               	goto	u660
+  1566  06A7  2EA9               	goto	u661
+  1567  06A8                     u660:	
+  1568  06A8  07AF               	addwf	??_UART_Init+5,f
+  1569  06A9                     u661:	
+  1570  06A9  0834               	movf	??_UART_Init+10,w
+  1571  06AA  1803               	skipnc
+  1572  06AB  0F34               	incfsz	??_UART_Init+10,w
+  1573  06AC  2EAE               	goto	u662
+  1574  06AD  2EAF               	goto	u663
+  1575  06AE                     u662:	
+  1576  06AE  07B0               	addwf	??_UART_Init+6,f
+  1577  06AF                     u663:	
+  1578  06AF  0835               	movf	??_UART_Init+11,w
+  1579  06B0  1803               	skipnc
+  1580  06B1  0A35               	incf	??_UART_Init+11,w
+  1581  06B2  07B1               	addwf	??_UART_Init+7,f
+  1582  06B3  0831               	movf	??_UART_Init+7,w
+  1583  06B4  00F7               	movwf	___aldiv@dividend+3
+  1584  06B5  0830               	movf	??_UART_Init+6,w
+  1585  06B6  00F6               	movwf	___aldiv@dividend+2
+  1586  06B7  082F               	movf	??_UART_Init+5,w
+  1587  06B8  00F5               	movwf	___aldiv@dividend+1
+  1588  06B9  082E               	movf	??_UART_Init+4,w
+  1589  06BA  00F4               	movwf	___aldiv@dividend
+  1590  06BB  120A  118A  256A  120A  118A  	fcall	___aldiv
+  1591  06C0  0871               	movf	?___aldiv+1,w
+  1592  06C1  00FA               	movwf	UART_Init@x+1
+  1593  06C2  0870               	movf	?___aldiv,w
+  1594  06C3  00F9               	movwf	UART_Init@x
+  1595                           
+  1596                           ;LIFITXRX.c: 202: BRGH = 1;
+  1597  06C4  1683               	bsf	3,5	;RP0=1, select bank1
+  1598  06C5  1303               	bcf	3,6	;RP1=0, select bank1
+  1599  06C6  1518               	bsf	24,2	;volatile
+  1600                           
+  1601                           ;LIFITXRX.c: 203: SPBRG = x;
+  1602  06C7  0879               	movf	UART_Init@x,w
+  1603  06C8  0099               	movwf	25	;volatile
+  1604                           
+  1605                           ;LIFITXRX.c: 204: SYNC = 0;
+  1606  06C9  1218               	bcf	24,4	;volatile
+  1607                           
+  1608                           ;LIFITXRX.c: 205: SPEN = 1;
+  1609  06CA  1283               	bcf	3,5	;RP0=0, select bank0
+  1610  06CB  1303               	bcf	3,6	;RP1=0, select bank0
+  1611  06CC  1798               	bsf	24,7	;volatile
+  1612                           
+  1613                           ;LIFITXRX.c: 206: CREN = 1;
+  1614  06CD  1618               	bsf	24,4	;volatile
+  1615                           
+  1616                           ;LIFITXRX.c: 207: TXEN = 1;
+  1617  06CE  1683               	bsf	3,5	;RP0=1, select bank1
+  1618  06CF  1303               	bcf	3,6	;RP1=0, select bank1
+  1619  06D0  1698               	bsf	24,5	;volatile
+  1620  06D1                     l917:	
+  1621                           
+  1622                           ;LIFITXRX.c: 208: }
+  1623                           ;LIFITXRX.c: 209: if(x<256)
+  1624  06D1  3001               	movlw	1
+  1625  06D2  027A               	subwf	UART_Init@x+1,w
+  1626  06D3  3000               	movlw	0
+  1627  06D4  1903               	skipnz
+  1628  06D5  0279               	subwf	UART_Init@x,w
+  1629  06D6  1803               	skipnc
+  1630  06D7  0008               	return
   1631                           
-  1632                           ;LIFITXRX.c: 213: CREN = 1;
-  1633  06EF  1618               	bsf	24,4	;volatile
-  1634                           
-  1635                           ;LIFITXRX.c: 214: TXEN = 1;
-  1636  06F0  1683               	bsf	3,5	;RP0=1, select bank1
-  1637  06F1  1303               	bcf	3,6	;RP1=0, select bank1
-  1638  06F2  1698               	bsf	24,5	;volatile
-  1639                           
-  1640                           ;LIFITXRX.c: 215: return 1;
-  1641                           ;	Return value of _UART_Init is never used
-  1642  06F3  0008               	return
-  1643  06F4                     __end_of_UART_Init:	
-  1644                           ;LIFITXRX.c: 216: }
-  1645                           ;LIFITXRX.c: 217: return 0;
-  1646                           ;	Return value of _UART_Init is never used
-  1647                           
-  1648                           
-  1649                           	psect	text8
-  1650  0578                     __ptext8:	
-  1651 ;; *************** function ___aldiv *****************
-  1652 ;; Defined at:
-  1653 ;;		line 6 in file "C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\aldiv.c"
-  1654 ;; Parameters:    Size  Location     Type
-  1655 ;;  divisor         4    0[COMMON] long 
-  1656 ;;  dividend        4    4[COMMON] long 
-  1657 ;; Auto vars:     Size  Location     Type
-  1658 ;;  quotient        4    2[BANK0 ] long 
-  1659 ;;  sign            1    1[BANK0 ] unsigned char 
-  1660 ;;  counter         1    0[BANK0 ] unsigned char 
-  1661 ;; Return value:  Size  Location     Type
-  1662 ;;                  4    0[COMMON] long 
-  1663 ;; Registers used:
-  1664 ;;		wreg, status,2, status,0
-  1665 ;; Tracked objects:
-  1666 ;;		On entry : 0/0
-  1667 ;;		On exit  : 0/0
-  1668 ;;		Unchanged: 0/0
-  1669 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-  1670 ;;      Params:         8       0       0       0       0
-  1671 ;;      Locals:         0       6       0       0       0
-  1672 ;;      Temps:          1       0       0       0       0
-  1673 ;;      Totals:         9       6       0       0       0
-  1674 ;;Total ram usage:       15 bytes
-  1675 ;; Hardware stack levels used:    1
-  1676 ;; This function calls:
-  1677 ;;		Nothing
-  1678 ;; This function is called by:
-  1679 ;;		_UART_Init
-  1680 ;; This function uses a non-reentrant model
-  1681 ;;
-  1682                           
-  1683                           
-  1684                           ;psect for function ___aldiv
-  1685  0578                     ___aldiv:	
-  1686                           
-  1687                           ;incstack = 0
-  1688                           ; Regs used in ___aldiv: [wreg+status,2+status,0]
-  1689  0578  1283               	bcf	3,5	;RP0=0, select bank0
-  1690  0579  1303               	bcf	3,6	;RP1=0, select bank0
-  1691  057A  01A1               	clrf	___aldiv@sign
-  1692  057B  1FF3               	btfss	___aldiv@divisor+3,7
-  1693  057C  2D8A               	goto	l290
-  1694  057D  09F0               	comf	___aldiv@divisor,f
-  1695  057E  09F1               	comf	___aldiv@divisor+1,f
-  1696  057F  09F2               	comf	___aldiv@divisor+2,f
-  1697  0580  09F3               	comf	___aldiv@divisor+3,f
-  1698  0581  0AF0               	incf	___aldiv@divisor,f
-  1699  0582  1903               	skipnz
-  1700  0583  0AF1               	incf	___aldiv@divisor+1,f
-  1701  0584  1903               	skipnz
-  1702  0585  0AF2               	incf	___aldiv@divisor+2,f
-  1703  0586  1903               	skipnz
-  1704  0587  0AF3               	incf	___aldiv@divisor+3,f
-  1705  0588  01A1               	clrf	___aldiv@sign
-  1706  0589  0AA1               	incf	___aldiv@sign,f
-  1707  058A                     l290:	
-  1708  058A  1FF7               	btfss	___aldiv@dividend+3,7
-  1709  058B  2D9B               	goto	l873
-  1710  058C  09F4               	comf	___aldiv@dividend,f
-  1711  058D  09F5               	comf	___aldiv@dividend+1,f
-  1712  058E  09F6               	comf	___aldiv@dividend+2,f
-  1713  058F  09F7               	comf	___aldiv@dividend+3,f
-  1714  0590  0AF4               	incf	___aldiv@dividend,f
-  1715  0591  1903               	skipnz
-  1716  0592  0AF5               	incf	___aldiv@dividend+1,f
-  1717  0593  1903               	skipnz
-  1718  0594  0AF6               	incf	___aldiv@dividend+2,f
-  1719  0595  1903               	skipnz
-  1720  0596  0AF7               	incf	___aldiv@dividend+3,f
-  1721  0597  3001               	movlw	1
-  1722  0598  00F8               	movwf	??___aldiv
-  1723  0599  0878               	movf	??___aldiv,w
-  1724  059A  06A1               	xorwf	___aldiv@sign,f
-  1725  059B                     l873:	
-  1726  059B  3000               	movlw	0
-  1727  059C  00A5               	movwf	___aldiv@quotient+3
-  1728  059D  3000               	movlw	0
-  1729  059E  00A4               	movwf	___aldiv@quotient+2
-  1730  059F  3000               	movlw	0
-  1731  05A0  00A3               	movwf	___aldiv@quotient+1
-  1732  05A1  3000               	movlw	0
-  1733  05A2  00A2               	movwf	___aldiv@quotient
-  1734  05A3  0873               	movf	___aldiv@divisor+3,w
-  1735  05A4  0472               	iorwf	___aldiv@divisor+2,w
-  1736  05A5  0471               	iorwf	___aldiv@divisor+1,w
-  1737  05A6  0470               	iorwf	___aldiv@divisor,w
-  1738  05A7  1903               	skipnz
-  1739  05A8  2DF0               	goto	l895
-  1740  05A9  01A0               	clrf	___aldiv@counter
-  1741  05AA  0AA0               	incf	___aldiv@counter,f
-  1742  05AB                     l881:	
-  1743  05AB  1BF3               	btfsc	___aldiv@divisor+3,7
-  1744  05AC  2DBB               	goto	l883
-  1745  05AD  3001               	movlw	1
-  1746  05AE  00F8               	movwf	??___aldiv
-  1747  05AF                     u525:	
-  1748  05AF  1003               	clrc
-  1749  05B0  0DF0               	rlf	___aldiv@divisor,f
-  1750  05B1  0DF1               	rlf	___aldiv@divisor+1,f
-  1751  05B2  0DF2               	rlf	___aldiv@divisor+2,f
-  1752  05B3  0DF3               	rlf	___aldiv@divisor+3,f
-  1753  05B4  0BF8               	decfsz	??___aldiv,f
-  1754  05B5  2DAF               	goto	u525
-  1755  05B6  3001               	movlw	1
-  1756  05B7  00F8               	movwf	??___aldiv
-  1757  05B8  0878               	movf	??___aldiv,w
-  1758  05B9  07A0               	addwf	___aldiv@counter,f
-  1759  05BA  2DAB               	goto	l881
-  1760  05BB                     l883:	
-  1761  05BB  3001               	movlw	1
-  1762  05BC  00F8               	movwf	??___aldiv
-  1763  05BD                     u545:	
-  1764  05BD  1003               	clrc
-  1765  05BE  0DA2               	rlf	___aldiv@quotient,f
-  1766  05BF  0DA3               	rlf	___aldiv@quotient+1,f
-  1767  05C0  0DA4               	rlf	___aldiv@quotient+2,f
-  1768  05C1  0DA5               	rlf	___aldiv@quotient+3,f
-  1769  05C2  0BF8               	decfsz	??___aldiv,f
-  1770  05C3  2DBD               	goto	u545
-  1771  05C4  0873               	movf	___aldiv@divisor+3,w
-  1772  05C5  0277               	subwf	___aldiv@dividend+3,w
-  1773  05C6  1D03               	skipz
-  1774  05C7  2DD2               	goto	u555
-  1775  05C8  0872               	movf	___aldiv@divisor+2,w
-  1776  05C9  0276               	subwf	___aldiv@dividend+2,w
-  1777  05CA  1D03               	skipz
-  1778  05CB  2DD2               	goto	u555
-  1779  05CC  0871               	movf	___aldiv@divisor+1,w
-  1780  05CD  0275               	subwf	___aldiv@dividend+1,w
-  1781  05CE  1D03               	skipz
-  1782  05CF  2DD2               	goto	u555
-  1783  05D0  0870               	movf	___aldiv@divisor,w
-  1784  05D1  0274               	subwf	___aldiv@dividend,w
-  1785  05D2                     u555:	
-  1786  05D2  1C03               	skipc
-  1787  05D3  2DE3               	goto	l891
-  1788  05D4  0870               	movf	___aldiv@divisor,w
-  1789  05D5  02F4               	subwf	___aldiv@dividend,f
-  1790  05D6  0871               	movf	___aldiv@divisor+1,w
-  1791  05D7  1C03               	skipc
-  1792  05D8  0F71               	incfsz	___aldiv@divisor+1,w
-  1793  05D9  02F5               	subwf	___aldiv@dividend+1,f
-  1794  05DA  0872               	movf	___aldiv@divisor+2,w
-  1795  05DB  1C03               	skipc
-  1796  05DC  0F72               	incfsz	___aldiv@divisor+2,w
-  1797  05DD  02F6               	subwf	___aldiv@dividend+2,f
-  1798  05DE  0873               	movf	___aldiv@divisor+3,w
-  1799  05DF  1C03               	skipc
-  1800  05E0  0F73               	incfsz	___aldiv@divisor+3,w
-  1801  05E1  02F7               	subwf	___aldiv@dividend+3,f
-  1802  05E2  1422               	bsf	___aldiv@quotient,0
-  1803  05E3                     l891:	
-  1804  05E3  3001               	movlw	1
-  1805  05E4                     u565:	
-  1806  05E4  1003               	clrc
-  1807  05E5  0CF3               	rrf	___aldiv@divisor+3,f
-  1808  05E6  0CF2               	rrf	___aldiv@divisor+2,f
-  1809  05E7  0CF1               	rrf	___aldiv@divisor+1,f
-  1810  05E8  0CF0               	rrf	___aldiv@divisor,f
-  1811  05E9  3EFF               	addlw	-1
-  1812  05EA  1D03               	skipz
-  1813  05EB  2DE4               	goto	u565
-  1814  05EC  3001               	movlw	1
-  1815  05ED  02A0               	subwf	___aldiv@counter,f
-  1816  05EE  1D03               	btfss	3,2
-  1817  05EF  2DBB               	goto	l883
-  1818  05F0                     l895:	
-  1819  05F0  0821               	movf	___aldiv@sign,w
-  1820  05F1  1903               	btfsc	3,2
-  1821  05F2  2DFE               	goto	l899
-  1822  05F3  09A2               	comf	___aldiv@quotient,f
-  1823  05F4  09A3               	comf	___aldiv@quotient+1,f
-  1824  05F5  09A4               	comf	___aldiv@quotient+2,f
-  1825  05F6  09A5               	comf	___aldiv@quotient+3,f
-  1826  05F7  0AA2               	incf	___aldiv@quotient,f
-  1827  05F8  1903               	skipnz
-  1828  05F9  0AA3               	incf	___aldiv@quotient+1,f
-  1829  05FA  1903               	skipnz
-  1830  05FB  0AA4               	incf	___aldiv@quotient+2,f
-  1831  05FC  1903               	skipnz
-  1832  05FD  0AA5               	incf	___aldiv@quotient+3,f
-  1833  05FE                     l899:	
-  1834  05FE  0825               	movf	___aldiv@quotient+3,w
-  1835  05FF  00F3               	movwf	?___aldiv+3
-  1836  0600  0824               	movf	___aldiv@quotient+2,w
-  1837  0601  00F2               	movwf	?___aldiv+2
-  1838  0602  0823               	movf	___aldiv@quotient+1,w
-  1839  0603  00F1               	movwf	?___aldiv+1
-  1840  0604  0822               	movf	___aldiv@quotient,w
-  1841  0605  00F0               	movwf	?___aldiv
-  1842  0606  0008               	return
-  1843  0607                     __end_of___aldiv:	
-  1844  007E                     btemp	set	126	;btemp
-  1845  007E                     wtemp	set	126
-  1846  007E                     wtemp0	set	126
-  1847  0080                     wtemp1	set	128
-  1848  0082                     wtemp2	set	130
-  1849  0084                     wtemp3	set	132
-  1850  0086                     wtemp4	set	134
-  1851  0088                     wtemp5	set	136
-  1852  007F                     wtemp6	set	127
-  1853  007E                     ttemp	set	126
-  1854  007E                     ttemp0	set	126
-  1855  0081                     ttemp1	set	129
-  1856  0084                     ttemp2	set	132
-  1857  0087                     ttemp3	set	135
-  1858  007F                     ttemp4	set	127
-  1859  007E                     ltemp	set	126
-  1860  007E                     ltemp0	set	126
-  1861  0082                     ltemp1	set	130
-  1862  0086                     ltemp2	set	134
-  1863  0080                     ltemp3	set	128
+  1632                           ;LIFITXRX.c: 210: {
+  1633                           ;LIFITXRX.c: 211: BRGH = 0;
+  1634  06D8  1683               	bsf	3,5	;RP0=1, select bank1
+  1635  06D9  1303               	bcf	3,6	;RP1=0, select bank1
+  1636  06DA  1118               	bcf	24,2	;volatile
+  1637                           
+  1638                           ;LIFITXRX.c: 212: SPBRG = x;
+  1639  06DB  0879               	movf	UART_Init@x,w
+  1640  06DC  0099               	movwf	25	;volatile
+  1641                           
+  1642                           ;LIFITXRX.c: 213: SYNC = 0;
+  1643  06DD  1218               	bcf	24,4	;volatile
+  1644                           
+  1645                           ;LIFITXRX.c: 214: SPEN = 1;
+  1646  06DE  1283               	bcf	3,5	;RP0=0, select bank0
+  1647  06DF  1303               	bcf	3,6	;RP1=0, select bank0
+  1648  06E0  1798               	bsf	24,7	;volatile
+  1649                           
+  1650                           ;LIFITXRX.c: 215: CREN = 1;
+  1651  06E1  1618               	bsf	24,4	;volatile
+  1652                           
+  1653                           ;LIFITXRX.c: 216: TXEN = 1;
+  1654  06E2  1683               	bsf	3,5	;RP0=1, select bank1
+  1655  06E3  1303               	bcf	3,6	;RP1=0, select bank1
+  1656  06E4  1698               	bsf	24,5	;volatile
+  1657                           
+  1658                           ;LIFITXRX.c: 217: return 1;
+  1659                           ;	Return value of _UART_Init is never used
+  1660  06E5  0008               	return
+  1661  06E6                     __end_of_UART_Init:	
+  1662                           ;LIFITXRX.c: 218: }
+  1663                           ;LIFITXRX.c: 219: return 0;
+  1664                           ;	Return value of _UART_Init is never used
+  1665                           
+  1666                           
+  1667                           	psect	text8
+  1668  056A                     __ptext8:	
+  1669 ;; *************** function ___aldiv *****************
+  1670 ;; Defined at:
+  1671 ;;		line 6 in file "C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\aldiv.c"
+  1672 ;; Parameters:    Size  Location     Type
+  1673 ;;  divisor         4    0[COMMON] long 
+  1674 ;;  dividend        4    4[COMMON] long 
+  1675 ;; Auto vars:     Size  Location     Type
+  1676 ;;  quotient        4    2[BANK0 ] long 
+  1677 ;;  sign            1    1[BANK0 ] unsigned char 
+  1678 ;;  counter         1    0[BANK0 ] unsigned char 
+  1679 ;; Return value:  Size  Location     Type
+  1680 ;;                  4    0[COMMON] long 
+  1681 ;; Registers used:
+  1682 ;;		wreg, status,2, status,0
+  1683 ;; Tracked objects:
+  1684 ;;		On entry : 0/0
+  1685 ;;		On exit  : 0/0
+  1686 ;;		Unchanged: 0/0
+  1687 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1688 ;;      Params:         8       0       0       0       0
+  1689 ;;      Locals:         0       6       0       0       0
+  1690 ;;      Temps:          1       0       0       0       0
+  1691 ;;      Totals:         9       6       0       0       0
+  1692 ;;Total ram usage:       15 bytes
+  1693 ;; Hardware stack levels used:    1
+  1694 ;; This function calls:
+  1695 ;;		Nothing
+  1696 ;; This function is called by:
+  1697 ;;		_UART_Init
+  1698 ;; This function uses a non-reentrant model
+  1699 ;;
+  1700                           
+  1701                           
+  1702                           ;psect for function ___aldiv
+  1703  056A                     ___aldiv:	
+  1704                           
+  1705                           ;incstack = 0
+  1706                           ; Regs used in ___aldiv: [wreg+status,2+status,0]
+  1707  056A  1283               	bcf	3,5	;RP0=0, select bank0
+  1708  056B  1303               	bcf	3,6	;RP1=0, select bank0
+  1709  056C  01A1               	clrf	___aldiv@sign
+  1710  056D  1FF3               	btfss	___aldiv@divisor+3,7
+  1711  056E  2D7C               	goto	l290
+  1712  056F  09F0               	comf	___aldiv@divisor,f
+  1713  0570  09F1               	comf	___aldiv@divisor+1,f
+  1714  0571  09F2               	comf	___aldiv@divisor+2,f
+  1715  0572  09F3               	comf	___aldiv@divisor+3,f
+  1716  0573  0AF0               	incf	___aldiv@divisor,f
+  1717  0574  1903               	skipnz
+  1718  0575  0AF1               	incf	___aldiv@divisor+1,f
+  1719  0576  1903               	skipnz
+  1720  0577  0AF2               	incf	___aldiv@divisor+2,f
+  1721  0578  1903               	skipnz
+  1722  0579  0AF3               	incf	___aldiv@divisor+3,f
+  1723  057A  01A1               	clrf	___aldiv@sign
+  1724  057B  0AA1               	incf	___aldiv@sign,f
+  1725  057C                     l290:	
+  1726  057C  1FF7               	btfss	___aldiv@dividend+3,7
+  1727  057D  2D8D               	goto	l869
+  1728  057E  09F4               	comf	___aldiv@dividend,f
+  1729  057F  09F5               	comf	___aldiv@dividend+1,f
+  1730  0580  09F6               	comf	___aldiv@dividend+2,f
+  1731  0581  09F7               	comf	___aldiv@dividend+3,f
+  1732  0582  0AF4               	incf	___aldiv@dividend,f
+  1733  0583  1903               	skipnz
+  1734  0584  0AF5               	incf	___aldiv@dividend+1,f
+  1735  0585  1903               	skipnz
+  1736  0586  0AF6               	incf	___aldiv@dividend+2,f
+  1737  0587  1903               	skipnz
+  1738  0588  0AF7               	incf	___aldiv@dividend+3,f
+  1739  0589  3001               	movlw	1
+  1740  058A  00F8               	movwf	??___aldiv
+  1741  058B  0878               	movf	??___aldiv,w
+  1742  058C  06A1               	xorwf	___aldiv@sign,f
+  1743  058D                     l869:	
+  1744  058D  3000               	movlw	0
+  1745  058E  00A5               	movwf	___aldiv@quotient+3
+  1746  058F  3000               	movlw	0
+  1747  0590  00A4               	movwf	___aldiv@quotient+2
+  1748  0591  3000               	movlw	0
+  1749  0592  00A3               	movwf	___aldiv@quotient+1
+  1750  0593  3000               	movlw	0
+  1751  0594  00A2               	movwf	___aldiv@quotient
+  1752  0595  0873               	movf	___aldiv@divisor+3,w
+  1753  0596  0472               	iorwf	___aldiv@divisor+2,w
+  1754  0597  0471               	iorwf	___aldiv@divisor+1,w
+  1755  0598  0470               	iorwf	___aldiv@divisor,w
+  1756  0599  1903               	skipnz
+  1757  059A  2DE2               	goto	l891
+  1758  059B  01A0               	clrf	___aldiv@counter
+  1759  059C  0AA0               	incf	___aldiv@counter,f
+  1760  059D                     l877:	
+  1761  059D  1BF3               	btfsc	___aldiv@divisor+3,7
+  1762  059E  2DAD               	goto	l879
+  1763  059F  3001               	movlw	1
+  1764  05A0  00F8               	movwf	??___aldiv
+  1765  05A1                     u535:	
+  1766  05A1  1003               	clrc
+  1767  05A2  0DF0               	rlf	___aldiv@divisor,f
+  1768  05A3  0DF1               	rlf	___aldiv@divisor+1,f
+  1769  05A4  0DF2               	rlf	___aldiv@divisor+2,f
+  1770  05A5  0DF3               	rlf	___aldiv@divisor+3,f
+  1771  05A6  0BF8               	decfsz	??___aldiv,f
+  1772  05A7  2DA1               	goto	u535
+  1773  05A8  3001               	movlw	1
+  1774  05A9  00F8               	movwf	??___aldiv
+  1775  05AA  0878               	movf	??___aldiv,w
+  1776  05AB  07A0               	addwf	___aldiv@counter,f
+  1777  05AC  2D9D               	goto	l877
+  1778  05AD                     l879:	
+  1779  05AD  3001               	movlw	1
+  1780  05AE  00F8               	movwf	??___aldiv
+  1781  05AF                     u555:	
+  1782  05AF  1003               	clrc
+  1783  05B0  0DA2               	rlf	___aldiv@quotient,f
+  1784  05B1  0DA3               	rlf	___aldiv@quotient+1,f
+  1785  05B2  0DA4               	rlf	___aldiv@quotient+2,f
+  1786  05B3  0DA5               	rlf	___aldiv@quotient+3,f
+  1787  05B4  0BF8               	decfsz	??___aldiv,f
+  1788  05B5  2DAF               	goto	u555
+  1789  05B6  0873               	movf	___aldiv@divisor+3,w
+  1790  05B7  0277               	subwf	___aldiv@dividend+3,w
+  1791  05B8  1D03               	skipz
+  1792  05B9  2DC4               	goto	u565
+  1793  05BA  0872               	movf	___aldiv@divisor+2,w
+  1794  05BB  0276               	subwf	___aldiv@dividend+2,w
+  1795  05BC  1D03               	skipz
+  1796  05BD  2DC4               	goto	u565
+  1797  05BE  0871               	movf	___aldiv@divisor+1,w
+  1798  05BF  0275               	subwf	___aldiv@dividend+1,w
+  1799  05C0  1D03               	skipz
+  1800  05C1  2DC4               	goto	u565
+  1801  05C2  0870               	movf	___aldiv@divisor,w
+  1802  05C3  0274               	subwf	___aldiv@dividend,w
+  1803  05C4                     u565:	
+  1804  05C4  1C03               	skipc
+  1805  05C5  2DD5               	goto	l887
+  1806  05C6  0870               	movf	___aldiv@divisor,w
+  1807  05C7  02F4               	subwf	___aldiv@dividend,f
+  1808  05C8  0871               	movf	___aldiv@divisor+1,w
+  1809  05C9  1C03               	skipc
+  1810  05CA  0F71               	incfsz	___aldiv@divisor+1,w
+  1811  05CB  02F5               	subwf	___aldiv@dividend+1,f
+  1812  05CC  0872               	movf	___aldiv@divisor+2,w
+  1813  05CD  1C03               	skipc
+  1814  05CE  0F72               	incfsz	___aldiv@divisor+2,w
+  1815  05CF  02F6               	subwf	___aldiv@dividend+2,f
+  1816  05D0  0873               	movf	___aldiv@divisor+3,w
+  1817  05D1  1C03               	skipc
+  1818  05D2  0F73               	incfsz	___aldiv@divisor+3,w
+  1819  05D3  02F7               	subwf	___aldiv@dividend+3,f
+  1820  05D4  1422               	bsf	___aldiv@quotient,0
+  1821  05D5                     l887:	
+  1822  05D5  3001               	movlw	1
+  1823  05D6                     u575:	
+  1824  05D6  1003               	clrc
+  1825  05D7  0CF3               	rrf	___aldiv@divisor+3,f
+  1826  05D8  0CF2               	rrf	___aldiv@divisor+2,f
+  1827  05D9  0CF1               	rrf	___aldiv@divisor+1,f
+  1828  05DA  0CF0               	rrf	___aldiv@divisor,f
+  1829  05DB  3EFF               	addlw	-1
+  1830  05DC  1D03               	skipz
+  1831  05DD  2DD6               	goto	u575
+  1832  05DE  3001               	movlw	1
+  1833  05DF  02A0               	subwf	___aldiv@counter,f
+  1834  05E0  1D03               	btfss	3,2
+  1835  05E1  2DAD               	goto	l879
+  1836  05E2                     l891:	
+  1837  05E2  0821               	movf	___aldiv@sign,w
+  1838  05E3  1903               	btfsc	3,2
+  1839  05E4  2DF0               	goto	l895
+  1840  05E5  09A2               	comf	___aldiv@quotient,f
+  1841  05E6  09A3               	comf	___aldiv@quotient+1,f
+  1842  05E7  09A4               	comf	___aldiv@quotient+2,f
+  1843  05E8  09A5               	comf	___aldiv@quotient+3,f
+  1844  05E9  0AA2               	incf	___aldiv@quotient,f
+  1845  05EA  1903               	skipnz
+  1846  05EB  0AA3               	incf	___aldiv@quotient+1,f
+  1847  05EC  1903               	skipnz
+  1848  05ED  0AA4               	incf	___aldiv@quotient+2,f
+  1849  05EE  1903               	skipnz
+  1850  05EF  0AA5               	incf	___aldiv@quotient+3,f
+  1851  05F0                     l895:	
+  1852  05F0  0825               	movf	___aldiv@quotient+3,w
+  1853  05F1  00F3               	movwf	?___aldiv+3
+  1854  05F2  0824               	movf	___aldiv@quotient+2,w
+  1855  05F3  00F2               	movwf	?___aldiv+2
+  1856  05F4  0823               	movf	___aldiv@quotient+1,w
+  1857  05F5  00F1               	movwf	?___aldiv+1
+  1858  05F6  0822               	movf	___aldiv@quotient,w
+  1859  05F7  00F0               	movwf	?___aldiv
+  1860  05F8  0008               	return
+  1861  05F9                     __end_of___aldiv:	
+  1862  007E                     btemp	set	126	;btemp
+  1863  007E                     wtemp	set	126
+  1864  007E                     wtemp0	set	126
+  1865  0080                     wtemp1	set	128
+  1866  0082                     wtemp2	set	130
+  1867  0084                     wtemp3	set	132
+  1868  0086                     wtemp4	set	134
+  1869  0088                     wtemp5	set	136
+  1870  007F                     wtemp6	set	127
+  1871  007E                     ttemp	set	126
+  1872  007E                     ttemp0	set	126
+  1873  0081                     ttemp1	set	129
+  1874  0084                     ttemp2	set	132
+  1875  0087                     ttemp3	set	135
+  1876  007F                     ttemp4	set	127
+  1877  007E                     ltemp	set	126
+  1878  007E                     ltemp0	set	126
+  1879  0082                     ltemp1	set	130
+  1880  0086                     ltemp2	set	134
+  1881  0080                     ltemp3	set	128
 
 
 Data Sizes:
@@ -1879,7 +1897,7 @@ Data Sizes:
 
 Auto Spaces:
     Space          Size  Autos    Used
-    COMMON           14     13      13
+    COMMON           14     14      14
     BANK0            80     37      59
     BANK1            80      0       0
     BANK3            96      0       0
@@ -1959,8 +1977,8 @@ Call Graph Tables:
  ---------------------------------------------------------------------------------
  (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
  ---------------------------------------------------------------------------------
- (0) _main                                                17    17      0    2186
-                                             11 COMMON     2     2      0
+ (0) _main                                                19    19      0    2230
+                                             11 COMMON     3     3      0
                                              22 BANK0     15    15      0
                           _UART_Init
                      _UART_Read_Text
@@ -2022,13 +2040,13 @@ BITCOMMON            E      0       0       0        0.0%
 EEDATA             100      0       0       0        0.0%
 NULL                 0      0       0       0        0.0%
 CODE                 0      0       0       0        0.0%
-COMMON               E      D       D       1       92.9%
+COMMON               E      E       E       1      100.0%
 BITSFR0              0      0       0       1        0.0%
 SFR0                 0      0       0       1        0.0%
 BITSFR1              0      0       0       2        0.0%
 SFR1                 0      0       0       2        0.0%
 STACK                0      0       0       2        0.0%
-ABS                  0      0      48       3        0.0%
+ABS                  0      0      49       3        0.0%
 BITBANK0            50      0       1       4        1.3%
 BITSFR3              0      0       0       4        0.0%
 SFR3                 0      0       0       4        0.0%
@@ -2041,80 +2059,81 @@ BITBANK3            60      0       0       8        0.0%
 BANK3               60      0       0       9        0.0%
 BITBANK2            60      0       0      10        0.0%
 BANK2               60      0       0      11        0.0%
-DATA                 0      0      48      12        0.0%
+DATA                 0      0      49      12        0.0%
 
 
 Microchip Technology PIC Macro Assembler V1.34 build -361300703 
-Symbol Table                                                                                   Sat Aug 13 21:59:13 2016
+Symbol Table                                                                                   Tue Aug 16 21:59:49 2016
 
                        pc 0002               __CFG_CP$OFF 0000               _SSPSTATbits 0094  
-                      l63 076C                        l59 0721                        l95 0501  
-                      l98 0505                        _is 0045                        fsr 0004  
-                     l116 04F2                       l290 058A                       l921 06DF  
-                     l845 0530                       l881 05AB                       l873 059B  
-                     l891 05E3                       l883 05BB                       l955 0554  
-                     l957 056D                       l981 0744                       l895 05F0  
-                     l899 05FE                       l997 0781                       _RB0 0030  
-                     _RC3 003B                       u610 064D              __CFG_CPD$OFF 0000  
-                     u611 064E                       u612 0653                       u525 05AF  
-                     u613 0654                       u605 0633                       u720 0788  
-                     u545 05BD                       u650 06B6                       u730 0789  
-                     u555 05D2                       u651 06B7                       u635 067B  
-                     u652 06BC                       u740 0792                       u565 05E4  
-                     u653 06BD                       u645 069C                       u595 0612  
+                      l63 075E                        l59 0713                        l95 04F3  
+                      l98 04F7                        _is 0045                        fsr 0004  
+                     l116 04E4                       l290 057C                       l841 0522  
+                     l917 06D1                       l951 0546                       l953 055F  
+                     l891 05E2                       l877 059D                       l869 058D  
+                     l895 05F0                       l887 05D5                       l879 05AD  
+                     l993 0773                       l977 0736                       l997 0787  
+                     _RB0 0030                       _RC3 003B              __CFG_CPD$OFF 0000  
+                     u620 063F                       u621 0640                       u605 0604  
+                     u622 0645                       u535 05A1                       u623 0646  
+                     u615 0625                       u730 077A                       u555 05AF  
+                     u660 06A8                       u740 077B                       u565 05C4  
+                     u661 06A9                       u645 066D                       u662 06AE  
+                     u750 0784                       u575 05D6                       u663 06AF  
+                     u655 068E                       u784 07A7                       u785 07A4  
                      fsr0 0004                       indf 0000              __CFG_LVP$OFF 0000  
-                    l1001 0795                      l1021 07DA                      l1007 079E  
-                    l1027 07ED                      STR_1 0022                      STR_2 009B  
-                    STR_3 0052                      STR_4 0066                      STR_5 008A  
-                    STR_6 003A                      STR_7 0009                      STR_8 00B8  
-                    STR_9 0079                      _BRGH 04C2                      _CREN 00C4  
-                    _RCIF 0065                      _SPEN 00C7                      _TRMT 04C1  
-                    _TXEN 04C5                      _TXIF 0064                      _SYNC 04C4  
-            __CFG_WRT$OFF 0000                      _main 06F4                      btemp 007E  
-           __CFG_BOREN$ON 0000                      ltemp 007E                      start 0000  
-                    ttemp 007E                      wtemp 007E             __CFG_IESO$OFF 0000  
-           __CFG_MCLRE$ON 0000   __end_of_UART_Write_Text 054F           __end_of___aldiv 0607  
-                   ?_main 0070                     STR_10 00AC             __CFG_WDTE$OFF 0000  
-                   _RCREG 001A                     _SPBRG 0099                     _TRISB 0086  
-                   _TRISC 0087                     _TXREG 0019            __CFG_FCMEN$OFF 0000  
-             ?_UART_Write 0070        __size_of_UART_Init 00ED        __size_of_UART_Read 0006  
-    UART_Read_Text@string 0046                     main@j 0040                     pclath 000A  
-                   ltemp0 007E                     ltemp1 0082                     ltemp2 0086  
-                   ltemp3 0080                     ttemp0 007E                     ttemp1 0081  
-                   ttemp2 0084                     ttemp3 0087                     ttemp4 007F  
-                   status 0003                     wtemp0 007E                     wtemp1 0080  
-                   wtemp2 0082                     wtemp3 0084                     wtemp4 0086  
-                   wtemp5 0088                     wtemp6 007F           __initialization 07F4  
-            __end_of_main 07F4                    ??_main 007B                    _INTCON 000B  
-        __end_of_delay1ms 051D          __end_of_delay_ms 052D            __CFG_PWRTE$OFF 0000  
-       __end_of_UART_Init 06F4         __end_of_UART_Read 04F8       __size_of_UART_Write 000E  
-               ??___aldiv 0078          ?_UART_Write_Text 0070   __size_of_UART_Read_Text 0029  
-                  main@no 0043   __end_of__initialization 07FC            __pcstackCOMMON 0070  
-              __pbssBANK0 0045                __pmaintext 06F4                   _IC2_ack 02D0  
-               ?_delay1ms 0070                 ?_delay_ms 0072              ??_UART_Write 0070  
-                 _SSPCON2 0091                __stringtab 0003                   ___aldiv 0578  
-      __end_of_UART_Write 050E            _UART_Read_Text 054F                   __ptext1 051D  
-                 __ptext2 050E                   __ptext3 054F                   __ptext4 052D  
-                 __ptext5 0500                   __ptext6 04F2                   __ptext7 0607  
-                 __ptext8 0578                ??_delay1ms 0070          ___aldiv@dividend 0074  
-              ??_delay_ms 0074                   clrloop0 04F9      end_of_initialization 07FC  
-  __end_of_UART_Read_Text 0578          ___aldiv@quotient 0022                 _UART_Init 0607  
-               _UART_Read 04F2            UART_Write@data 0070           ?_UART_Read_Text 0070  
-              ?_UART_Init 0026                ?_UART_Read 0070             __pbitbssBANK0 02D0  
-__size_of_UART_Write_Text 0022       start_initialization 07F4  __CFG_FOSC$INTRC_NOCLKOUT 0000  
-               ___latbits 0002             __pcstackBANK0 0020         __size_of_delay1ms 000F  
-       __size_of_delay_ms 0010                  ?___aldiv 0070               ??_UART_Init 002A  
-             ??_UART_Read 0070                 __pstrings 0003                UART_Init@x 0079  
-               delay1ms@j 0070         ??_UART_Write_Text 0071           ___aldiv@divisor 0070  
-         ___aldiv@counter 0020                 delay_ms@i 0072           UART_Read_Text@a 0075  
-         UART_Read_Text@i 0077           UART_Read_Text@x 0076                 clear_ram0 04F8  
-                _PIR1bits 000C         UART_Init@baudrate 0026               __stringbase 0008  
-        ??_UART_Read_Text 0074          __size_of___aldiv 008F        __end_of__stringtab 0009  
-                _delay1ms 050E                  _delay_ms 051D         __CFG_BOR4V$BOR40V 0000  
-     UART_Write_Text@text 0073             __size_of_main 0100            main@LED_Output 003F  
-                main@arr1 0036                  main@arr2 0037                  main@arr3 0038  
-                main@arr4 0039                  main@arr5 003A                  main@arr6 003B  
-                main@arr7 003C                  main@arr8 003D                  main@arr9 003E  
-           main@LED_Input 0042                 stringcode 0003                _OSCCONbits 008F  
-         _UART_Write_Text 052D                  stringdir 0003                  stringtab 0003  
-            ___aldiv@sign 0021                _UART_Write 0500          UART_Write_Text@i 0071  
+                    l1003 0790                      l1013 07DA                      l1019 07ED  
+                    STR_1 0022                      STR_2 009B                      STR_3 0052  
+                    STR_4 0066                      STR_5 008A                      STR_6 003A  
+                    STR_7 0009                      STR_8 00B8                      STR_9 0079  
+                    _BRGH 04C2                      _CREN 00C4                      _RCIF 0065  
+                    _SPEN 00C7                      _TRMT 04C1                      _TXEN 04C5  
+                    _TXIF 0064                      _SYNC 04C4              __CFG_WRT$OFF 0000  
+                    _main 06E6                      btemp 007E             __CFG_BOREN$ON 0000  
+                    ltemp 007E                      start 0000                      ttemp 007E  
+                    wtemp 007E             __CFG_IESO$OFF 0000             __CFG_MCLRE$ON 0000  
+ __end_of_UART_Write_Text 0541           __end_of___aldiv 05F9                     ?_main 0070  
+                   STR_10 00AC             __CFG_WDTE$OFF 0000                     _RCREG 001A  
+                   _SPBRG 0099                     _TRISB 0086                     _TRISC 0087  
+                   _TXREG 0019            __CFG_FCMEN$OFF 0000               ?_UART_Write 0070  
+      __size_of_UART_Init 00ED        __size_of_UART_Read 0006      UART_Read_Text@string 0046  
+                   main@j 0042                     pclath 000A                     ltemp0 007E  
+                   ltemp1 0082                     ltemp2 0086                     ltemp3 0080  
+                   ttemp0 007E                     ttemp1 0081                     ttemp2 0084  
+                   ttemp3 0087                     ttemp4 007F                     status 0003  
+                   wtemp0 007E                     wtemp1 0080                     wtemp2 0082  
+                   wtemp3 0084                     wtemp4 0086                     wtemp5 0088  
+                   wtemp6 007F           __initialization 07F4              __end_of_main 07F4  
+                  ??_main 007B                    _INTCON 000B          __end_of_delay1ms 050F  
+        __end_of_delay_ms 051F            __CFG_PWRTE$OFF 0000         __end_of_UART_Init 06E6  
+       __end_of_UART_Read 04EA       __size_of_UART_Write 000E                 ??___aldiv 0078  
+        ?_UART_Write_Text 0070   __size_of_UART_Read_Text 0029                    main@no 0040  
+ __end_of__initialization 07FC            __pcstackCOMMON 0070                __pbssBANK0 0045  
+              __pmaintext 06E6                   _IC2_ack 02D0                 ?_delay1ms 0070  
+               ?_delay_ms 0072              ??_UART_Write 0070                   _SSPCON2 0091  
+              __stringtab 0003                   ___aldiv 056A        __end_of_UART_Write 0500  
+          _UART_Read_Text 0541                   __ptext1 050F                   __ptext2 0500  
+                 __ptext3 0541                   __ptext4 051F                   __ptext5 04F2  
+                 __ptext6 04E4                   __ptext7 05F9                   __ptext8 056A  
+              ??_delay1ms 0070          ___aldiv@dividend 0074                ??_delay_ms 0074  
+                 clrloop0 04EB      end_of_initialization 07FC    __end_of_UART_Read_Text 056A  
+        ___aldiv@quotient 0022                 _UART_Init 05F9                 _UART_Read 04E4  
+          UART_Write@data 0070           ?_UART_Read_Text 0070                ?_UART_Init 0026  
+              ?_UART_Read 0070             __pbitbssBANK0 02D0  __size_of_UART_Write_Text 0022  
+     start_initialization 07F4  __CFG_FOSC$INTRC_NOCLKOUT 0000                 ___latbits 0002  
+           __pcstackBANK0 0020         __size_of_delay1ms 000F         __size_of_delay_ms 0010  
+                ?___aldiv 0070               ??_UART_Init 002A               ??_UART_Read 0070  
+               __pstrings 0003                UART_Init@x 0079                 delay1ms@j 0070  
+       ??_UART_Write_Text 0071           ___aldiv@divisor 0070           ___aldiv@counter 0020  
+               delay_ms@i 0072           UART_Read_Text@a 0075           UART_Read_Text@i 0077  
+         UART_Read_Text@x 0076                 clear_ram0 04EA                  _PIR1bits 000C  
+       UART_Init@baudrate 0026               __stringbase 0008          ??_UART_Read_Text 0074  
+        __size_of___aldiv 008F        __end_of__stringtab 0009                  _delay1ms 0500  
+                _delay_ms 050F         __CFG_BOR4V$BOR40V 0000       UART_Write_Text@text 0073  
+           __size_of_main 010E            main@LED_Output 003F                  main@arr1 0036  
+                main@arr2 0037                  main@arr3 0038                  main@arr4 0039  
+                main@arr5 003A                  main@arr6 003B                  main@arr7 003C  
+                main@arr8 003D                  main@arr9 003E             main@LED_Input 0044  
+               stringcode 0003                _OSCCONbits 008F           _UART_Write_Text 051F  
+                stringdir 0003                  stringtab 0003              ___aldiv@sign 0021  
+              _UART_Write 04F2          UART_Write_Text@i 0071  

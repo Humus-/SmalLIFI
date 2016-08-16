@@ -95,7 +95,7 @@ void main(void)
    const unsigned char *arr9="RX 0..........\r\n";
 
    unsigned int no;
-   unsigned char RX_C
+   unsigned char RX_C;
    unsigned int j;
 
    unsigned char LED_Output,LED_Input;
@@ -145,16 +145,7 @@ void main(void)
                 else
                 //UART_Write_Text("Recieved 0");
                     UART_Write_Text(arr9);
-                no = no<<1;
-                /*
-                totally wrong - check logic ~ we are sending LSB's first so say we send 1101 then we send 1st
-                iteration~ 1 ,LED_INPUT=1--> then no=1 then next iteration after 0 has been sent no--no<<1-->xx10-->
-                xx10+0=xx10...next iteration 1--sent ....so we have no--no<<1--x100+1=x101 ...next iteration 1 sent--no--no<<1=1010..
-                1010+1=1011---its reverse....change a bit...i.e either change the msbs to be sent first or Recieve logic u change
-                and recommit again
-                see transmit logic and change
-                
-                */
+                no = no+LED_Input<<j;
                 
                 no+=LED_Input;
                 delay_ms(1000);//1000ms= 1s

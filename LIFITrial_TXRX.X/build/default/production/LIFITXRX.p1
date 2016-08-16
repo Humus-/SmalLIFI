@@ -1689,169 +1689,172 @@ Version 3.2 HI-TECH Software Intermediate Code
 "97
 [v _no `ui ~T0 @X0 1 a ]
 "98
+[v _RX_C `uc ~T0 @X0 1 a ]
+"99
 [v _j `ui ~T0 @X0 1 a ]
-"100
+"101
 [v _LED_Output `uc ~T0 @X0 1 a ]
 [v _LED_Input `uc ~T0 @X0 1 a ]
 [; ;LIFITXRX.c: 97: unsigned int no;
-[; ;LIFITXRX.c: 98: unsigned int j;
-[; ;LIFITXRX.c: 100: unsigned char LED_Output,LED_Input;
-[; ;LIFITXRX.c: 102: TRISB=0x00;
-"102
-[e = _TRISB -> -> 0 `i `uc ]
-[; ;LIFITXRX.c: 103: TRISC=0x08;
+[; ;LIFITXRX.c: 98: unsigned char RX_C;
+[; ;LIFITXRX.c: 99: unsigned int j;
+[; ;LIFITXRX.c: 101: unsigned char LED_Output,LED_Input;
+[; ;LIFITXRX.c: 103: TRISB=0x00;
 "103
+[e = _TRISB -> -> 0 `i `uc ]
+[; ;LIFITXRX.c: 104: TRISC=0x08;
+"104
 [e = _TRISC -> -> 8 `i `uc ]
-[; ;LIFITXRX.c: 105: OSCCONbits.IRCF = 0x07;
-"105
+[; ;LIFITXRX.c: 106: OSCCONbits.IRCF = 0x07;
+"106
 [e = . . _OSCCONbits 0 4 -> -> 7 `i `uc ]
-[; ;LIFITXRX.c: 107: while(!OSCCONbits.HTS);
-"107
+[; ;LIFITXRX.c: 108: while(!OSCCONbits.HTS);
+"108
 [e $U 141  ]
 [e :U 142 ]
 [e :U 141 ]
 [e $ ! != -> . . _OSCCONbits 0 2 `i -> -> -> 0 `i `Vuc `i 142  ]
 [e :U 143 ]
-[; ;LIFITXRX.c: 109: INTCON=0;
-"109
+[; ;LIFITXRX.c: 110: INTCON=0;
+"110
 [e = _INTCON -> -> 0 `i `uc ]
-[; ;LIFITXRX.c: 111: UART_Init(9600);
-"111
+[; ;LIFITXRX.c: 112: UART_Init(9600);
+"112
 [e ( _UART_Init (1 -> -> 9600 `i `l ]
-[; ;LIFITXRX.c: 113: UART_Write_Text(arr4);
-"113
+[; ;LIFITXRX.c: 114: UART_Write_Text(arr4);
+"114
 [e ( _UART_Write_Text (1 _arr4 ]
-[; ;LIFITXRX.c: 115: delay_ms(500);
-"115
+[; ;LIFITXRX.c: 116: delay_ms(500);
+"116
 [e ( _delay_ms (1 -> -> 500 `i `ui ]
-[; ;LIFITXRX.c: 117: while(1)
-"117
-[e :U 145 ]
-[; ;LIFITXRX.c: 118: {
+[; ;LIFITXRX.c: 118: while(1)
 "118
+[e :U 145 ]
+[; ;LIFITXRX.c: 119: {
+"119
 {
-[; ;LIFITXRX.c: 121: UART_Write_Text(arr1);
-"121
+[; ;LIFITXRX.c: 122: UART_Write_Text(arr1);
+"122
 [e ( _UART_Write_Text (1 _arr1 ]
-[; ;LIFITXRX.c: 123: is=UART_Read_Text();
-"123
+[; ;LIFITXRX.c: 124: is=UART_Read_Text();
+"124
 [e = _is ( _UART_Read_Text ..  ]
-[; ;LIFITXRX.c: 125: UART_Write_Text(arr2);
-"125
+[; ;LIFITXRX.c: 126: UART_Write_Text(arr2);
+"126
 [e ( _UART_Write_Text (1 _arr2 ]
-[; ;LIFITXRX.c: 127: UART_Write_Text(arr3);
-"127
+[; ;LIFITXRX.c: 128: UART_Write_Text(arr3);
+"128
 [e ( _UART_Write_Text (1 _arr3 ]
-[; ;LIFITXRX.c: 131: UART_Write_Text(arr5);
-"131
+[; ;LIFITXRX.c: 132: UART_Write_Text(arr5);
+"132
 [e ( _UART_Write_Text (1 _arr5 ]
-[; ;LIFITXRX.c: 133: while(*is)
-"133
+[; ;LIFITXRX.c: 134: while(*is)
+"134
 [e $U 147  ]
 [e :U 148 ]
-[; ;LIFITXRX.c: 134: {
-"134
-{
-[; ;LIFITXRX.c: 135: no=0;
+[; ;LIFITXRX.c: 135: {
 "135
-[e = _no -> -> 0 `i `ui ]
-[; ;LIFITXRX.c: 136: for(j=0;j<=7;j++)
+{
+[; ;LIFITXRX.c: 136: no=0;
 "136
+[e = _no -> -> 0 `i `ui ]
+[; ;LIFITXRX.c: 137: for(j=0;j<=7;j++)
+"137
 {
 [e = _j -> -> 0 `i `ui ]
 [e $ <= _j -> -> 7 `i `ui 150  ]
 [e $U 151  ]
-"137
-[e :U 150 ]
-[; ;LIFITXRX.c: 137: {
-{
-[; ;LIFITXRX.c: 138: LED_Output= (*is&0x01)==1?1:0;
 "138
-[e = _LED_Output -> ? == & -> *U _is `i -> 1 `i -> 1 `i : -> 1 `i -> 0 `i `uc ]
-[; ;LIFITXRX.c: 139: RB0=LED_Output;
+[e :U 150 ]
+[; ;LIFITXRX.c: 138: {
+{
+[; ;LIFITXRX.c: 139: LED_Output= (*is&0x01)==1?1:0;
 "139
-[e = _RB0 -> _LED_Output `b ]
-[; ;LIFITXRX.c: 140: LED_Input=RC3;
+[e = _LED_Output -> ? == & -> *U _is `i -> 1 `i -> 1 `i : -> 1 `i -> 0 `i `uc ]
+[; ;LIFITXRX.c: 140: RB0=LED_Output;
 "140
-[e = _LED_Input -> -> _RC3 `i `uc ]
-[; ;LIFITXRX.c: 141: if(LED_Input==1)
+[e = _RB0 -> _LED_Output `b ]
+[; ;LIFITXRX.c: 141: LED_Input=RC3;
 "141
+[e = _LED_Input -> -> _RC3 `i `uc ]
+[; ;LIFITXRX.c: 142: if(LED_Input==1)
+"142
 [e $ ! == -> _LED_Input `i -> 1 `i 153  ]
-[; ;LIFITXRX.c: 143: UART_Write_Text(arr8);
-"143
+[; ;LIFITXRX.c: 144: UART_Write_Text(arr8);
+"144
 [e ( _UART_Write_Text (1 _arr8 ]
 [e $U 154  ]
-"144
+"145
 [e :U 153 ]
-[; ;LIFITXRX.c: 144: else
-[; ;LIFITXRX.c: 146: UART_Write_Text(arr9);
-"146
+[; ;LIFITXRX.c: 145: else
+[; ;LIFITXRX.c: 147: UART_Write_Text(arr9);
+"147
 [e ( _UART_Write_Text (1 _arr9 ]
 [e :U 154 ]
-[; ;LIFITXRX.c: 147: no = no<<1;
-"147
-[e = _no << _no -> 1 `i ]
-[; ;LIFITXRX.c: 148: no+=LED_Input;
+[; ;LIFITXRX.c: 148: no = no+LED_Input<<j;
 "148
-[e =+ _no -> _LED_Input `ui ]
-[; ;LIFITXRX.c: 149: delay_ms(1000);
-"149
-[e ( _delay_ms (1 -> -> 1000 `i `ui ]
-[; ;LIFITXRX.c: 150: *is=*is>>1;
+[e = _no << + _no -> _LED_Input `ui _j ]
+[; ;LIFITXRX.c: 150: no+=LED_Input;
 "150
-[e = *U _is -> >> -> *U _is `i -> 1 `i `uc ]
+[e =+ _no -> _LED_Input `ui ]
+[; ;LIFITXRX.c: 151: delay_ms(1000);
 "151
+[e ( _delay_ms (1 -> -> 1000 `i `ui ]
+[; ;LIFITXRX.c: 152: *is=*is>>1;
+"152
+[e = *U _is -> >> -> *U _is `i -> 1 `i `uc ]
+"153
 }
-"136
+"137
 [e ++ _j -> -> 1 `i `ui ]
 [e $ <= _j -> -> 7 `i `ui 150  ]
 [e :U 151 ]
-"151
+"153
 }
-[; ;LIFITXRX.c: 151: }
-[; ;LIFITXRX.c: 152: is++;
-"152
+[; ;LIFITXRX.c: 153: }
+[; ;LIFITXRX.c: 154: is++;
+"154
 [e ++ _is * -> -> 1 `i `x -> -> # *U _is `i `x ]
-[; ;LIFITXRX.c: 159: UART_Write_Text(arr6);
-"159
+[; ;LIFITXRX.c: 161: UART_Write_Text(arr6);
+"161
 [e ( _UART_Write_Text (1 _arr6 ]
-[; ;LIFITXRX.c: 160: UART_Write((unsigned char)no);
-"160
-[e ( _UART_Write (1 -> _no `uc ]
+[; ;LIFITXRX.c: 162: UART_Write((unsigned char)no);
 "162
+[e ( _UART_Write (1 -> _no `uc ]
+"164
 }
 [e :U 147 ]
-"133
+"134
 [e $ != -> *U _is `i -> -> -> 0 `i `uc `i 148  ]
 [e :U 149 ]
-[; ;LIFITXRX.c: 162: }
-[; ;LIFITXRX.c: 164: UART_Write_Text(arr7);
-"164
+[; ;LIFITXRX.c: 164: }
+[; ;LIFITXRX.c: 166: UART_Write_Text(arr7);
+"166
 [e ( _UART_Write_Text (1 _arr7 ]
-"167
+"169
 }
 [e :U 144 ]
-"117
+"118
 [e $U 145  ]
 [e :U 146 ]
-[; ;LIFITXRX.c: 167: }
-[; ;LIFITXRX.c: 170: }
-"170
+[; ;LIFITXRX.c: 169: }
+[; ;LIFITXRX.c: 172: }
+"172
 [e :UE 140 ]
 }
-"175
-[v _delay_us `(v ~T0 @X0 1 ef1`ui ]
-"176
-{
-[; ;LIFITXRX.c: 175: void delay_us(unsigned int i)
-[; ;LIFITXRX.c: 176: {
-[e :U _delay_us ]
-"175
-[v _i `ui ~T0 @X0 1 r1 ]
-"176
-[f ]
-[; ;LIFITXRX.c: 177: for (;i!=0x00;i--);
 "177
+[v _delay_us `(v ~T0 @X0 1 ef1`ui ]
+"178
+{
+[; ;LIFITXRX.c: 177: void delay_us(unsigned int i)
+[; ;LIFITXRX.c: 178: {
+[e :U _delay_us ]
+"177
+[v _i `ui ~T0 @X0 1 r1 ]
+"178
+[f ]
+[; ;LIFITXRX.c: 179: for (;i!=0x00;i--);
+"179
 {
 [e $ != _i -> -> 0 `i `ui 156  ]
 [e $U 157  ]
@@ -1860,54 +1863,54 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $ != _i -> -> 0 `i `ui 156  ]
 [e :U 157 ]
 }
-[; ;LIFITXRX.c: 178: }
-"178
+[; ;LIFITXRX.c: 180: }
+"180
 [e :UE 155 ]
 }
-"180
-[v _delay_ms `(v ~T0 @X0 1 ef1`ui ]
-"181
-{
-[; ;LIFITXRX.c: 180: void delay_ms(unsigned int i)
-[; ;LIFITXRX.c: 181: {
-[e :U _delay_ms ]
-"180
-[v _i `ui ~T0 @X0 1 r1 ]
-"181
-[f ]
-[; ;LIFITXRX.c: 182: for(;i!=0x00;i--)
 "182
+[v _delay_ms `(v ~T0 @X0 1 ef1`ui ]
+"183
+{
+[; ;LIFITXRX.c: 182: void delay_ms(unsigned int i)
+[; ;LIFITXRX.c: 183: {
+[e :U _delay_ms ]
+"182
+[v _i `ui ~T0 @X0 1 r1 ]
+"183
+[f ]
+[; ;LIFITXRX.c: 184: for(;i!=0x00;i--)
+"184
 {
 [e $ != _i -> -> 0 `i `ui 160  ]
 [e $U 161  ]
-"183
+"185
 [e :U 160 ]
-[; ;LIFITXRX.c: 183: delay1ms();
+[; ;LIFITXRX.c: 185: delay1ms();
 [e ( _delay1ms ..  ]
-"182
+"184
 [e -- _i -> -> 1 `i `ui ]
 [e $ != _i -> -> 0 `i `ui 160  ]
 [e :U 161 ]
-"183
+"185
 }
-[; ;LIFITXRX.c: 184: }
-"184
+[; ;LIFITXRX.c: 186: }
+"186
 [e :UE 159 ]
 }
-"186
+"188
 [v _delay1ms `(v ~T0 @X0 1 ef ]
-"187
+"189
 {
-[; ;LIFITXRX.c: 186: void delay1ms(void)
-[; ;LIFITXRX.c: 187: {
+[; ;LIFITXRX.c: 188: void delay1ms(void)
+[; ;LIFITXRX.c: 189: {
 [e :U _delay1ms ]
 [f ]
-"188
+"190
 [v _j `ui ~T0 @X0 1 a ]
-[; ;LIFITXRX.c: 188: unsigned int j = 130;
+[; ;LIFITXRX.c: 190: unsigned int j = 130;
 [e = _j -> -> 130 `i `ui ]
-[; ;LIFITXRX.c: 189: for (;j!=0x00;j--);
-"189
+[; ;LIFITXRX.c: 191: for (;j!=0x00;j--);
+"191
 {
 [e $ != _j -> -> 0 `i `ui 164  ]
 [e $U 165  ]
@@ -1916,372 +1919,372 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $ != _j -> -> 0 `i `ui 164  ]
 [e :U 165 ]
 }
-[; ;LIFITXRX.c: 190: }
-"190
+[; ;LIFITXRX.c: 192: }
+"192
 [e :UE 163 ]
 }
-"192
-[v _UART_Init `(uc ~T0 @X0 1 ef1`l ]
-"193
-{
-[; ;LIFITXRX.c: 192: char UART_Init(long baudrate)
-[; ;LIFITXRX.c: 193: {
-[e :U _UART_Init ]
-"192
-[v _baudrate `l ~T0 @X0 1 r1 ]
-"193
-[f ]
 "194
-[v _x `ui ~T0 @X0 1 a ]
-[; ;LIFITXRX.c: 194: unsigned int x;
-[; ;LIFITXRX.c: 195: x = (8000000 - baudrate*64)/(baudrate*64);
+[v _UART_Init `(uc ~T0 @X0 1 ef1`l ]
 "195
-[e = _x -> / - -> 8000000 `l * _baudrate -> -> 64 `i `l * _baudrate -> -> 64 `i `l `ui ]
-[; ;LIFITXRX.c: 196: if(x>255)
-"196
-[e $ ! > _x -> -> 255 `i `ui 168  ]
-[; ;LIFITXRX.c: 197: {
-"197
 {
-[; ;LIFITXRX.c: 198: x = (8000000 - baudrate*16)/(baudrate*16);
+[; ;LIFITXRX.c: 194: char UART_Init(long baudrate)
+[; ;LIFITXRX.c: 195: {
+[e :U _UART_Init ]
+"194
+[v _baudrate `l ~T0 @X0 1 r1 ]
+"195
+[f ]
+"196
+[v _x `ui ~T0 @X0 1 a ]
+[; ;LIFITXRX.c: 196: unsigned int x;
+[; ;LIFITXRX.c: 197: x = (8000000 - baudrate*64)/(baudrate*64);
+"197
+[e = _x -> / - -> 8000000 `l * _baudrate -> -> 64 `i `l * _baudrate -> -> 64 `i `l `ui ]
+[; ;LIFITXRX.c: 198: if(x>255)
 "198
-[e = _x -> / - -> 8000000 `l * _baudrate -> -> 16 `i `l * _baudrate -> -> 16 `i `l `ui ]
-[; ;LIFITXRX.c: 200: BRGH = 1;
+[e $ ! > _x -> -> 255 `i `ui 168  ]
+[; ;LIFITXRX.c: 199: {
+"199
+{
+[; ;LIFITXRX.c: 200: x = (8000000 - baudrate*16)/(baudrate*16);
 "200
-[e = _BRGH -> -> 1 `i `b ]
-[; ;LIFITXRX.c: 201: SPBRG = x;
-"201
-[e = _SPBRG -> _x `uc ]
-[; ;LIFITXRX.c: 202: SYNC = 0;
+[e = _x -> / - -> 8000000 `l * _baudrate -> -> 16 `i `l * _baudrate -> -> 16 `i `l `ui ]
+[; ;LIFITXRX.c: 202: BRGH = 1;
 "202
-[e = _SYNC -> -> 0 `i `b ]
-[; ;LIFITXRX.c: 203: SPEN = 1;
+[e = _BRGH -> -> 1 `i `b ]
+[; ;LIFITXRX.c: 203: SPBRG = x;
 "203
-[e = _SPEN -> -> 1 `i `b ]
-[; ;LIFITXRX.c: 204: CREN = 1;
+[e = _SPBRG -> _x `uc ]
+[; ;LIFITXRX.c: 204: SYNC = 0;
 "204
-[e = _CREN -> -> 1 `i `b ]
-[; ;LIFITXRX.c: 205: TXEN = 1;
+[e = _SYNC -> -> 0 `i `b ]
+[; ;LIFITXRX.c: 205: SPEN = 1;
 "205
-[e = _TXEN -> -> 1 `i `b ]
+[e = _SPEN -> -> 1 `i `b ]
+[; ;LIFITXRX.c: 206: CREN = 1;
 "206
+[e = _CREN -> -> 1 `i `b ]
+[; ;LIFITXRX.c: 207: TXEN = 1;
+"207
+[e = _TXEN -> -> 1 `i `b ]
+"208
 }
 [e :U 168 ]
-[; ;LIFITXRX.c: 206: }
-[; ;LIFITXRX.c: 207: if(x<256)
-"207
-[e $ ! < _x -> -> 256 `i `ui 169  ]
-[; ;LIFITXRX.c: 208: {
-"208
-{
-[; ;LIFITXRX.c: 209: BRGH = 0;
+[; ;LIFITXRX.c: 208: }
+[; ;LIFITXRX.c: 209: if(x<256)
 "209
-[e = _BRGH -> -> 0 `i `b ]
-[; ;LIFITXRX.c: 210: SPBRG = x;
+[e $ ! < _x -> -> 256 `i `ui 169  ]
+[; ;LIFITXRX.c: 210: {
 "210
-[e = _SPBRG -> _x `uc ]
-[; ;LIFITXRX.c: 211: SYNC = 0;
+{
+[; ;LIFITXRX.c: 211: BRGH = 0;
 "211
-[e = _SYNC -> -> 0 `i `b ]
-[; ;LIFITXRX.c: 212: SPEN = 1;
+[e = _BRGH -> -> 0 `i `b ]
+[; ;LIFITXRX.c: 212: SPBRG = x;
 "212
-[e = _SPEN -> -> 1 `i `b ]
-[; ;LIFITXRX.c: 213: CREN = 1;
+[e = _SPBRG -> _x `uc ]
+[; ;LIFITXRX.c: 213: SYNC = 0;
 "213
-[e = _CREN -> -> 1 `i `b ]
-[; ;LIFITXRX.c: 214: TXEN = 1;
+[e = _SYNC -> -> 0 `i `b ]
+[; ;LIFITXRX.c: 214: SPEN = 1;
 "214
-[e = _TXEN -> -> 1 `i `b ]
-[; ;LIFITXRX.c: 215: return 1;
+[e = _SPEN -> -> 1 `i `b ]
+[; ;LIFITXRX.c: 215: CREN = 1;
 "215
+[e = _CREN -> -> 1 `i `b ]
+[; ;LIFITXRX.c: 216: TXEN = 1;
+"216
+[e = _TXEN -> -> 1 `i `b ]
+[; ;LIFITXRX.c: 217: return 1;
+"217
 [e ) -> -> 1 `i `uc ]
 [e $UE 167  ]
-"216
+"218
 }
 [e :U 169 ]
-[; ;LIFITXRX.c: 216: }
-[; ;LIFITXRX.c: 217: return 0;
-"217
+[; ;LIFITXRX.c: 218: }
+[; ;LIFITXRX.c: 219: return 0;
+"219
 [e ) -> -> 0 `i `uc ]
 [e $UE 167  ]
-[; ;LIFITXRX.c: 218: }
-"218
+[; ;LIFITXRX.c: 220: }
+"220
 [e :UE 167 ]
 }
-"220
-[v _UART_Write `(v ~T0 @X0 1 ef1`uc ]
-"221
-{
-[; ;LIFITXRX.c: 220: void UART_Write(unsigned char data)
-[; ;LIFITXRX.c: 221: {
-[e :U _UART_Write ]
-"220
-[v _data `uc ~T0 @X0 1 r1 ]
-"221
-[f ]
-[; ;LIFITXRX.c: 222: while(!PIR1bits.TXIF);
 "222
+[v _UART_Write `(v ~T0 @X0 1 ef1`uc ]
+"223
+{
+[; ;LIFITXRX.c: 222: void UART_Write(unsigned char data)
+[; ;LIFITXRX.c: 223: {
+[e :U _UART_Write ]
+"222
+[v _data `uc ~T0 @X0 1 r1 ]
+"223
+[f ]
+[; ;LIFITXRX.c: 224: while(!PIR1bits.TXIF);
+"224
 [e $U 171  ]
 [e :U 172 ]
 [e :U 171 ]
 [e $ ! != -> . . _PIR1bits 0 4 `i -> -> -> 0 `i `Vuc `i 172  ]
 [e :U 173 ]
-[; ;LIFITXRX.c: 223: while(!TRMT);
-"223
+[; ;LIFITXRX.c: 225: while(!TRMT);
+"225
 [e $U 174  ]
 [e :U 175 ]
 [e :U 174 ]
 [e $ ! _TRMT 175  ]
 [e :U 176 ]
-[; ;LIFITXRX.c: 224: TXREG = data;
-"224
+[; ;LIFITXRX.c: 226: TXREG = data;
+"226
 [e = _TXREG _data ]
-[; ;LIFITXRX.c: 225: }
-"225
+[; ;LIFITXRX.c: 227: }
+"227
 [e :UE 170 ]
 }
-"227
+"229
 [v _UART_TX_Empty `(uc ~T0 @X0 1 ef ]
-"228
+"230
 {
-[; ;LIFITXRX.c: 227: char UART_TX_Empty()
-[; ;LIFITXRX.c: 228: {
+[; ;LIFITXRX.c: 229: char UART_TX_Empty()
+[; ;LIFITXRX.c: 230: {
 [e :U _UART_TX_Empty ]
 [f ]
-[; ;LIFITXRX.c: 229: return TRMT;
-"229
+[; ;LIFITXRX.c: 231: return TRMT;
+"231
 [e ) -> -> _TRMT `i `uc ]
 [e $UE 177  ]
-[; ;LIFITXRX.c: 230: }
-"230
+[; ;LIFITXRX.c: 232: }
+"232
 [e :UE 177 ]
 }
-"232
-[v _UART_Write_Text `(v ~T0 @X0 1 ef1`*Cuc ]
-"233
-{
-[; ;LIFITXRX.c: 232: void UART_Write_Text(const char *text)
-[; ;LIFITXRX.c: 233: {
-[e :U _UART_Write_Text ]
-"232
-[v _text `*Cuc ~T0 @X0 1 r1 ]
-"233
-[f ]
 "234
-[v _i `i ~T0 @X0 1 a ]
-[; ;LIFITXRX.c: 234: int i;
-[; ;LIFITXRX.c: 235: for(i=0;text[i]!='\0';i++)
+[v _UART_Write_Text `(v ~T0 @X0 1 ef1`*Cuc ]
 "235
+{
+[; ;LIFITXRX.c: 234: void UART_Write_Text(const char *text)
+[; ;LIFITXRX.c: 235: {
+[e :U _UART_Write_Text ]
+"234
+[v _text `*Cuc ~T0 @X0 1 r1 ]
+"235
+[f ]
+"236
+[v _i `i ~T0 @X0 1 a ]
+[; ;LIFITXRX.c: 236: int i;
+[; ;LIFITXRX.c: 237: for(i=0;text[i]!='\0';i++)
+"237
 {
 [e = _i -> 0 `i ]
 [e $U 182  ]
-"236
+"238
 [e :U 179 ]
-[; ;LIFITXRX.c: 236: UART_Write(text[i]);
+[; ;LIFITXRX.c: 238: UART_Write(text[i]);
 [e ( _UART_Write (1 *U + _text * -> _i `x -> -> # *U _text `i `x ]
-"235
+"237
 [e ++ _i -> 1 `i ]
 [e :U 182 ]
 [e $ != -> *U + _text * -> _i `x -> -> # *U _text `i `x `ui -> 0 `ui 179  ]
 [e :U 180 ]
-"236
-}
-[; ;LIFITXRX.c: 238: }
 "238
+}
+[; ;LIFITXRX.c: 240: }
+"240
 [e :UE 178 ]
 }
-"241
+"243
 [v _UART_Data_Ready `(uc ~T0 @X0 1 ef ]
-"242
+"244
 {
-[; ;LIFITXRX.c: 241: char UART_Data_Ready()
-[; ;LIFITXRX.c: 242: {
+[; ;LIFITXRX.c: 243: char UART_Data_Ready()
+[; ;LIFITXRX.c: 244: {
 [e :U _UART_Data_Ready ]
 [f ]
-[; ;LIFITXRX.c: 243: return RCIF;
-"243
+[; ;LIFITXRX.c: 245: return RCIF;
+"245
 [e ) -> -> _RCIF `i `uc ]
 [e $UE 183  ]
-[; ;LIFITXRX.c: 244: }
-"244
+[; ;LIFITXRX.c: 246: }
+"246
 [e :UE 183 ]
 }
-"246
+"248
 [v _UART_Read `(uc ~T0 @X0 1 ef ]
-"247
+"249
 {
-[; ;LIFITXRX.c: 246: char UART_Read()
-[; ;LIFITXRX.c: 247: {
+[; ;LIFITXRX.c: 248: char UART_Read()
+[; ;LIFITXRX.c: 249: {
 [e :U _UART_Read ]
 [f ]
-[; ;LIFITXRX.c: 248: while(!RCIF);
-"248
+[; ;LIFITXRX.c: 250: while(!RCIF);
+"250
 [e $U 185  ]
 [e :U 186 ]
 [e :U 185 ]
 [e $ ! _RCIF 186  ]
 [e :U 187 ]
-[; ;LIFITXRX.c: 249: return RCREG;
-"249
+[; ;LIFITXRX.c: 251: return RCREG;
+"251
 [e ) _RCREG ]
 [e $UE 184  ]
-[; ;LIFITXRX.c: 250: }
-"250
+[; ;LIFITXRX.c: 252: }
+"252
 [e :UE 184 ]
 }
-"252
+"254
 [v _UART_Read_Text `(*uc ~T0 @X0 1 ef ]
-"253
+"255
 {
-[; ;LIFITXRX.c: 252: unsigned char * UART_Read_Text()
-[; ;LIFITXRX.c: 253: {
+[; ;LIFITXRX.c: 254: unsigned char * UART_Read_Text()
+[; ;LIFITXRX.c: 255: {
 [e :U _UART_Read_Text ]
 [f ]
-"254
-[v _a `*Cuc ~T0 @X0 1 a ]
-[; ;LIFITXRX.c: 254: unsigned const char *a="Keyed in \r\n";
-[e = _a :s 10C ]
 "256
-[v F1803 `uc ~T0 @X0 -> 20 `i s string ]
+[v _a `*Cuc ~T0 @X0 1 a ]
+[; ;LIFITXRX.c: 256: unsigned const char *a="Keyed in \r\n";
+[e = _a :s 10C ]
 "258
+[v F1804 `uc ~T0 @X0 -> 20 `i s string ]
+"260
 [v _x `uc ~T0 @X0 1 a ]
 [v _i `uc ~T0 @X0 1 a ]
-[; ;LIFITXRX.c: 256: unsigned static char string[20];
-[; ;LIFITXRX.c: 258: unsigned char x, i = 0;
+[; ;LIFITXRX.c: 258: unsigned static char string[20];
+[; ;LIFITXRX.c: 260: unsigned char x, i = 0;
 [e = _i -> -> 0 `i `uc ]
-[; ;LIFITXRX.c: 260: while((x = UART_Read()) != 13)
-"260
+[; ;LIFITXRX.c: 262: while((x = UART_Read()) != 13)
+"262
 [e $U 189  ]
 [e :U 190 ]
-[; ;LIFITXRX.c: 261: {
-"261
+[; ;LIFITXRX.c: 263: {
+"263
 {
-[; ;LIFITXRX.c: 264: string[i++] = x;
-"264
-[e = *U + &U F1803 * -> ++ _i -> -> 1 `i `uc `ux -> -> # *U &U F1803 `ui `ux _x ]
-"265
+[; ;LIFITXRX.c: 266: string[i++] = x;
+"266
+[e = *U + &U F1804 * -> ++ _i -> -> 1 `i `uc `ux -> -> # *U &U F1804 `ui `ux _x ]
+"267
 }
 [e :U 189 ]
-"260
+"262
 [e $ != -> = _x ( _UART_Read ..  `i -> 13 `i 190  ]
 [e :U 191 ]
-[; ;LIFITXRX.c: 265: }
-[; ;LIFITXRX.c: 268: string[i] = '\0';
-"268
-[e = *U + &U F1803 * -> _i `ux -> -> # *U &U F1803 `ui `ux -> -> 0 `ui `uc ]
-[; ;LIFITXRX.c: 269: UART_Write_Text(a);
-"269
+[; ;LIFITXRX.c: 267: }
+[; ;LIFITXRX.c: 270: string[i] = '\0';
+"270
+[e = *U + &U F1804 * -> _i `ux -> -> # *U &U F1804 `ui `ux -> -> 0 `ui `uc ]
+[; ;LIFITXRX.c: 271: UART_Write_Text(a);
+"271
 [e ( _UART_Write_Text (1 _a ]
-[; ;LIFITXRX.c: 272: return(string);
-"272
-[e ) &U F1803 ]
+[; ;LIFITXRX.c: 274: return(string);
+"274
+[e ) &U F1804 ]
 [e $UE 188  ]
-[; ;LIFITXRX.c: 273: }
-"273
+[; ;LIFITXRX.c: 275: }
+"275
 [e :UE 188 ]
 }
-"275
+"277
 [v _putch `(v ~T0 @X0 1 ef1`uc ]
-"276
-{
-[; ;LIFITXRX.c: 275: void putch(unsigned char byte)
-[; ;LIFITXRX.c: 276: {
-[e :U _putch ]
-"275
-[v _byte `uc ~T0 @X0 1 r1 ]
-"276
-[f ]
-[; ;LIFITXRX.c: 278: while(!TXIF)
 "278
+{
+[; ;LIFITXRX.c: 277: void putch(unsigned char byte)
+[; ;LIFITXRX.c: 278: {
+[e :U _putch ]
+"277
+[v _byte `uc ~T0 @X0 1 r1 ]
+"278
+[f ]
+[; ;LIFITXRX.c: 280: while(!TXIF)
+"280
 [e $U 193  ]
 [e :U 194 ]
-[; ;LIFITXRX.c: 279: continue;
-"279
+[; ;LIFITXRX.c: 281: continue;
+"281
 [e $U 193  ]
 [e :U 193 ]
-"278
+"280
 [e $ ! _TXIF 194  ]
 [e :U 195 ]
-[; ;LIFITXRX.c: 280: TXREG = byte;
-"280
+[; ;LIFITXRX.c: 282: TXREG = byte;
+"282
 [e = _TXREG _byte ]
-[; ;LIFITXRX.c: 281: }
-"281
+[; ;LIFITXRX.c: 283: }
+"283
 [e :UE 192 ]
 }
-"283
+"285
 [v _getch `(uc ~T0 @X0 1 ef ]
-"284
+"286
 {
-[; ;LIFITXRX.c: 283: unsigned char getch()
-[; ;LIFITXRX.c: 284: {
+[; ;LIFITXRX.c: 285: unsigned char getch()
+[; ;LIFITXRX.c: 286: {
 [e :U _getch ]
 [f ]
-[; ;LIFITXRX.c: 286: while(!RCIF)
-"286
+[; ;LIFITXRX.c: 288: while(!RCIF)
+"288
 [e $U 197  ]
 [e :U 198 ]
-[; ;LIFITXRX.c: 287: continue;
-"287
+[; ;LIFITXRX.c: 289: continue;
+"289
 [e $U 197  ]
 [e :U 197 ]
-"286
+"288
 [e $ ! _RCIF 198  ]
 [e :U 199 ]
-[; ;LIFITXRX.c: 288: return RCREG;
-"288
+[; ;LIFITXRX.c: 290: return RCREG;
+"290
 [e ) _RCREG ]
 [e $UE 196  ]
-[; ;LIFITXRX.c: 289: }
-"289
+[; ;LIFITXRX.c: 291: }
+"291
 [e :UE 196 ]
 }
-"291
+"293
 [v _getche `(uc ~T0 @X0 1 ef ]
-"292
+"294
 {
-[; ;LIFITXRX.c: 291: unsigned char getche(void)
-[; ;LIFITXRX.c: 292: {
+[; ;LIFITXRX.c: 293: unsigned char getche(void)
+[; ;LIFITXRX.c: 294: {
 [e :U _getche ]
 [f ]
-"293
-[v _c `uc ~T0 @X0 1 a ]
-[; ;LIFITXRX.c: 293: unsigned char c;
-[; ;LIFITXRX.c: 294: putch(c = getch());
-"294
-[e ( _putch (1 = _c ( _getch ..  ]
-[; ;LIFITXRX.c: 295: return c;
 "295
+[v _c `uc ~T0 @X0 1 a ]
+[; ;LIFITXRX.c: 295: unsigned char c;
+[; ;LIFITXRX.c: 296: putch(c = getch());
+"296
+[e ( _putch (1 = _c ( _getch ..  ]
+[; ;LIFITXRX.c: 297: return c;
+"297
 [e ) _c ]
 [e $UE 200  ]
-[; ;LIFITXRX.c: 296: }
-"296
+[; ;LIFITXRX.c: 298: }
+"298
 [e :UE 200 ]
 }
-"298
+"300
 [v _i2c_idle `(v ~T0 @X0 1 ef ]
-"299
+"301
 {
-[; ;LIFITXRX.c: 298: void i2c_idle(void)
-[; ;LIFITXRX.c: 299: {
+[; ;LIFITXRX.c: 300: void i2c_idle(void)
+[; ;LIFITXRX.c: 301: {
 [e :U _i2c_idle ]
 [f ]
-[; ;LIFITXRX.c: 300: while((SSPSTATbits.R));
-"300
+[; ;LIFITXRX.c: 302: while((SSPSTATbits.R));
+"302
 [e $U 202  ]
 [e :U 203 ]
 [e :U 202 ]
 [e $ != -> . . _SSPSTATbits 1 1 `i -> -> -> 0 `i `Vuc `i 203  ]
 [e :U 204 ]
-[; ;LIFITXRX.c: 302: while((!((SSPCON2 & 0x1F) == 0x00)));
-"302
+[; ;LIFITXRX.c: 304: while((!((SSPCON2 & 0x1F) == 0x00)));
+"304
 [e $U 205  ]
 [e :U 206 ]
 [e :U 205 ]
 [e $ ! == & -> _SSPCON2 `i -> 31 `i -> 0 `i 206  ]
 [e :U 207 ]
-[; ;LIFITXRX.c: 303: }
-"303
+[; ;LIFITXRX.c: 305: }
+"305
 [e :UE 201 ]
 }
 [a 7C 84 120 32 99 111 109 112 108 101 116 101 100 32 97 108 108 32 98 121 116 101 115 13 10 0 ]

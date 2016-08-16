@@ -2199,6 +2199,7 @@ const unsigned char *arr8="RX 1\r\n";
 const unsigned char *arr9="RX 0..........\r\n";
 
 unsigned int no;
+unsigned char RX_C;
 unsigned int j;
 
 unsigned char LED_Output,LED_Input;
@@ -2248,14 +2249,15 @@ UART_Write_Text(arr8);
 else
 
 UART_Write_Text(arr9);
-no = no<<1;
+no = no+LED_Input<<j;
+
 no+=LED_Input;
 delay_ms(1000);
 *is=*is>>1;
 }
 is++;
 
-# 159
+# 161
 UART_Write_Text(arr6);
 UART_Write((unsigned char)no);
 
