@@ -11,56 +11,56 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\HIMANS~1\AppData\Local\Temp\sdho.obj
+$C:\Users\Abhi\AppData\Local\Temp\sb40.obj
 end_init CODE 0 0 0 3 2
 config CONFIG 0 2007 2007 2 2
 $dist/default/production\LIFITrial_TXRX.X.production.obj
 cinit CODE 0 7F4 7F4 C 2
-text1 CODE 0 50F 50F 10 2
-text2 CODE 0 500 500 F 2
-text3 CODE 0 541 541 29 2
-text4 CODE 0 51F 51F 22 2
-text5 CODE 0 4F2 4F2 E 2
-text6 CODE 0 4E4 4E4 6 2
-text7 CODE 0 5F9 5F9 ED 2
-text8 CODE 0 56A 56A 8F 2
-maintext CODE 0 6E6 6E6 10E 2
+text1 CODE 0 49F 49F B 2
+text2 CODE 0 4C7 4C7 10 2
+text3 CODE 0 4B8 4B8 F 2
+text4 CODE 0 4D7 4D7 2E 2
+text5 CODE 0 505 505 3D 2
+text6 CODE 0 4AA 4AA E 2
+text7 CODE 0 491 491 6 2
+text8 CODE 0 5D1 5D1 ED 2
+text9 CODE 0 542 542 8F 2
+maintext CODE 0 6BE 6BE 136 2
 cstackCOMMON COMMON 1 70 70 E 1
-cstackBANK0 BANK0 1 20 20 25 1
-bitbssBANK0 BANK0 1 2D0 5A 1 1
-bssBANK0 BANK0 1 45 45 15 1
+cstackBANK0 BANK0 1 20 20 1D 1
+cstackBANK3 BANK3 1 190 190 60 1
+bitbssBANK0 BANK0 1 290 52 1 1
+bssBANK0 BANK0 1 3D 3D 15 1
 strings STRING 0 3 3 BC 2
-clrtext CODE 0 4EA 4EA 8 2
+clrtext CODE 0 497 497 8 2
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
 # is described on a single line as follows:
 #    <class name> <range> <delta>
 # Addresses given in the range are in hexadecimal and units of delta.
 %UNUSED
-RAM 5B-6F 1
+RAM 53-6F 1
 RAM A0-EF 1
 RAM 110-16F 1
-RAM 190-1EF 1
-BANK0 5B-6F 1
+BANK0 53-6F 1
 BANK1 A0-EF 1
 BANK2 110-16F 1
-BANK3 190-1EF 1
-CONST BF-4E3 2
+CONST BF-490 2
 CONST 800-1FFF 2
-ENTRY BF-4E3 2
+ENTRY BF-490 2
 ENTRY 800-1FFF 2
 IDLOC 2000-2003 2
 STACK 110-16F 1
-CODE BF-4E3 2
+CODE BF-490 2
 CODE 800-1FFF 2
 SFR0 0-1F 1
 SFR1 80-9F 1
 SFR2 100-10F 1
 SFR3 180-18F 1
 EEDATA 2100-21FF 2
-STRCODE BF-4E3 2
+STRCODE BF-490 2
 STRCODE 800-1FFF 2
-STRING BF-4E3 2
+STRING BF-490 2
 STRING 800-1FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
@@ -76,142 +76,142 @@ STRING 800-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\LIFITrial_TXRX.X.production.obj
-4E4 text6 CODE >248:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-4E4 text6 CODE >250:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-4E8 text6 CODE >251:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-4EA clrtext CODE >531:C:\Users\HIMANS~1\AppData\Local\Temp\sdho.
-4EA clrtext CODE >532:C:\Users\HIMANS~1\AppData\Local\Temp\sdho.
-4EB clrtext CODE >533:C:\Users\HIMANS~1\AppData\Local\Temp\sdho.
-4EB clrtext CODE >534:C:\Users\HIMANS~1\AppData\Local\Temp\sdho.
-4EC clrtext CODE >535:C:\Users\HIMANS~1\AppData\Local\Temp\sdho.
-4ED clrtext CODE >536:C:\Users\HIMANS~1\AppData\Local\Temp\sdho.
-4EE clrtext CODE >537:C:\Users\HIMANS~1\AppData\Local\Temp\sdho.
-4EF clrtext CODE >538:C:\Users\HIMANS~1\AppData\Local\Temp\sdho.
-4F0 clrtext CODE >539:C:\Users\HIMANS~1\AppData\Local\Temp\sdho.
-4F1 clrtext CODE >540:C:\Users\HIMANS~1\AppData\Local\Temp\sdho.
-4F2 text5 CODE >222:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-4F3 text5 CODE >224:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-4F7 text5 CODE >225:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-4FB text5 CODE >226:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-4FF text5 CODE >227:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-500 text2 CODE >188:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-500 text2 CODE >190:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-504 text2 CODE >191:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-50F text1 CODE >182:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-50F text1 CODE >184:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-513 text1 CODE >185:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-518 text1 CODE >184:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-51F text4 CODE >234:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-520 text4 CODE >237:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-52D text4 CODE >238:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-53A text4 CODE >237:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-541 text3 CODE >254:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-541 text3 CODE >256:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-545 text3 CODE >260:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-546 text3 CODE >262:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-552 text3 CODE >266:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-55E text3 CODE >262:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-55F text3 CODE >270:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-564 text3 CODE >271:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-568 text3 CODE >274:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-56A text8 CODE >6:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\aldiv.c
-56A text8 CODE >14:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\aldiv.c
-56D text8 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\aldiv.c
-56F text8 CODE >16:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\aldiv.c
-57A text8 CODE >17:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\aldiv.c
-57C text8 CODE >18:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\aldiv.c
-57C text8 CODE >19:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\aldiv.c
-57E text8 CODE >20:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\aldiv.c
-589 text8 CODE >21:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\aldiv.c
-58D text8 CODE >23:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\aldiv.c
-595 text8 CODE >24:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\aldiv.c
-59B text8 CODE >25:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\aldiv.c
-59D text8 CODE >26:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\aldiv.c
-59F text8 CODE >27:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\aldiv.c
-5A8 text8 CODE >28:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\aldiv.c
-5AC text8 CODE >26:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\aldiv.c
-5AD text8 CODE >31:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\aldiv.c
-5B6 text8 CODE >32:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\aldiv.c
-5C6 text8 CODE >33:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\aldiv.c
-5D4 text8 CODE >34:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\aldiv.c
-5D5 text8 CODE >36:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\aldiv.c
-5DE text8 CODE >37:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\aldiv.c
-5E2 text8 CODE >39:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\aldiv.c
-5E5 text8 CODE >40:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\aldiv.c
-5F0 text8 CODE >41:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\aldiv.c
-5F9 text7 CODE >194:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-5F9 text7 CODE >197:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-65B text7 CODE >198:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-662 text7 CODE >200:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-6C4 text7 CODE >202:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-6C7 text7 CODE >203:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-6C9 text7 CODE >204:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-6CA text7 CODE >205:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-6CD text7 CODE >206:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-6CE text7 CODE >207:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-6D1 text7 CODE >209:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-6D8 text7 CODE >211:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-6DB text7 CODE >212:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-6DD text7 CODE >213:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-6DE text7 CODE >214:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-6E1 text7 CODE >215:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-6E2 text7 CODE >216:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-6E5 text7 CODE >217:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-6E6 maintext CODE >75:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-6E6 maintext CODE >79:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-6EC maintext CODE >81:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-6F0 maintext CODE >83:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-6F4 maintext CODE >85:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-6F8 maintext CODE >87:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-6FC maintext CODE >89:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-700 maintext CODE >91:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-704 maintext CODE >93:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-708 maintext CODE >95:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-70C maintext CODE >103:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-70F maintext CODE >104:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-711 maintext CODE >106:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-713 maintext CODE >108:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-715 maintext CODE >110:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-716 maintext CODE >112:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-725 maintext CODE >114:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-72D maintext CODE >116:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-736 maintext CODE >122:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-73E maintext CODE >124:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-748 maintext CODE >126:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-74E maintext CODE >128:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-756 maintext CODE >132:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-75E maintext CODE >134:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-75E maintext CODE >164:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-766 maintext CODE >136:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-76A maintext CODE >137:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-773 maintext CODE >139:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-77E maintext CODE >140:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-787 maintext CODE >141:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-78B maintext CODE >142:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-78E maintext CODE >144:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-790 maintext CODE >147:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-798 maintext CODE >148:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-7AD maintext CODE >150:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-7B6 maintext CODE >151:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-7BF maintext CODE >152:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-7CD maintext CODE >137:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-7DA maintext CODE >154:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-7DE maintext CODE >161:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-7E4 maintext CODE >162:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-7EC maintext CODE >134:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-7ED maintext CODE >166:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-7F3 maintext CODE >118:C:\Users\Himanshu_\MPLABXProjects\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
-7F4 cinit CODE >507:C:\Users\HIMANS~1\AppData\Local\Temp\sdho.
-7F4 cinit CODE >510:C:\Users\HIMANS~1\AppData\Local\Temp\sdho.
-7F4 cinit CODE >544:C:\Users\HIMANS~1\AppData\Local\Temp\sdho.
-7F5 cinit CODE >547:C:\Users\HIMANS~1\AppData\Local\Temp\sdho.
-7F6 cinit CODE >548:C:\Users\HIMANS~1\AppData\Local\Temp\sdho.
-7F7 cinit CODE >549:C:\Users\HIMANS~1\AppData\Local\Temp\sdho.
-7F8 cinit CODE >550:C:\Users\HIMANS~1\AppData\Local\Temp\sdho.
-7F9 cinit CODE >551:C:\Users\HIMANS~1\AppData\Local\Temp\sdho.
-7FC cinit CODE >557:C:\Users\HIMANS~1\AppData\Local\Temp\sdho.
-7FC cinit CODE >558:C:\Users\HIMANS~1\AppData\Local\Temp\sdho.
-7FD cinit CODE >559:C:\Users\HIMANS~1\AppData\Local\Temp\sdho.
+491 text7 CODE >232:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+491 text7 CODE >234:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+495 text7 CODE >235:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+497 clrtext CODE >532:C:\Users\Abhi\AppData\Local\Temp\sb40.
+497 clrtext CODE >533:C:\Users\Abhi\AppData\Local\Temp\sb40.
+498 clrtext CODE >534:C:\Users\Abhi\AppData\Local\Temp\sb40.
+498 clrtext CODE >535:C:\Users\Abhi\AppData\Local\Temp\sb40.
+499 clrtext CODE >536:C:\Users\Abhi\AppData\Local\Temp\sb40.
+49A clrtext CODE >537:C:\Users\Abhi\AppData\Local\Temp\sb40.
+49B clrtext CODE >538:C:\Users\Abhi\AppData\Local\Temp\sb40.
+49C clrtext CODE >539:C:\Users\Abhi\AppData\Local\Temp\sb40.
+49D clrtext CODE >540:C:\Users\Abhi\AppData\Local\Temp\sb40.
+49E clrtext CODE >541:C:\Users\Abhi\AppData\Local\Temp\sb40.
+49F text1 CODE >159:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+49F text1 CODE >161:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+4AA text6 CODE >204:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+4AB text6 CODE >206:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+4AF text6 CODE >207:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+4B3 text6 CODE >208:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+4B7 text6 CODE >209:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+4B8 text3 CODE >170:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+4B8 text3 CODE >172:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+4BC text3 CODE >173:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+4C7 text2 CODE >164:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+4C7 text2 CODE >166:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+4CB text2 CODE >167:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+4D0 text2 CODE >166:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+4D7 text4 CODE >238:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+4D7 text4 CODE >240:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+4DB text4 CODE >244:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+4DC text4 CODE >246:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+4E8 text4 CODE >250:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+4F4 text4 CODE >246:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+4F5 text4 CODE >254:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+4FA text4 CODE >255:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+503 text4 CODE >258:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+505 text5 CODE >216:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+505 text5 CODE >219:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+520 text5 CODE >220:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+53B text5 CODE >219:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+542 text9 CODE >6:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\aldiv.c
+542 text9 CODE >14:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\aldiv.c
+545 text9 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\aldiv.c
+547 text9 CODE >16:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\aldiv.c
+552 text9 CODE >17:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\aldiv.c
+554 text9 CODE >18:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\aldiv.c
+554 text9 CODE >19:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\aldiv.c
+556 text9 CODE >20:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\aldiv.c
+561 text9 CODE >21:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\aldiv.c
+565 text9 CODE >23:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\aldiv.c
+56D text9 CODE >24:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\aldiv.c
+573 text9 CODE >25:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\aldiv.c
+575 text9 CODE >26:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\aldiv.c
+577 text9 CODE >27:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\aldiv.c
+580 text9 CODE >28:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\aldiv.c
+584 text9 CODE >26:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\aldiv.c
+585 text9 CODE >31:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\aldiv.c
+58E text9 CODE >32:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\aldiv.c
+59E text9 CODE >33:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\aldiv.c
+5AC text9 CODE >34:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\aldiv.c
+5AD text9 CODE >36:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\aldiv.c
+5B6 text9 CODE >37:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\aldiv.c
+5BA text9 CODE >39:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\aldiv.c
+5BD text9 CODE >40:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\aldiv.c
+5C8 text9 CODE >41:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\aldiv.c
+5D1 text8 CODE >176:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+5D1 text8 CODE >179:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+633 text8 CODE >180:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+63A text8 CODE >182:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+69C text8 CODE >184:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+69F text8 CODE >185:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+6A1 text8 CODE >186:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+6A2 text8 CODE >187:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+6A5 text8 CODE >188:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+6A6 text8 CODE >189:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+6A9 text8 CODE >191:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+6B0 text8 CODE >193:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+6B3 text8 CODE >194:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+6B5 text8 CODE >195:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+6B6 text8 CODE >196:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+6B9 text8 CODE >197:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+6BA text8 CODE >198:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+6BD text8 CODE >199:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+6BE maintext CODE >76:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+6BE maintext CODE >82:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+6C2 maintext CODE >86:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+6C5 maintext CODE >89:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+6C7 maintext CODE >91:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+6C9 maintext CODE >93:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+6CA maintext CODE >95:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+6D9 maintext CODE >97:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+6E2 maintext CODE >99:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+6EB maintext CODE >104:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+6EE maintext CODE >105:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+6F7 maintext CODE >107:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+701 maintext CODE >109:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+70A maintext CODE >111:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+713 maintext CODE >113:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+71E maintext CODE >114:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+727 maintext CODE >116:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+730 maintext CODE >118:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+738 maintext CODE >120:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+73B maintext CODE >121:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+744 maintext CODE >123:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+74F maintext CODE >124:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+758 maintext CODE >125:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+761 maintext CODE >126:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+767 maintext CODE >127:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+770 maintext CODE >128:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+780 maintext CODE >129:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+783 maintext CODE >130:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+785 maintext CODE >132:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+78E maintext CODE >134:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+79C maintext CODE >121:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+7A9 maintext CODE >136:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+7AF maintext CODE >137:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+7B8 maintext CODE >138:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+7BE maintext CODE >139:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+7C7 maintext CODE >140:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+7D7 maintext CODE >118:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+7D8 maintext CODE >142:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+7DD maintext CODE >143:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+7E6 maintext CODE >144:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+7EF maintext CODE >146:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+7F3 maintext CODE >101:E:\movies\abhi11\project\GIT REPO\Lifi repo\SmalLIFI\LIFITrial_TXRX.X\LIFITXRX.c
+7F4 cinit CODE >508:C:\Users\Abhi\AppData\Local\Temp\sb40.
+7F4 cinit CODE >511:C:\Users\Abhi\AppData\Local\Temp\sb40.
+7F4 cinit CODE >545:C:\Users\Abhi\AppData\Local\Temp\sb40.
+7F5 cinit CODE >548:C:\Users\Abhi\AppData\Local\Temp\sb40.
+7F6 cinit CODE >549:C:\Users\Abhi\AppData\Local\Temp\sb40.
+7F7 cinit CODE >550:C:\Users\Abhi\AppData\Local\Temp\sb40.
+7F8 cinit CODE >551:C:\Users\Abhi\AppData\Local\Temp\sb40.
+7F9 cinit CODE >552:C:\Users\Abhi\AppData\Local\Temp\sb40.
+7FC cinit CODE >558:C:\Users\Abhi\AppData\Local\Temp\sb40.
+7FC cinit CODE >559:C:\Users\Abhi\AppData\Local\Temp\sb40.
+7FD cinit CODE >560:C:\Users\Abhi\AppData\Local\Temp\sb40.
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -226,18 +226,18 @@ $dist/default/production\LIFITrial_TXRX.X.production.obj
 %SYMTAB
 ___latbits 2 0 ABS 0 - dist/default/production\LIFITrial_TXRX.X.production.obj
 __Hspace_0 2009 0 ABS 0 - -
-__Hspace_1 2D1 0 ABS 0 - -
+__Hspace_1 291 0 ABS 0 - -
 __Hspace_2 0 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
 __CFG_IESO$OFF 0 0 ABS 0 - dist/default/production\LIFITrial_TXRX.X.production.obj
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 __CFG_MCLRE$ON 0 0 ABS 0 - dist/default/production\LIFITrial_TXRX.X.production.obj
-_is 45 0 BANK0 1 bssBANK0 dist/default/production\LIFITrial_TXRX.X.production.obj
+_is 3D 0 BANK0 1 bssBANK0 dist/default/production\LIFITrial_TXRX.X.production.obj
 ltemp0 7E 0 ABS 0 - dist/default/production\LIFITrial_TXRX.X.production.obj
 ltemp1 82 0 ABS 0 - dist/default/production\LIFITrial_TXRX.X.production.obj
 ltemp2 86 0 ABS 0 - dist/default/production\LIFITrial_TXRX.X.production.obj
 ltemp3 80 0 ABS 0 - dist/default/production\LIFITrial_TXRX.X.production.obj
-main@j 42 0 BANK0 1 cstackBANK0 dist/default/production\LIFITrial_TXRX.X.production.obj
+main@j 3A 0 BANK0 1 cstackBANK0 dist/default/production\LIFITrial_TXRX.X.production.obj
 __Hstrings 0 0 ABS 0 strings -
 _BRGH 4C2 0 ABS 0 - dist/default/production\LIFITrial_TXRX.X.production.obj
 _CREN C4 0 ABS 0 - dist/default/production\LIFITrial_TXRX.X.production.obj
@@ -247,11 +247,11 @@ _SYNC 4C4 0 ABS 0 - dist/default/production\LIFITrial_TXRX.X.production.obj
 _TRMT 4C1 0 ABS 0 - dist/default/production\LIFITrial_TXRX.X.production.obj
 _TXEN 4C5 0 ABS 0 - dist/default/production\LIFITrial_TXRX.X.production.obj
 _TXIF 64 0 ABS 0 - dist/default/production\LIFITrial_TXRX.X.production.obj
-___sp 0 0 STACK 2 stack C:\Users\HIMANS~1\AppData\Local\Temp\sdho.obj
-_main DCC 0 CODE 0 maintext dist/default/production\LIFITrial_TXRX.X.production.obj
+___sp 0 0 STACK 2 stack C:\Users\Abhi\AppData\Local\Temp\sb40.obj
+_main D7C 0 CODE 0 maintext dist/default/production\LIFITrial_TXRX.X.production.obj
 btemp 7E 0 ABS 0 - dist/default/production\LIFITrial_TXRX.X.production.obj
 ltemp 7E 0 ABS 0 - dist/default/production\LIFITrial_TXRX.X.production.obj
-start 0 0 CODE 0 init C:\Users\HIMANS~1\AppData\Local\Temp\sdho.obj
+start 0 0 CODE 0 init C:\Users\Abhi\AppData\Local\Temp\sb40.obj
 ttemp 7E 0 ABS 0 - dist/default/production\LIFITrial_TXRX.X.production.obj
 wtemp 7E 0 ABS 0 - dist/default/production\LIFITrial_TXRX.X.production.obj
 __size_of___aldiv 0 0 ABS 0 - dist/default/production\LIFITrial_TXRX.X.production.obj
@@ -262,12 +262,12 @@ ttemp1 81 0 ABS 0 - dist/default/production\LIFITrial_TXRX.X.production.obj
 ttemp2 84 0 ABS 0 - dist/default/production\LIFITrial_TXRX.X.production.obj
 ttemp3 87 0 ABS 0 - dist/default/production\LIFITrial_TXRX.X.production.obj
 ttemp4 7F 0 ABS 0 - dist/default/production\LIFITrial_TXRX.X.production.obj
-intlevel0 0 0 CODE 0 functab C:\Users\HIMANS~1\AppData\Local\Temp\sdho.obj
-intlevel1 0 0 CODE 0 functab C:\Users\HIMANS~1\AppData\Local\Temp\sdho.obj
-intlevel2 0 0 CODE 0 functab C:\Users\HIMANS~1\AppData\Local\Temp\sdho.obj
-intlevel3 0 0 CODE 0 functab C:\Users\HIMANS~1\AppData\Local\Temp\sdho.obj
-intlevel4 0 0 CODE 0 functab C:\Users\HIMANS~1\AppData\Local\Temp\sdho.obj
-intlevel5 0 0 CODE 0 functab C:\Users\HIMANS~1\AppData\Local\Temp\sdho.obj
+intlevel0 0 0 CODE 0 functab C:\Users\Abhi\AppData\Local\Temp\sb40.obj
+intlevel1 0 0 CODE 0 functab C:\Users\Abhi\AppData\Local\Temp\sb40.obj
+intlevel2 0 0 CODE 0 functab C:\Users\Abhi\AppData\Local\Temp\sb40.obj
+intlevel3 0 0 CODE 0 functab C:\Users\Abhi\AppData\Local\Temp\sb40.obj
+intlevel4 0 0 CODE 0 functab C:\Users\Abhi\AppData\Local\Temp\sb40.obj
+intlevel5 0 0 CODE 0 functab C:\Users\Abhi\AppData\Local\Temp\sb40.obj
 __size_of_UART_Read_Text 0 0 ABS 0 - dist/default/production\LIFITrial_TXRX.X.production.obj
 ___aldiv@divisor 70 0 COMMON 1 cstackCOMMON dist/default/production\LIFITrial_TXRX.X.production.obj
 _OSCCONbits 8F 0 ABS 0 - dist/default/production\LIFITrial_TXRX.X.production.obj
@@ -279,24 +279,25 @@ wtemp4 86 0 ABS 0 - dist/default/production\LIFITrial_TXRX.X.production.obj
 wtemp5 88 0 ABS 0 - dist/default/production\LIFITrial_TXRX.X.production.obj
 wtemp6 7F 0 ABS 0 - dist/default/production\LIFITrial_TXRX.X.production.obj
 __Hfunctab 0 0 CODE 0 functab -
-_UART_Write 9E4 0 CODE 0 text5 dist/default/production\LIFITrial_TXRX.X.production.obj
+_UART_Write 954 0 CODE 0 text6 dist/default/production\LIFITrial_TXRX.X.production.obj
 ___aldiv@sign 21 0 BANK0 1 cstackBANK0 dist/default/production\LIFITrial_TXRX.X.production.obj
 __Hclrtext 0 0 ABS 0 clrtext -
-main@LED_Output 3F 0 BANK0 1 cstackBANK0 dist/default/production\LIFITrial_TXRX.X.production.obj
+main@LED_Output 36 0 BANK0 1 cstackBANK0 dist/default/production\LIFITrial_TXRX.X.production.obj
 UART_Init@baudrate 26 0 BANK0 1 cstackBANK0 dist/default/production\LIFITrial_TXRX.X.production.obj
 __Lmaintext 0 0 ABS 0 maintext -
-__end_of___aldiv BF2 0 CODE 0 text8 dist/default/production\LIFITrial_TXRX.X.production.obj
+__end_of___aldiv BA2 0 CODE 0 text9 dist/default/production\LIFITrial_TXRX.X.production.obj
 _INTCON B 0 ABS 0 - dist/default/production\LIFITrial_TXRX.X.production.obj
-__end_of_UART_Write A00 0 CODE 0 text5 dist/default/production\LIFITrial_TXRX.X.production.obj
+__end_of_UART_Write 970 0 CODE 0 text6 dist/default/production\LIFITrial_TXRX.X.production.obj
 __CFG_FCMEN$OFF 0 0 ABS 0 - dist/default/production\LIFITrial_TXRX.X.production.obj
 start_initialization FE8 0 CODE 0 cinit dist/default/production\LIFITrial_TXRX.X.production.obj
 UART_Init@x 79 0 COMMON 1 cstackCOMMON dist/default/production\LIFITrial_TXRX.X.production.obj
 ___aldiv@quotient 22 0 BANK0 1 cstackBANK0 dist/default/production\LIFITrial_TXRX.X.production.obj
-main@LED_Input 44 0 BANK0 1 cstackBANK0 dist/default/production\LIFITrial_TXRX.X.production.obj
-clear_ram0 9D4 0 CODE 0 clrtext dist/default/production\LIFITrial_TXRX.X.production.obj
+main@LED_Input 37 0 BANK0 1 cstackBANK0 dist/default/production\LIFITrial_TXRX.X.production.obj
+clear_ram0 92E 0 CODE 0 clrtext dist/default/production\LIFITrial_TXRX.X.production.obj
 __pcstackBANK0 20 0 BANK0 1 cstackBANK0 dist/default/production\LIFITrial_TXRX.X.production.obj
-__end_of_UART_Write_Text A82 0 CODE 0 text4 dist/default/production\LIFITrial_TXRX.X.production.obj
-___int_sp 0 0 STACK 2 stack C:\Users\HIMANS~1\AppData\Local\Temp\sdho.obj
+__pcstackBANK3 190 0 BANK3 1 cstackBANK3 dist/default/production\LIFITrial_TXRX.X.production.obj
+__end_of_UART_Write_Text A84 0 CODE 0 text5 dist/default/production\LIFITrial_TXRX.X.production.obj
+___int_sp 0 0 STACK 2 stack C:\Users\Abhi\AppData\Local\Temp\sb40.obj
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -304,7 +305,7 @@ __Hbank3 0 0 ABS 0 bank3 -
 __Hcinit 1000 0 CODE 0 cinit -
 __Hidloc 0 0 IDLOC 0 idloc -
 __Hstack 0 0 STACK 2 stack -
-__stringbase 10 0 STRING 0 strings dist/default/production\LIFITrial_TXRX.X.production.obj
+__stringbase 24 0 STRING 0 strings dist/default/production\LIFITrial_TXRX.X.production.obj
 __Hmaintext 0 0 ABS 0 maintext -
 __Hcommon 0 0 ABS 0 common -
 __Hconfig 4012 0 CONFIG 0 config -
@@ -332,98 +333,98 @@ __Lsfr2 0 0 ABS 0 sfr2 -
 __Lsfr3 0 0 ABS 0 sfr3 -
 __Ltext 0 0 ABS 0 text -
 __LcstackBANK0 0 0 ABS 0 cstackBANK0 -
+__LcstackBANK3 0 0 ABS 0 cstackBANK3 -
 __HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
-_UART_Write_Text A3E 0 CODE 0 text4 dist/default/production\LIFITrial_TXRX.X.production.obj
+_UART_Write_Text A0A 0 CODE 0 text5 dist/default/production\LIFITrial_TXRX.X.production.obj
 _RB0 30 0 ABS 0 - dist/default/production\LIFITrial_TXRX.X.production.obj
 _RC3 3B 0 ABS 0 - dist/default/production\LIFITrial_TXRX.X.production.obj
 __S0 2009 0 ABS 0 - -
-__S1 7E 0 ABS 0 - -
+__S1 1F0 0 ABS 0 - -
 __S2 0 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
-__pbitbssBANK0 2D0 -276 BANK0 1 bitbssBANK0 dist/default/production\LIFITrial_TXRX.X.production.obj
+__pbitbssBANK0 290 -23E BANK0 1 bitbssBANK0 dist/default/production\LIFITrial_TXRX.X.production.obj
 __CFG_BOR4V$BOR40V 0 0 ABS 0 - dist/default/production\LIFITrial_TXRX.X.production.obj
 __CFG_FOSC$INTRC_NOCLKOUT 0 0 ABS 0 - dist/default/production\LIFITrial_TXRX.X.production.obj
-UART_Read_Text@a 75 0 COMMON 1 cstackCOMMON dist/default/production\LIFITrial_TXRX.X.production.obj
-UART_Read_Text@i 77 0 COMMON 1 cstackCOMMON dist/default/production\LIFITrial_TXRX.X.production.obj
-UART_Read_Text@x 76 0 COMMON 1 cstackCOMMON dist/default/production\LIFITrial_TXRX.X.production.obj
+UART_Read_Text@a 79 0 COMMON 1 cstackCOMMON dist/default/production\LIFITrial_TXRX.X.production.obj
+UART_Read_Text@i 7B 0 COMMON 1 cstackCOMMON dist/default/production\LIFITrial_TXRX.X.production.obj
+UART_Read_Text@x 7A 0 COMMON 1 cstackCOMMON dist/default/production\LIFITrial_TXRX.X.production.obj
 __CFG_BOREN$ON 0 0 ABS 0 - dist/default/production\LIFITrial_TXRX.X.production.obj
 __Lintentry 0 0 CODE 0 intentry -
-UART_Write_Text@i 71 0 COMMON 1 cstackCOMMON dist/default/production\LIFITrial_TXRX.X.production.obj
+UART_Write_Text@i 76 0 COMMON 1 cstackCOMMON dist/default/production\LIFITrial_TXRX.X.production.obj
 __stringtab 6 0 STRING 0 strings dist/default/production\LIFITrial_TXRX.X.production.obj
-reset_vec 0 0 CODE 0 reset_vec C:\Users\HIMANS~1\AppData\Local\Temp\sdho.obj
+reset_vec 0 0 CODE 0 reset_vec C:\Users\Abhi\AppData\Local\Temp\sb40.obj
 __LbssBANK0 0 0 ABS 0 bssBANK0 -
-_UART_Read_Text A82 0 CODE 0 text3 dist/default/production\LIFITrial_TXRX.X.production.obj
+_UART_Read_Text 9AE 0 CODE 0 text4 dist/default/production\LIFITrial_TXRX.X.production.obj
 __size_of_UART_Write 0 0 ABS 0 - dist/default/production\LIFITrial_TXRX.X.production.obj
 __LbitbssBANK0 0 0 ABS 0 bitbssBANK0 -
-___aldiv AD4 0 CODE 0 text8 dist/default/production\LIFITrial_TXRX.X.production.obj
-__pmaintext DCC 0 CODE 0 maintext dist/default/production\LIFITrial_TXRX.X.production.obj
-UART_Write_Text@text 73 0 COMMON 1 cstackCOMMON dist/default/production\LIFITrial_TXRX.X.production.obj
+___aldiv A84 0 CODE 0 text9 dist/default/production\LIFITrial_TXRX.X.production.obj
+__pmaintext D7C 0 CODE 0 maintext dist/default/production\LIFITrial_TXRX.X.production.obj
+UART_Write_Text@text 71 0 COMMON 1 cstackCOMMON dist/default/production\LIFITrial_TXRX.X.production.obj
 __Lcommon 0 0 ABS 0 common -
 __Lconfig 400E 0 CONFIG 0 config -
 __CFG_CP$OFF 0 0 ABS 0 - dist/default/production\LIFITrial_TXRX.X.production.obj
 __CFG_WDTE$OFF 0 0 ABS 0 - dist/default/production\LIFITrial_TXRX.X.production.obj
-main@arr1 36 0 BANK0 1 cstackBANK0 dist/default/production\LIFITrial_TXRX.X.production.obj
-main@arr2 37 0 BANK0 1 cstackBANK0 dist/default/production\LIFITrial_TXRX.X.production.obj
-main@arr3 38 0 BANK0 1 cstackBANK0 dist/default/production\LIFITrial_TXRX.X.production.obj
-main@arr4 39 0 BANK0 1 cstackBANK0 dist/default/production\LIFITrial_TXRX.X.production.obj
-main@arr5 3A 0 BANK0 1 cstackBANK0 dist/default/production\LIFITrial_TXRX.X.production.obj
-main@arr6 3B 0 BANK0 1 cstackBANK0 dist/default/production\LIFITrial_TXRX.X.production.obj
-main@arr7 3C 0 BANK0 1 cstackBANK0 dist/default/production\LIFITrial_TXRX.X.production.obj
-main@arr8 3D 0 BANK0 1 cstackBANK0 dist/default/production\LIFITrial_TXRX.X.production.obj
-main@arr9 3E 0 BANK0 1 cstackBANK0 dist/default/production\LIFITrial_TXRX.X.production.obj
+main@rx_ch 3C 0 BANK0 1 cstackBANK0 dist/default/production\LIFITrial_TXRX.X.production.obj
 __size_of_UART_Write_Text 0 0 ABS 0 - dist/default/production\LIFITrial_TXRX.X.production.obj
-UART_Read_Text@string 46 0 BANK0 1 bssBANK0 dist/default/production\LIFITrial_TXRX.X.production.obj
-stackhi 0 0 ABS 0 - C:\Users\HIMANS~1\AppData\Local\Temp\sdho.obj
-stacklo 0 0 ABS 0 - C:\Users\HIMANS~1\AppData\Local\Temp\sdho.obj
-__end_of__stringtab 12 0 STRING 0 strings dist/default/production\LIFITrial_TXRX.X.production.obj
+UART_Read_Text@string 3E 0 BANK0 1 bssBANK0 dist/default/production\LIFITrial_TXRX.X.production.obj
+stackhi 0 0 ABS 0 - C:\Users\Abhi\AppData\Local\Temp\sb40.obj
+stacklo 0 0 ABS 0 - C:\Users\Abhi\AppData\Local\Temp\sb40.obj
+__end_of__stringtab 26 0 STRING 0 strings dist/default/production\LIFITrial_TXRX.X.production.obj
 __CFG_LVP$OFF 0 0 ABS 0 - dist/default/production\LIFITrial_TXRX.X.production.obj
-__end_of_UART_Read_Text AD4 0 CODE 0 text3 dist/default/production\LIFITrial_TXRX.X.production.obj
+__end_of_UART_Read_Text A0A 0 CODE 0 text4 dist/default/production\LIFITrial_TXRX.X.production.obj
 delay1ms@j 70 0 COMMON 1 cstackCOMMON dist/default/production\LIFITrial_TXRX.X.production.obj
 __Lspace_0 0 0 ABS 0 - -
 __Lspace_1 0 0 ABS 0 - -
 __Lspace_2 0 0 ABS 0 - -
 __Lspace_3 0 0 ABS 0 - -
-main@no 40 0 BANK0 1 cstackBANK0 dist/default/production\LIFITrial_TXRX.X.production.obj
 __HcstackBANK0 0 0 ABS 0 cstackBANK0 -
+__HcstackBANK3 0 0 ABS 0 cstackBANK3 -
 delay_ms@i 72 0 COMMON 1 cstackCOMMON dist/default/production\LIFITrial_TXRX.X.production.obj
+delay_us@i 70 0 COMMON 1 cstackCOMMON dist/default/production\LIFITrial_TXRX.X.production.obj
 _PIR1bits C 0 ABS 0 - dist/default/production\LIFITrial_TXRX.X.production.obj
 __Lend_init 0 0 CODE 0 end_init -
 __size_of_delay1ms 0 0 ABS 0 - dist/default/production\LIFITrial_TXRX.X.production.obj
 __size_of_delay_ms 0 0 ABS 0 - dist/default/production\LIFITrial_TXRX.X.production.obj
+__size_of_delay_us 0 0 ABS 0 - dist/default/production\LIFITrial_TXRX.X.production.obj
 __LcstackCOMMON 0 0 ABS 0 cstackCOMMON -
 end_of_initialization FF8 0 CODE 0 cinit dist/default/production\LIFITrial_TXRX.X.production.obj
 __Hintentry 0 0 CODE 0 intentry -
+main@no_of_bytes 38 0 BANK0 1 cstackBANK0 dist/default/production\LIFITrial_TXRX.X.production.obj
 __Lstrings 0 0 ABS 0 strings -
 ?___aldiv 70 0 COMMON 1 cstackCOMMON dist/default/production\LIFITrial_TXRX.X.production.obj
 __Hreset_vec 0 0 CODE 0 reset_vec -
 __HbssBANK0 0 0 ABS 0 bssBANK0 -
-__end_of_UART_Init DCC 0 CODE 0 text7 dist/default/production\LIFITrial_TXRX.X.production.obj
-__end_of_UART_Read 9D4 0 CODE 0 text6 dist/default/production\LIFITrial_TXRX.X.production.obj
+__end_of_UART_Init D7C 0 CODE 0 text8 dist/default/production\LIFITrial_TXRX.X.production.obj
+__end_of_UART_Read 92E 0 CODE 0 text7 dist/default/production\LIFITrial_TXRX.X.production.obj
 __size_of_UART_Init 0 0 ABS 0 - dist/default/production\LIFITrial_TXRX.X.production.obj
 __size_of_UART_Read 0 0 ABS 0 - dist/default/production\LIFITrial_TXRX.X.production.obj
-__ptext1 A1E 0 CODE 0 text1 dist/default/production\LIFITrial_TXRX.X.production.obj
-__ptext2 A00 0 CODE 0 text2 dist/default/production\LIFITrial_TXRX.X.production.obj
-__ptext3 A82 0 CODE 0 text3 dist/default/production\LIFITrial_TXRX.X.production.obj
-__ptext4 A3E 0 CODE 0 text4 dist/default/production\LIFITrial_TXRX.X.production.obj
-__ptext5 9E4 0 CODE 0 text5 dist/default/production\LIFITrial_TXRX.X.production.obj
-__ptext6 9C8 0 CODE 0 text6 dist/default/production\LIFITrial_TXRX.X.production.obj
-__ptext7 BF2 0 CODE 0 text7 dist/default/production\LIFITrial_TXRX.X.production.obj
-__ptext8 AD4 0 CODE 0 text8 dist/default/production\LIFITrial_TXRX.X.production.obj
+__ptext1 93E 0 CODE 0 text1 dist/default/production\LIFITrial_TXRX.X.production.obj
+__ptext2 98E 0 CODE 0 text2 dist/default/production\LIFITrial_TXRX.X.production.obj
+__ptext3 970 0 CODE 0 text3 dist/default/production\LIFITrial_TXRX.X.production.obj
+__ptext4 9AE 0 CODE 0 text4 dist/default/production\LIFITrial_TXRX.X.production.obj
+__ptext5 A0A 0 CODE 0 text5 dist/default/production\LIFITrial_TXRX.X.production.obj
+__ptext6 954 0 CODE 0 text6 dist/default/production\LIFITrial_TXRX.X.production.obj
+__ptext7 922 0 CODE 0 text7 dist/default/production\LIFITrial_TXRX.X.production.obj
+__ptext8 BA2 0 CODE 0 text8 dist/default/production\LIFITrial_TXRX.X.production.obj
+__ptext9 A84 0 CODE 0 text9 dist/default/production\LIFITrial_TXRX.X.production.obj
 ___aldiv@dividend 74 0 COMMON 1 cstackCOMMON dist/default/production\LIFITrial_TXRX.X.production.obj
 __Lpowerup 0 0 CODE 0 powerup -
 UART_Write@data 70 0 COMMON 1 cstackCOMMON dist/default/production\LIFITrial_TXRX.X.production.obj
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
 __Lreset_vec 0 0 CODE 0 reset_vec -
-_UART_Init BF2 0 CODE 0 text7 dist/default/production\LIFITrial_TXRX.X.production.obj
-_UART_Read 9C8 0 CODE 0 text6 dist/default/production\LIFITrial_TXRX.X.production.obj
+_UART_Init BA2 0 CODE 0 text8 dist/default/production\LIFITrial_TXRX.X.production.obj
+_UART_Read 922 0 CODE 0 text7 dist/default/production\LIFITrial_TXRX.X.production.obj
+main@recieved 190 0 BANK3 1 cstackBANK3 dist/default/production\LIFITrial_TXRX.X.production.obj
 __HbitbssBANK0 0 0 ABS 0 bitbssBANK0 -
 __end_of__initialization FF8 0 CODE 0 cinit dist/default/production\LIFITrial_TXRX.X.production.obj
-_delay1ms A00 0 CODE 0 text2 dist/default/production\LIFITrial_TXRX.X.production.obj
-_delay_ms A1E 0 CODE 0 text1 dist/default/production\LIFITrial_TXRX.X.production.obj
+_delay1ms 970 0 CODE 0 text3 dist/default/production\LIFITrial_TXRX.X.production.obj
+_delay_ms 98E 0 CODE 0 text2 dist/default/production\LIFITrial_TXRX.X.production.obj
+_delay_us 93E 0 CODE 0 text1 dist/default/production\LIFITrial_TXRX.X.production.obj
 __Lfunctab 0 0 CODE 0 functab -
 __Lclrtext 0 0 ABS 0 clrtext -
-__end_of_delay1ms A1E 0 CODE 0 text2 dist/default/production\LIFITrial_TXRX.X.production.obj
-__end_of_delay_ms A3E 0 CODE 0 text1 dist/default/production\LIFITrial_TXRX.X.production.obj
+__end_of_delay1ms 98E 0 CODE 0 text3 dist/default/production\LIFITrial_TXRX.X.production.obj
+__end_of_delay_ms 9AE 0 CODE 0 text2 dist/default/production\LIFITrial_TXRX.X.production.obj
+__end_of_delay_us 954 0 CODE 0 text1 dist/default/production\LIFITrial_TXRX.X.production.obj
 __pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/default/production\LIFITrial_TXRX.X.production.obj
 _SSPCON2 91 0 ABS 0 - dist/default/production\LIFITrial_TXRX.X.production.obj
 __Hend_init 6 0 CODE 0 end_init -
@@ -432,7 +433,6 @@ __end_of_main FE8 0 CODE 0 maintext dist/default/production\LIFITrial_TXRX.X.pro
 _RCREG 1A 0 ABS 0 - dist/default/production\LIFITrial_TXRX.X.production.obj
 _SPBRG 99 0 ABS 0 - dist/default/production\LIFITrial_TXRX.X.production.obj
 _TRISB 86 0 ABS 0 - dist/default/production\LIFITrial_TXRX.X.production.obj
-_TRISC 87 0 ABS 0 - dist/default/production\LIFITrial_TXRX.X.production.obj
 _TXREG 19 0 ABS 0 - dist/default/production\LIFITrial_TXRX.X.production.obj
 __Hram 0 0 ABS 0 ram -
 __Lram 0 0 ABS 0 ram -
@@ -440,7 +440,7 @@ __CFG_CPD$OFF 0 0 ABS 0 - dist/default/production\LIFITrial_TXRX.X.production.ob
 _SSPSTATbits 94 0 ABS 0 - dist/default/production\LIFITrial_TXRX.X.production.obj
 __initialization FE8 0 CODE 0 cinit dist/default/production\LIFITrial_TXRX.X.production.obj
 __CFG_PWRTE$OFF 0 0 ABS 0 - dist/default/production\LIFITrial_TXRX.X.production.obj
-__pbssBANK0 45 0 BANK0 1 bssBANK0 dist/default/production\LIFITrial_TXRX.X.production.obj
+__pbssBANK0 3D 0 BANK0 1 bssBANK0 dist/default/production\LIFITrial_TXRX.X.production.obj
 __CFG_WRT$OFF 0 0 ABS 0 - dist/default/production\LIFITrial_TXRX.X.production.obj
 __pstrings 6 0 STRING 0 strings dist/default/production\LIFITrial_TXRX.X.production.obj
 # %SPLITSTAB Section
@@ -469,18 +469,20 @@ __pstrings 6 0 STRING 0 strings dist/default/production\LIFITrial_TXRX.X.product
 # All other numeric quantities are in decimal.
 %SEGMENTS
 cinit 0 7F4 FE8 C 2
-text1 0 50F A1E 10 2
-text2 0 500 A00 F 2
-text3 0 541 A82 29 2
-text4 0 51F A3E 22 2
-text5 0 4F2 9E4 E 2
-text6 0 4E4 9C8 6 2
-text7 0 5F9 BF2 ED 2
-text8 0 56A AD4 8F 2
-maintext 0 6E6 DCC 10E 2
+text1 0 49F 93E B 2
+text2 0 4C7 98E 10 2
+text3 0 4B8 970 F 2
+text4 0 4D7 9AE 2E 2
+text5 0 505 A0A 3D 2
+text6 0 4AA 954 E 2
+text7 0 491 922 6 2
+text8 0 5D1 BA2 ED 2
+text9 0 542 A84 8F 2
+maintext 0 6BE D7C 136 2
 cstackCOMMON 1 70 70 E 1
-cstackBANK0 1 20 20 3B 1
+cstackBANK0 1 20 20 33 1
+cstackBANK3 1 190 190 60 1
 reset_vec 0 0 0 3 2
 strings 0 3 6 BC 2
-clrtext 0 4EA 9D4 8 2
+clrtext 0 497 92E 8 2
 config 0 2007 400E 2 2

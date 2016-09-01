@@ -1,9 +1,10 @@
 /*
- * File:   i2c_master.c
- * Author: Abhi
- *
- * Created on April 21, 2015, 8:00 PM
- */
+* File:   LIFITXRX.c
+* Author: Abhi & Humus
+*
+* Created on August 24th, 2016, 8:00 PM
+*/
+//max recieved array or tx size is 96 bytes for this machine
 //MASTER
 //---------------------------------------------------//
 
@@ -67,109 +68,90 @@ char I2C_address_send2();
 //bit IC2_ack;
 //bit ACK_Bit;
 bit IC2_ack;
-  unsigned char *is;
+unsigned char *is;
 //Serial EEPROM pins
 //#define SDA PORTCbits.PORTC4;		// connect to SDA pin (Data) of 24Cxx
 //#define SCL PORTCbits.PORTC3;		// connect to SCL pin (Clock) of 24Cxx
 
 void main(void)
 {
-   //const unsigned char *msg;
+	//const unsigned char *msg;
 
-   const unsigned char * arr1 = "\r\ntaking in the text \r\n";
+	unsigned char recieved[96];
 
-   const unsigned char *arr2="\r\nAcknowledged\r\n";
+	unsigned int j,no_of_bytes=0;
 
-   const unsigned char *arr3= "You have entered:\r\n";
+	unsigned char LED_Output,LED_Input,rx_ch;
 
-   const unsigned char *arr4= "UART Initialised\r\n";
-
-   const unsigned char *arr5= "Sending TO Led\r\n";
-
-   const unsigned char *arr6= "Tx of 1 byte complete\r\n";
-
-   const unsigned char *arr7= "Tx completed all bytes\r\n";
-
-   const unsigned char *arr8="RX 1\r\n";
-
-   const unsigned char *arr9="RX 0..........\r\n";
-
-   unsigned int no;
-   unsigned char RX_C;
-   unsigned int j;
-
-   unsigned char LED_Output,LED_Input;
-
-  TRISB=0x00;
-  TRISC=0x08; // RC3  0000 1000
-
-   OSCCONbits.IRCF = 0x07;  // Configure Internal OSC for 8MHz Clock
-
-    while(!OSCCONbits.HTS);   // Wait Until Internal Osc is Stable
-
-    INTCON=0;   // purpose of disabling the interrupts.
-
-    UART_Init(baud_rate);
-
-    UART_Write_Text(arr4);
-
-    delay_ms(500);
-
-    while(1)
-    {
+	TRISB=0x00;
 
 
-        UART_Write_Text(arr1);
+	OSCCONbits.IRCF = 0x07;  // Configure Internal OSC for 8MHz Clock
 
-         is=UART_Read_Text();
+	while(!OSCCONbits.HTS);   // Wait Until Internal Osc is Stable
 
-         UART_Write_Text(arr2);
+	INTCON=0;   // purpose of disabling the interrupts.
 
-         UART_Write_Text(arr3);
+	UART_Init(baud_rate);
 
-         //UART_Write(is);
-         //sending to led
-         UART_Write_Text(arr5);
+	UART_Write_Text("UART Initialised\r\n");
 
-         while(*is)
-         {
-           no=0;
-              for(j=0;j<=7;j++)
-              {
-                LED_Output= (*is&0x01)==1?1:0;
-                RB0=LED_Output;
-                LED_Input=RC3;
-                if(LED_Input==1)
-                //UART_Write_Text("Recieved 1");
-                    UART_Write_Text(arr8);
-                else
-                //UART_Write_Text("Recieved 0");
-                    UART_Write_Text(arr9);
-                no = no+LED_Input<<j;
-                
-                no+=LED_Input;
-                delay_ms(1000);//1000ms= 1s
-                *is=*is>>1;
-              }
-              is++;
-              
-         //recpetion compare
-         /*RB0=1;
-         LED_Input=RC3;
-         delay_ms(2000);
-*/
-            UART_Write_Text(arr6);
-            UART_Write((unsigned char)no);
-         
-        }
+	delay_ms(500);
 
-     UART_Write_Text(arr7);
+	while(1)
+	{
 
-     
-}
+		RB0=0;
+		UART_Write_Text("\r\ntaking in the text \r\n");
+
+		is=UART_Read_Text();
+
+		UART_Write_Text("\r\nAcknowledged\r\n");
+
+		UART_Write_Text("You have entered:\r\n");
+
+		UART_Write_Text(is);
+		UART_Write_Text("\r\n");
+		//sending to led
+		UART_Write_Text("Sending TO Led\r\n");
+
+		while(*is)
+		{
+			rx_ch=0x00;
+			for(j=0;j<=7;j++)
+			{
+				LED_Output= (*is&0x01)==1?1:0;
+				RB0=LED_Output;
+				delay_us(5);
+				LED_Input=RC3;
+				delay_us(5);
+				rx_ch=rx_ch|LED_Input<<j;
+				if(LED_Input==1)
+				UART_Write_Text("Rx1 \r\n"); //UART_Write_Text("Recieved 1");
+				else
+				UART_Write_Text("Rx0 \r\n"); //UART_Write_Text("Recieved 0");
+
+				*is=*is>>1;
+			}
+			UART_Write(rx_ch);
+			UART_Write_Text("\r\n");
+			is++;
+			UART_Write_Text("Tx of 1 byte complete\r\n");
+			recieved[no_of_bytes++]=rx_ch;
+		}
+		recieved[no_of_bytes]='\0';
+		UART_Write_Text("Tx completed all bytes\r\n");
+		UART_Write_Text(recieved);
+
+		no_of_bytes=0;
+
+	}
 
 
 }
+
+
+
 
 
 //Delay routines
@@ -182,7 +164,7 @@ void delay_us(unsigned int i)
 void delay_ms(unsigned int i)
 {
 	for(;i!=0x00;i--)
-		delay1ms();
+	delay1ms();
 }
 
 void delay1ms(void)
@@ -191,116 +173,118 @@ void delay1ms(void)
 	for (;j!=0x00;j--);
 }
 
-  char UART_Init(long baudrate)
+char UART_Init(long baudrate)
 {
-  unsigned int x;
-  x = (_XTAL_FREQ - baudrate*64)/(baudrate*64); //SPBRG for Low Baud Rate
-  if(x>255) //If High Baud Rate required
-  {
-    x = (_XTAL_FREQ - baudrate*16)/(baudrate*16); //SPBRG for High Baud Rate
+	unsigned int x;
+	x = (_XTAL_FREQ - baudrate*64)/(baudrate*64); //SPBRG for Low Baud Rate
+	if(x>255) //If High Baud Rate required
+	{
+		x = (_XTAL_FREQ - baudrate*16)/(baudrate*16); //SPBRG for High Baud Rate
 
-    BRGH = 1; //Setting High Baud Rate
-    SPBRG = x; //Writing SPBRG register
-    SYNC = 0; //Selecting Asynchronous Mode
-    SPEN = 1; //Enables Serial Port
-    CREN = 1; //Enables Continuous Reception
-    TXEN = 1; //Enables Transmission
-  }
-  if(x<256)
-  {
-    BRGH = 0; //Setting low Baud Rate
-    SPBRG = x; //Writing SPBRG register
-    SYNC = 0; //Selecting Asynchronous Mode
-    SPEN = 1; //Enables Serial Port
-    CREN = 1; //Enables Continuous Reception
-    TXEN = 1; //Enables Transmission
-    return 1;
-  }
-  return 0;
+		BRGH = 1; //Setting High Baud Rate
+		SPBRG = x; //Writing SPBRG register
+		SYNC = 0; //Selecting Asynchronous Mode
+		SPEN = 1; //Enables Serial Port
+		CREN = 1; //Enables Continuous Reception
+		TXEN = 1; //Enables Transmission
+	}
+	if(x<256)
+	{
+		BRGH = 0; //Setting low Baud Rate
+		SPBRG = x; //Writing SPBRG register
+		SYNC = 0; //Selecting Asynchronous Mode
+		SPEN = 1; //Enables Serial Port
+		CREN = 1; //Enables Continuous Reception
+		TXEN = 1; //Enables Transmission
+		return 1;
+	}
+	return 0;
 }
 
 void UART_Write(unsigned char data)
 {
-  while(!PIR1bits.TXIF);
-  while(!TRMT); //Waiting for Previous Data to Transmit completly
-  TXREG = data; //Writing data to Transmit Register, Starts transmission
+	while(!PIR1bits.TXIF);
+	while(!TRMT); //Waiting for Previous Data to Transmit completly
+	TXREG = data; //Writing data to Transmit Register, Starts transmission
 }
 
 char UART_TX_Empty()
 {
-  return TRMT; //Returns Transmit Shift Status bit
+	return TRMT; //Returns Transmit Shift Status bit
 }
 
 void UART_Write_Text(const char *text)
 {
-  int i;
-  for(i=0;text[i]!='\0';i++)
-    UART_Write(text[i]);
+	int i;
+	for(i=0;text[i]!='\0';i++)
+	UART_Write(text[i]);
 
 }
+//Local
+
 
 //recive part
 char UART_Data_Ready()
 {
-  return RCIF;
+	return RCIF;
 }
 
 char UART_Read()
 {
-  while(!RCIF); //Waits for Reception to complete
-  return RCREG; //Returns the 8 bit data
+	while(!RCIF); //Waits for Reception to complete
+	return RCREG; //Returns the 8 bit data
 }
 
 unsigned char * UART_Read_Text()
 {
-  unsigned const char *a="Keyed in \r\n";
+	unsigned const char *a="Keyed in \r\n";
 
-  unsigned static char string[20];
+	unsigned static char string[20];
 
-  unsigned char x, i = 0;
+	unsigned char x, i = 0;
 
-while((x = UART_Read()) != 13)
-{
+	while((x = UART_Read()) != 13)
+	{
 
- //and store the received characters into the array string[] one-by-one
-string[i++] = x;
-}
+		//and store the received characters into the array string[] one-by-one
+		string[i++] = x;
+	}
 
-//insert NULL to terminate the string
-string[i] = '\0';
-  UART_Write_Text(a);
+	//insert NULL to terminate the string
+	string[i] = '\0';
+	UART_Write_Text(a);
 
-//return the received string
-return(string);
+	//return the received string
+	return(string);
 }
 
 void putch(unsigned char byte)
 {
-    /* output one byte */
-    while(!TXIF)    /* set when register is empty */
-        continue;
-    TXREG = byte;
+	/* output one byte */
+	while(!TXIF)    /* set when register is empty */
+	continue;
+	TXREG = byte;
 }
 
 unsigned char getch()
 {
-    /* retrieve one byte */
-    while(!RCIF)    /* set when register is not empty */
-        continue;
-    return RCREG;
+	/* retrieve one byte */
+	while(!RCIF)    /* set when register is not empty */
+	continue;
+	return RCREG;
 }
 
 unsigned char getche(void)
 {
-    unsigned char c;
-    putch(c = getch());
-    return c;
+	unsigned char c;
+	putch(c = getch());
+	return c;
 }
 
 void i2c_idle(void)
 {
-   while((SSPSTATbits.R));
+	while((SSPSTATbits.R));
 
-   while((!((SSPCON2 & 0x1F) == 0x00)));
+	while((!((SSPCON2 & 0x1F) == 0x00)));
 }
 

@@ -5,7 +5,7 @@ Linker command line:
 --edf=C:\Program Files (x86)\Microchip\xc8\v1.34\dat\en_msgs.txt -cs \
   -h+dist/default/production\LIFITrial_TXRX.X.production.sym \
   --cmf=dist/default/production\LIFITrial_TXRX.X.production.cmf -z -Q16F886 \
-  -oC:\Users\HIMANS~1\AppData\Local\Temp\sdho.6 \
+  -oC:\Users\Abhi\AppData\Local\Temp\sb40.6 \
   -Mdist/default/production/LIFITrial_TXRX.X.production.map -E1 -ver=XC8 \
   -ASTACK=0110h-016fh -pstack=STACK -ACODE=00h-07FFhx4 -ASTRCODE=00h-01FFFh \
   -ASTRING=00h-0FFhx32 -ACONST=00h-0FFhx32 -AENTRY=00h-0FFhx32 \
@@ -18,7 +18,7 @@ Linker command line:
   -pfunctab=CODE -ACONFIG=02007h-02008h -pconfig=CONFIG -DCONFIG=2 \
   -AIDLOC=02000h-02003h -pidloc=IDLOC -DIDLOC=2 -AEEDATA=00h-0FFh/02100h \
   -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 -DSTRCODE=2 -DSTRING=2 -DCONST=2 \
-  -DENTRY=2 -k C:\Users\HIMANS~1\AppData\Local\Temp\sdho.obj \
+  -DENTRY=2 -k C:\Users\Abhi\AppData\Local\Temp\sb40.obj \
   dist/default/production\LIFITrial_TXRX.X.production.obj 
 
 Object code version is 3.11
@@ -28,25 +28,27 @@ Machine type is 16F886
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\HIMANS~1\AppData\Local\Temp\sdho.obj
+C:\Users\Abhi\AppData\Local\Temp\sb40.obj
                 end_init                              0        0        3        0       0
                 config                             2007     2007        2     400E       0
 dist/default/production\LIFITrial_TXRX.X.production.obj
                 cinit                               7F4      7F4        C      FE8       0
-                text8                               56A      56A       8F      AD4       0
-                text7                               5F9      5F9       ED      BF2       0
-                text6                               4E4      4E4        6      9C8       0
-                text5                               4F2      4F2        E      9E4       0
-                text4                               51F      51F       22      A3E       0
-                text3                               541      541       29      A82       0
-                text2                               500      500        F      A00       0
-                text1                               50F      50F       10      A1E       0
-                maintext                            6E6      6E6      10E      DCC       0
-                cstackBANK0                          20       20       25       20       1
+                text9                               542      542       8F      A84       0
+                text8                               5D1      5D1       ED      BA2       0
+                text7                               491      491        6      922       0
+                text6                               4AA      4AA        E      954       0
+                text5                               505      505       3D      A0A       0
+                text4                               4D7      4D7       2E      9AE       0
+                text3                               4B8      4B8        F      970       0
+                text2                               4C7      4C7       10      98E       0
+                text1                               49F      49F        B      93E       0
+                maintext                            6BE      6BE      136      D7C       0
+                cstackBANK0                          20       20       1D       20       1
                 cstackCOMMON                         70       70        E       70       1
-                clrtext                             4EA      4EA        8      9D4       0
-                bssBANK0                             45       45       15       20       1
-                bitbssBANK0                         2D0       5A        1       20       1     8
+                cstackBANK3                         190      190       60      190       1
+                clrtext                             497      497        8      92E       0
+                bssBANK0                             3D       3D       15       20       1
+                bitbssBANK0                         290       52        1       20       1     8
                 strings                               3        3       BC        6       0
 
 TOTAL           Name                               Link     Load   Length     Space
@@ -55,16 +57,17 @@ TOTAL           Name                               Link     Load   Length     Sp
         CLASS   CODE           
                 end_init                              0        0        3         0
                 cinit                               7F4      7F4        C         0
-                text8                               56A      56A       8F         0
-                text7                               5F9      5F9       ED         0
-                text6                               4E4      4E4        6         0
-                text5                               4F2      4F2        E         0
-                text4                               51F      51F       22         0
-                text3                               541      541       29         0
-                text2                               500      500        F         0
-                text1                               50F      50F       10         0
-                maintext                            6E6      6E6      10E         0
-                clrtext                             4EA      4EA        8         0
+                text9                               542      542       8F         0
+                text8                               5D1      5D1       ED         0
+                text7                               491      491        6         0
+                text6                               4AA      4AA        E         0
+                text5                               505      505       3D         0
+                text4                               4D7      4D7       2E         0
+                text3                               4B8      4B8        F         0
+                text2                               4C7      4C7       10         0
+                text1                               49F      49F        B         0
+                maintext                            6BE      6BE      136         0
+                clrtext                             497      497        8         0
 
         CLASS   STRCODE        
 
@@ -79,15 +82,16 @@ TOTAL           Name                               Link     Load   Length     Sp
                 cstackCOMMON                         70       70        E         1
 
         CLASS   BANK0          
-                cstackBANK0                          20       20       25         1
-                bssBANK0                             45       45       15         1
-                bitbssBANK0                         2D0       5A        1         1
+                cstackBANK0                          20       20       1D         1
+                bssBANK0                             3D       3D       15         1
+                bitbssBANK0                         290       52        1         1
 
         CLASS   BANK1          
 
         CLASS   BANK2          
 
         CLASS   BANK3          
+                cstackBANK3                         190      190       60         1
 
         CLASS   RAM            
 
@@ -115,18 +119,20 @@ SEGMENTS        Name                           Load    Length   Top    Selector 
 
                 reset_vec                      000000  000003  000003         0       0  CODE        2
                 strings                        000003  0000BC  0000BF         6       0  STRING      2
-                cstackBANK0                    000020  00003B  00005B        20       1  BANK0       1
+                cstackBANK0                    000020  000033  000053        20       1  BANK0       1
                 cstackCOMMON                   000070  00000E  00007E        70       1  COMMON      1
-                text6                          0004E4  000006  0004EA       9C8       0  CODE        2
-                clrtext                        0004EA  000008  0004F2       9D4       0  CODE        2
-                text5                          0004F2  00000E  000500       9E4       0  CODE        2
-                text2                          000500  00000F  00050F       A00       0  CODE        2
-                text1                          00050F  000010  00051F       A1E       0  CODE        2
-                text4                          00051F  000022  000541       A3E       0  CODE        2
-                text3                          000541  000029  00056A       A82       0  CODE        2
-                text8                          00056A  00008F  0005F9       AD4       0  CODE        2
-                text7                          0005F9  0000ED  0006E6       BF2       0  CODE        2
-                maintext                       0006E6  00010E  0007F4       DCC       0  CODE        2
+                cstackBANK3                    000190  000060  0001F0       190       1  BANK3       1
+                text7                          000491  000006  000497       922       0  CODE        2
+                clrtext                        000497  000008  00049F       92E       0  CODE        2
+                text1                          00049F  00000B  0004AA       93E       0  CODE        2
+                text6                          0004AA  00000E  0004B8       954       0  CODE        2
+                text3                          0004B8  00000F  0004C7       970       0  CODE        2
+                text2                          0004C7  000010  0004D7       98E       0  CODE        2
+                text4                          0004D7  00002E  000505       9AE       0  CODE        2
+                text5                          000505  00003D  000542       A0A       0  CODE        2
+                text9                          000542  00008F  0005D1       A84       0  CODE        2
+                text8                          0005D1  0000ED  0006BE       BA2       0  CODE        2
+                maintext                       0006BE  000136  0007F4       D7C       0  CODE        2
                 cinit                          0007F4  00000C  000800       FE8       0  CODE        2
                 config                         002007  000002  002009      400E       0  CONFIG      2
 
@@ -134,30 +140,28 @@ SEGMENTS        Name                           Load    Length   Top    Selector 
 UNUSED ADDRESS RANGES
 
         Name                Unused          Largest block    Delta
-        BANK0            005B-006F             15           1
+        BANK0            0053-006F             1D           1
         BANK1            00A0-00EF             50           1
         BANK2            0110-016F             60           1
-        BANK3            0190-01EF             60           1
-        CODE             00BF-04E3            425           2
+        CODE             00BF-0490            3D2           2
                          0800-1FFF            800
-        CONST            00BF-04E3            100           2
+        CONST            00BF-0490            100           2
                          0800-1FFF            100
         EEDATA           2100-21FF            100           2
-        ENTRY            00BF-04E3            100           2
+        ENTRY            00BF-0490            100           2
                          0800-1FFF            100
         IDLOC            2000-2003              4           2
-        RAM              005B-006F             15           1
+        RAM              0053-006F             1D           1
                          00A0-00EF             50
                          0110-016F             60
-                         0190-01EF             60
         SFR0             0000-001F             20           1
         SFR1             0080-009F             20           1
         SFR2             0100-010F             10           1
         SFR3             0180-018F             10           1
         STACK            0110-016F             60           1
-        STRCODE          00BF-04E3            425           2
+        STRCODE          00BF-0490            3D2           2
                          0800-1FFF           1800
-        STRING           00BF-04E3            100           2
+        STRING           00BF-0490            100           2
                          0800-1FFF            100
 
                                   Symbol Table
@@ -165,13 +169,13 @@ UNUSED ADDRESS RANGES
 ?___aldiv                 cstackCOMMON 0070
 UART_Init@baudrate        cstackBANK0  0026
 UART_Init@x               cstackCOMMON 0079
-UART_Read_Text@a          cstackCOMMON 0075
-UART_Read_Text@i          cstackCOMMON 0077
-UART_Read_Text@string     bssBANK0     0046
-UART_Read_Text@x          cstackCOMMON 0076
+UART_Read_Text@a          cstackCOMMON 0079
+UART_Read_Text@i          cstackCOMMON 007B
+UART_Read_Text@string     bssBANK0     003E
+UART_Read_Text@x          cstackCOMMON 007A
 UART_Write@data           cstackCOMMON 0070
-UART_Write_Text@i         cstackCOMMON 0071
-UART_Write_Text@text      cstackCOMMON 0073
+UART_Write_Text@i         cstackCOMMON 0076
+UART_Write_Text@text      cstackCOMMON 0071
 _BRGH                     (abs)        04C2
 _CREN                     (abs)        00C4
 _INTCON                   (abs)        000B
@@ -187,16 +191,15 @@ _SSPCON2                  (abs)        0091
 _SSPSTATbits              (abs)        0094
 _SYNC                     (abs)        04C4
 _TRISB                    (abs)        0086
-_TRISC                    (abs)        0087
 _TRMT                     (abs)        04C1
 _TXEN                     (abs)        04C5
 _TXIF                     (abs)        0064
 _TXREG                    (abs)        0019
-_UART_Init                text7        05F9
-_UART_Read                text6        04E4
-_UART_Read_Text           text3        0541
-_UART_Write               text5        04F2
-_UART_Write_Text          text4        051F
+_UART_Init                text8        05D1
+_UART_Read                text7        0491
+_UART_Read_Text           text4        04D7
+_UART_Write               text6        04AA
+_UART_Write_Text          text5        0505
 __CFG_BOR4V$BOR40V        (abs)        0000
 __CFG_BOREN$ON            (abs)        0000
 __CFG_CP$OFF              (abs)        0000
@@ -222,6 +225,7 @@ __Hcode                   code         0000
 __Hcommon                 common       0000
 __Hconfig                 config       2009
 __HcstackBANK0            cstackBANK0  0000
+__HcstackBANK3            cstackBANK3  0000
 __HcstackCOMMON           cstackCOMMON 0000
 __Heeprom_data            eeprom_data  0000
 __Hend_init               end_init     0003
@@ -238,7 +242,7 @@ __Hsfr1                   sfr1         0000
 __Hsfr2                   sfr2         0000
 __Hsfr3                   sfr3         0000
 __Hspace_0                (abs)        2009
-__Hspace_1                (abs)        02D1
+__Hspace_1                (abs)        0291
 __Hspace_2                (abs)        0000
 __Hspace_3                (abs)        0000
 __Hstack                  stack        0000
@@ -257,6 +261,7 @@ __Lcode                   code         0000
 __Lcommon                 common       0000
 __Lconfig                 config       2007
 __LcstackBANK0            cstackBANK0  0000
+__LcstackBANK3            cstackBANK3  0000
 __LcstackCOMMON           cstackCOMMON 0000
 __Leeprom_data            eeprom_data  0000
 __Lend_init               end_init     0000
@@ -280,10 +285,10 @@ __Lstack                  stack        0000
 __Lstrings                strings      0000
 __Ltext                   text         0000
 __S0                      (abs)        2009
-__S1                      (abs)        007E
+__S1                      (abs)        01F0
 __S2                      (abs)        0000
 __S3                      (abs)        0000
-___aldiv                  text8        056A
+___aldiv                  text9        0542
 ___aldiv@counter          cstackBANK0  0020
 ___aldiv@dividend         cstackCOMMON 0074
 ___aldiv@divisor          cstackCOMMON 0070
@@ -292,32 +297,35 @@ ___aldiv@sign             cstackBANK0  0021
 ___int_sp                 stack        0000
 ___latbits                (abs)        0002
 ___sp                     stack        0000
-__end_of_UART_Init        text7        06E6
-__end_of_UART_Read        text6        04EA
-__end_of_UART_Read_Text   text3        056A
-__end_of_UART_Write       text5        0500
-__end_of_UART_Write_Text  text4        0541
-__end_of___aldiv          text8        05F9
+__end_of_UART_Init        text8        06BE
+__end_of_UART_Read        text7        0497
+__end_of_UART_Read_Text   text4        0505
+__end_of_UART_Write       text6        04B8
+__end_of_UART_Write_Text  text5        0542
+__end_of___aldiv          text9        05D1
 __end_of__initialization  cinit        07FC
-__end_of__stringtab       strings      0009
-__end_of_delay1ms         text2        050F
-__end_of_delay_ms         text1        051F
+__end_of__stringtab       strings      0013
+__end_of_delay1ms         text3        04C7
+__end_of_delay_ms         text2        04D7
+__end_of_delay_us         text1        04AA
 __end_of_main             maintext     07F4
 __initialization          cinit        07F4
-__pbitbssBANK0            bitbssBANK0  02D0
-__pbssBANK0               bssBANK0     0045
+__pbitbssBANK0            bitbssBANK0  0290
+__pbssBANK0               bssBANK0     003D
 __pcstackBANK0            cstackBANK0  0020
+__pcstackBANK3            cstackBANK3  0190
 __pcstackCOMMON           cstackCOMMON 0070
-__pmaintext               maintext     06E6
+__pmaintext               maintext     06BE
 __pstrings                strings      0003
-__ptext1                  text1        050F
-__ptext2                  text2        0500
-__ptext3                  text3        0541
-__ptext4                  text4        051F
-__ptext5                  text5        04F2
-__ptext6                  text6        04E4
-__ptext7                  text7        05F9
-__ptext8                  text8        056A
+__ptext1                  text1        049F
+__ptext2                  text2        04C7
+__ptext3                  text3        04B8
+__ptext4                  text4        04D7
+__ptext5                  text5        0505
+__ptext6                  text6        04AA
+__ptext7                  text7        0491
+__ptext8                  text8        05D1
+__ptext9                  text9        0542
 __size_of_UART_Init       (abs)        0000
 __size_of_UART_Read       (abs)        0000
 __size_of_UART_Read_Text  (abs)        0000
@@ -326,17 +334,20 @@ __size_of_UART_Write_Text (abs)        0000
 __size_of___aldiv         (abs)        0000
 __size_of_delay1ms        (abs)        0000
 __size_of_delay_ms        (abs)        0000
+__size_of_delay_us        (abs)        0000
 __size_of_main            (abs)        0000
-__stringbase              strings      0008
+__stringbase              strings      0012
 __stringtab               strings      0003
-_delay1ms                 text2        0500
-_delay_ms                 text1        050F
-_is                       bssBANK0     0045
-_main                     maintext     06E6
+_delay1ms                 text3        04B8
+_delay_ms                 text2        04C7
+_delay_us                 text1        049F
+_is                       bssBANK0     003D
+_main                     maintext     06BE
 btemp                     (abs)        007E
-clear_ram0                clrtext      04EA
+clear_ram0                clrtext      0497
 delay1ms@j                cstackCOMMON 0070
 delay_ms@i                cstackCOMMON 0072
+delay_us@i                cstackCOMMON 0070
 end_of_initialization     cinit        07FC
 intlevel0                 functab      0000
 intlevel1                 functab      0000
@@ -349,19 +360,12 @@ ltemp0                    (abs)        007E
 ltemp1                    (abs)        0082
 ltemp2                    (abs)        0086
 ltemp3                    (abs)        0080
-main@LED_Input            cstackBANK0  0044
-main@LED_Output           cstackBANK0  003F
-main@arr1                 cstackBANK0  0036
-main@arr2                 cstackBANK0  0037
-main@arr3                 cstackBANK0  0038
-main@arr4                 cstackBANK0  0039
-main@arr5                 cstackBANK0  003A
-main@arr6                 cstackBANK0  003B
-main@arr7                 cstackBANK0  003C
-main@arr8                 cstackBANK0  003D
-main@arr9                 cstackBANK0  003E
-main@j                    cstackBANK0  0042
-main@no                   cstackBANK0  0040
+main@LED_Input            cstackBANK0  0037
+main@LED_Output           cstackBANK0  0036
+main@j                    cstackBANK0  003A
+main@no_of_bytes          cstackBANK0  0038
+main@recieved             cstackBANK3  0190
+main@rx_ch                cstackBANK0  003C
 reset_vec                 reset_vec    0000
 stackhi                   (abs)        0000
 stacklo                   (abs)        0000
@@ -387,47 +391,30 @@ FUNCTION INFORMATION:
 
  *************** function _main *****************
  Defined at:
-		line 75 in file "LIFITXRX.c"
+		line 76 in file "LIFITXRX.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
-  j               2   34[BANK0 ] unsigned int 
-  no              2   32[BANK0 ] unsigned int 
-  LED_Input       1   36[BANK0 ] unsigned char 
-  LED_Output      1   31[BANK0 ] unsigned char 
-  arr9            1   30[BANK0 ] PTR const unsigned char 
-		 -> STR_9(17), 
-  arr8            1   29[BANK0 ] PTR const unsigned char 
-		 -> STR_8(7), 
-  arr7            1   28[BANK0 ] PTR const unsigned char 
-		 -> STR_7(25), 
-  arr6            1   27[BANK0 ] PTR const unsigned char 
-		 -> STR_6(24), 
-  arr5            1   26[BANK0 ] PTR const unsigned char 
-		 -> STR_5(17), 
-  arr4            1   25[BANK0 ] PTR const unsigned char 
-		 -> STR_4(19), 
-  arr3            1   24[BANK0 ] PTR const unsigned char 
-		 -> STR_3(20), 
-  arr2            1   23[BANK0 ] PTR const unsigned char 
-		 -> STR_2(17), 
-  arr1            1   22[BANK0 ] PTR const unsigned char 
-		 -> STR_1(24), 
-  RX_C            1    0        unsigned char 
+  recieved       96    0[BANK3 ] unsigned char [96]
+  j               2   26[BANK0 ] unsigned int 
+  no_of_bytes     2   24[BANK0 ] unsigned int 
+  rx_ch           1   28[BANK0 ] unsigned char 
+  LED_Input       1   23[BANK0 ] unsigned char 
+  LED_Output      1   22[BANK0 ] unsigned char 
  Return value:  Size  Location     Type
 		None               void
  Registers used:
-		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
  Tracked objects:
 		On entry : 
 		On exit  : 
 		Unchanged: 
  Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
       Params:         0       0       0       0       0
-      Locals:         0      15       0       0       0
-      Temps:          3       0       0       0       0
-      Totals:         3      15       0       0       0
-Total ram usage:       18 bytes
+      Locals:         0       7       0      96       0
+      Temps:          2       0       0       0       0
+      Totals:         2       7       0      96       0
+Total ram usage:      105 bytes
  Hardware stack levels required when called:    3
  This function calls:
 		_UART_Init
@@ -435,14 +422,44 @@ Total ram usage:       18 bytes
 		_UART_Write
 		_UART_Write_Text
 		_delay_ms
+		_delay_us
  This function is called by:
 		Startup code after reset
  This function uses a non-reentrant model
 
 
+ *************** function _delay_us *****************
+ Defined at:
+		line 159 in file "LIFITXRX.c"
+ Parameters:    Size  Location     Type
+  i               2    0[COMMON] unsigned int 
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+      Params:         2       0       0       0       0
+      Locals:         0       0       0       0       0
+      Temps:          0       0       0       0       0
+      Totals:         2       0       0       0       0
+Total ram usage:        2 bytes
+ Hardware stack levels used:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		_main
+ This function uses a non-reentrant model
+
+
  *************** function _delay_ms *****************
  Defined at:
-		line 182 in file "LIFITXRX.c"
+		line 164 in file "LIFITXRX.c"
  Parameters:    Size  Location     Type
   i               2    2[COMMON] unsigned int 
  Auto vars:     Size  Location     Type
@@ -472,7 +489,7 @@ Total ram usage:        2 bytes
 
  *************** function _delay1ms *****************
  Defined at:
-		line 188 in file "LIFITXRX.c"
+		line 170 in file "LIFITXRX.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -501,18 +518,18 @@ Total ram usage:        2 bytes
 
  *************** function _UART_Read_Text *****************
  Defined at:
-		line 254 in file "LIFITXRX.c"
+		line 238 in file "LIFITXRX.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
-  i               1    7[COMMON] unsigned char 
-  x               1    6[COMMON] unsigned char 
-  a               1    5[COMMON] PTR const unsigned char 
-		 -> STR_10(12), 
+  i               1   11[COMMON] unsigned char 
+  x               1   10[COMMON] unsigned char 
+  a               1    9[COMMON] PTR const unsigned char 
+		 -> STR_12(12), 
  Return value:  Size  Location     Type
                   1    wreg      PTR unsigned char 
  Registers used:
-		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
  Tracked objects:
 		On entry : 
 		On exit  : 
@@ -535,32 +552,29 @@ Total ram usage:        4 bytes
 
  *************** function _UART_Write_Text *****************
  Defined at:
-		line 234 in file "LIFITXRX.c"
+		line 216 in file "LIFITXRX.c"
  Parameters:    Size  Location     Type
-  text            1    wreg     PTR const unsigned char 
-		 -> STR_10(12), STR_9(17), STR_8(7), STR_7(25), 
-		 -> STR_6(24), STR_5(17), STR_4(19), STR_3(20), 
-		 -> STR_2(17), STR_1(24), 
+  text            2    1[COMMON] PTR const unsigned char 
+		 -> NULL(0), UART_Read_Text@string(20), STR_12(12), STR_11(25), 
+		 -> main@recieved(96), STR_10(24), STR_9(3), STR_8(7), 
+		 -> STR_7(7), STR_6(17), STR_5(3), STR_4(20), 
+		 -> STR_3(17), STR_2(24), STR_1(19), 
  Auto vars:     Size  Location     Type
-  text            1    3[COMMON] PTR const unsigned char 
-		 -> STR_10(12), STR_9(17), STR_8(7), STR_7(25), 
-		 -> STR_6(24), STR_5(17), STR_4(19), STR_3(20), 
-		 -> STR_2(17), STR_1(24), 
-  i               2    1[COMMON] int 
+  i               2    6[COMMON] int 
  Return value:  Size  Location     Type
 		None               void
  Registers used:
-		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
  Tracked objects:
 		On entry : 
 		On exit  : 
 		Unchanged: 
  Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-      Params:         0       0       0       0       0
-      Locals:         3       0       0       0       0
-      Temps:          0       0       0       0       0
-      Totals:         3       0       0       0       0
-Total ram usage:        3 bytes
+      Params:         2       0       0       0       0
+      Locals:         2       0       0       0       0
+      Temps:          3       0       0       0       0
+      Totals:         7       0       0       0       0
+Total ram usage:        7 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    1
  This function calls:
@@ -573,7 +587,7 @@ Total ram usage:        3 bytes
 
  *************** function _UART_Write *****************
  Defined at:
-		line 222 in file "LIFITXRX.c"
+		line 204 in file "LIFITXRX.c"
  Parameters:    Size  Location     Type
   data            1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
@@ -603,7 +617,7 @@ Total ram usage:        1 bytes
 
  *************** function _UART_Read *****************
  Defined at:
-		line 248 in file "LIFITXRX.c"
+		line 232 in file "LIFITXRX.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -632,7 +646,7 @@ Total ram usage:        0 bytes
 
  *************** function _UART_Init *****************
  Defined at:
-		line 194 in file "LIFITXRX.c"
+		line 176 in file "LIFITXRX.c"
  Parameters:    Size  Location     Type
   baudrate        4    6[BANK0 ] long 
  Auto vars:     Size  Location     Type
@@ -697,25 +711,26 @@ MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
 shared
-		__stringtab    		STRING         	0003	0000	7
+		__stringtab    		STRING         	0003	0000	17
 		__initializatio		CODE           	07F4	0000	9
 
-shared estimated size: 16
+shared estimated size: 26
 
 LIFITXRX.c
-		_UART_Read     		CODE           	04E4	0000	7
-		_UART_Init     		CODE           	05F9	0000	238
-		_main          		CODE           	06E6	0000	271
-		_UART_Write_Tex		CODE           	051F	0000	35
-		_UART_Read_Text		CODE           	0541	0000	42
-		_delay_ms      		CODE           	050F	0000	17
-		_UART_Write    		CODE           	04F2	0000	15
-		_delay1ms      		CODE           	0500	0000	16
+		_UART_Read     		CODE           	0491	0000	7
+		_UART_Init     		CODE           	05D1	0000	238
+		_delay_us      		CODE           	049F	0000	12
+		_main          		CODE           	06BE	0000	311
+		_UART_Write_Tex		CODE           	0505	0000	62
+		_UART_Read_Text		CODE           	04D7	0000	47
+		_delay_ms      		CODE           	04C7	0000	17
+		_UART_Write    		CODE           	04AA	0000	15
+		_delay1ms      		CODE           	04B8	0000	16
 
-LIFITXRX.c estimated size: 641
+LIFITXRX.c estimated size: 725
 
 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\aldiv.c
-		___aldiv       		CODE           	056A	0000	144
+		___aldiv       		CODE           	0542	0000	144
 
 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\aldiv.c estimated size: 144
 

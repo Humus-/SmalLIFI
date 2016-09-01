@@ -2125,7 +2125,7 @@ extern char * ultoa(char * buf, unsigned long val, int base);
 extern char * ftoa(float f, int * status);
 
 
-# 15 "LIFITXRX.c"
+# 16 "LIFITXRX.c"
 #pragma config "FOSC = INTRC_NOCLKOUT"
 #pragma config "WDTE = OFF"
 #pragma config "PWRTE = OFF"
@@ -2141,7 +2141,7 @@ extern char * ftoa(float f, int * status);
 #pragma config "BOR4V = BOR40V"
 #pragma config "WRT = OFF"
 
-# 35
+# 36
 char UART_Init(long);
 void UART_Write(unsigned char);
 char UART_TX_Empty(void);
@@ -2169,7 +2169,7 @@ char I2C_address_send();
 char I2C_address_send1();
 char I2C_address_send2();
 
-# 69
+# 70
 bit IC2_ack;
 unsigned char *is;
 
@@ -2180,32 +2180,14 @@ void main(void)
 {
 
 
-const unsigned char * arr1 = "\r\ntaking in the text \r\n";
+unsigned char recieved[96];
 
-const unsigned char *arr2="\r\nAcknowledged\r\n";
+unsigned int j,no_of_bytes=0;
 
-const unsigned char *arr3= "You have entered:\r\n";
-
-const unsigned char *arr4= "UART Initialised\r\n";
-
-const unsigned char *arr5= "Sending TO Led\r\n";
-
-const unsigned char *arr6= "Tx of 1 byte complete\r\n";
-
-const unsigned char *arr7= "Tx completed all bytes\r\n";
-
-const unsigned char *arr8="RX 1\r\n";
-
-const unsigned char *arr9="RX 0..........\r\n";
-
-unsigned int no;
-unsigned char RX_C;
-unsigned int j;
-
-unsigned char LED_Output,LED_Input;
+unsigned char LED_Output,LED_Input,rx_ch;
 
 TRISB=0x00;
-TRISC=0x08;
+
 
 OSCCONbits.IRCF = 0x07;
 
@@ -2215,65 +2197,63 @@ INTCON=0;
 
 UART_Init(9600);
 
-UART_Write_Text(arr4);
+UART_Write_Text("UART Initialised\r\n");
 
 delay_ms(500);
 
 while(1)
 {
 
-
-UART_Write_Text(arr1);
+RB0=0;
+UART_Write_Text("\r\ntaking in the text \r\n");
 
 is=UART_Read_Text();
 
-UART_Write_Text(arr2);
+UART_Write_Text("\r\nAcknowledged\r\n");
 
-UART_Write_Text(arr3);
+UART_Write_Text("You have entered:\r\n");
 
+UART_Write_Text(is);
+UART_Write_Text("\r\n");
 
-
-UART_Write_Text(arr5);
+UART_Write_Text("Sending TO Led\r\n");
 
 while(*is)
 {
-no=0;
+rx_ch=0x00;
 for(j=0;j<=7;j++)
 {
 LED_Output= (*is&0x01)==1?1:0;
 RB0=LED_Output;
+delay_us(5);
 LED_Input=RC3;
+delay_us(5);
+rx_ch=rx_ch|LED_Input<<j;
 if(LED_Input==1)
-
-UART_Write_Text(arr8);
+UART_Write_Text("Rx1 \r\n");
 else
+UART_Write_Text("Rx0 \r\n");
 
-UART_Write_Text(arr9);
-no = no+LED_Input<<j;
-
-no+=LED_Input;
-delay_ms(1000);
 *is=*is>>1;
 }
+UART_Write(rx_ch);
+UART_Write_Text("\r\n");
 is++;
-
-# 161
-UART_Write_Text(arr6);
-UART_Write((unsigned char)no);
-
+UART_Write_Text("Tx of 1 byte complete\r\n");
+recieved[no_of_bytes++]=rx_ch;
 }
+recieved[no_of_bytes]='\0';
+UART_Write_Text("Tx completed all bytes\r\n");
+UART_Write_Text(recieved);
 
-UART_Write_Text(arr7);
-
-
-}
-
+no_of_bytes=0;
 
 }
 
 
+}
 
-
+# 159
 void delay_us(unsigned int i)
 {
 for (;i!=0x00;i--);
@@ -2338,6 +2318,8 @@ for(i=0;text[i]!='\0';i++)
 UART_Write(text[i]);
 
 }
+
+
 
 
 char UART_Data_Ready()
