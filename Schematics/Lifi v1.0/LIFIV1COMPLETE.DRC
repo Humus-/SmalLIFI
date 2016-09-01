@@ -1,0 +1,50 @@
+
+Checking Pins and Pin Connections
+
+--------------------------------------------------
+Checking Schematic: SCHEMATIC1
+--------------------------------------------------
+Checking Electrical Rules 
+ERROR:  [DRC0004]  Possible pin type conflict U1,V+ Power Connected to Output Port
+                    SCHEMATIC1, PAGE1  (7.50, 6.00) 
+ERROR:  [DRC0004]  Possible pin type conflict U7,OUT Output Connected to Power
+                    SCHEMATIC1, PAGE1  (2.90, 1.20) 
+
+Checking for Unconnected Nets
+
+Checking Off-Page Connections
+
+Checking Pin to Port Connections
+
+Checking for Invalid References
+[DRC0011]  Reference is invalid for this part Rf
+                    SCHEMATIC1, PAGE1  (7.00, 7.30) 
+
+Checking for Duplicate References
+
+Checking for Compatibility with SDT
+ERROR:  [DRC0025]  The comment graphic is not a single dashed line I221826
+                    SCHEMATIC1, PAGE1  (3.60, 1.60) 
+ERROR:  [DRC0025]  The comment graphic is not a single dashed line I222150
+                    SCHEMATIC1, PAGE1  (0.40, 4.30) 
+
+Reporting Off-Grid Objects
+
+Reporting Net Names
+    N221770
+    GND_POWER
+    N222330
+    N221880
+    N221896
+    VCC
+    N222056
+    N222080
+    N222006
+    N222014
+    N221790
+
+Checking Visible Unconnected Power Pins
+
+Checking Misleading Tap connection
+
+Check Bus width mismatch

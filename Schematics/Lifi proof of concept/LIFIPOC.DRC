@@ -1,0 +1,64 @@
+
+Checking Pins and Pin Connections
+
+--------------------------------------------------
+Checking Schematic: SCHEMATIC1
+--------------------------------------------------
+Checking Electrical Rules 
+ERROR:  [DRC0004]  Possible pin type conflict U1,V+ Power Connected to Output Port
+                    SCHEMATIC1, PAGE1  (7.70, 5.60) 
+ERROR:  [DRC0004]  Possible pin type conflict U7,OUT Output Connected to Power
+                    SCHEMATIC1, PAGE1  (3.10, 1.10) 
+
+Checking for Unconnected Nets
+
+Checking Off-Page Connections
+
+Checking Pin to Port Connections
+
+Checking for Invalid References
+[DRC0011]  Reference is invalid for this part Rf
+                    SCHEMATIC1, PAGE1  (7.20, 6.90) 
+
+Checking for Duplicate References
+
+Checking for Compatibility with SDT
+ERROR:  [DRC0025]  The comment graphic is not a single dashed line I19251
+                    SCHEMATIC1, PAGE1  (3.60, 1.60) 
+ERROR:  [DRC0025]  The comment graphic is not a single dashed line I21549
+                    SCHEMATIC1, PAGE1  (0.40, 4.30) 
+ERROR:  [DRC0025]  The comment graphic is not a single dashed line I221016
+                    SCHEMATIC1, PAGE1  (0.30, 0.50) 
+
+Reporting Off-Grid Objects
+
+Reporting Ports
+    VCC
+
+Reporting Off-Page Connections
+
+Reporting Globals
+    GND_POWER
+
+Reporting Net Names
+    N20593
+    VCC
+    N19146
+    N219957
+    N19979
+    N19345
+    N19407
+    N20380
+    N20049
+    N19109
+    GND_POWER
+
+Checking Visible Unconnected Power Pins
+WARNING:  [DRC0038]  Visible unconnected Power Pins are connected to global nets U1,V+
+                    SCHEMATIC1, PAGE1  (7.70, 5.60) 
+WARNING:  [DRC0038]  Visible unconnected Power Pins are connected to global nets U1,V-
+                    SCHEMATIC1, PAGE1  (7.70, 6.60) 
+
+Checking Misleading Tap connection
+
+Check Bus width mismatch
